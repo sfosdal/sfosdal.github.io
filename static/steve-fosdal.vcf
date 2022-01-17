@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Steve Fosdal
+N:Fosdal;Steve;;;
+item1.EMAIL;TYPE=INTERNET:steve@fosdal.net
+item1.X-ABLabel:
+item2.TEL:608-347-0014
+item2.X-ABLabel:
+item3.URL:http\://fosdal.net
+item3.X-ABLabel:
+END:VCARD
