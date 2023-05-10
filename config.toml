@@ -209,3 +209,5 @@ languageName = ":uk:"
 #name = "Contato"
 #weight = 5
 #url = "contact/"
+
+googleAnalytics = 'G-LGEE40NNET'
