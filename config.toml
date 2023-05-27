@@ -13,6 +13,7 @@ enableEmoji = true
 
 [params]
 author = "Steve Fosdal"
+
 description = "Steve Fosdal"
 keywords = "developer,engineer,backend,software,scala,senior,lead"
 info = ["Software Engineer", "Seattle, WA"]
