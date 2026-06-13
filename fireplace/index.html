@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fireplace Bar — Everett's Oldest Running Bar</title>
+<meta name="description" content="The Fireplace Bar — Everett's oldest running bar, 85+ years strong. Pool, darts, Golden Tee, trivia, patio, cold beer and good company. 2320 Everett Ave, Everett WA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yesteryear&family=Passion+One:wght@700;900&family=Permanent+Marker&family=Barlow+Semi+Condensed:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink: #0c0a0e;
+  --ink-2: #15121a;
+  --ink-3: #1e1825;
+  --brick: #4a2026;
+  --neon-red: #ff2e3e;
+  --neon-red-deep: #c4101e;
+  --chalk: #f2ead8;
+  --chalk-dim: #b9ae9a;
+  --chalk-orange: #ffa53d;
+  --chalk-lime: #b8f04a;
+  --chalk-pink: #ff7bb0;
+  --chalk-cyan: #6fe3ff;
+  --chalk-yellow: #ffe066;
+  --led-purple: #8a7bff;
+  --led-blue: #5e8bff;
+  --felt-green: #2e8f5b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--chalk);
+  font-family:'Barlow Semi Condensed',sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+::selection{background:var(--neon-red-deep);color:#fff}
+img{display:block;max-width:100%}
+
+/* grain */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:999;
+  opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 2rem;
+  background:linear-gradient(to bottom, rgba(12,10,14,.93), rgba(12,10,14,0));
+}
+nav .mark{
+  font-family:'Yesteryear',cursive;font-size:1.55rem;color:var(--neon-red);
+  text-decoration:none;text-shadow:0 0 12px rgba(255,46,62,.75);
+}
+nav ul{display:flex;gap:1.8rem;list-style:none}
+nav ul a{
+  color:var(--chalk-dim);text-decoration:none;font-size:.82rem;
+  letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+  transition:color .25s, text-shadow .25s;
+}
+nav ul a:hover{color:var(--chalk-cyan);text-shadow:0 0 10px rgba(111,227,255,.8)}
+@media(max-width:720px){nav ul{display:none}}
+
+/* ---------- hero ---------- */
+header{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:6rem 1.5rem 5rem;overflow:hidden;
+}
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(1.1) contrast(1.05);
+}
+.hero-shade{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(95% 80% at 50% 45%, rgba(12,10,14,.32) 0%, rgba(12,10,14,.78) 75%, rgba(12,10,14,.96) 100%),
+    linear-gradient(to top, var(--ink) 0%, transparent 28%);
+}
+.hero-inner{position:relative;z-index:2}
+.est{
+  font-family:'Permanent Marker',cursive;
+  font-size:clamp(1.15rem,2.8vw,1.8rem);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--chalk-yellow);
+  text-shadow:0 0 16px rgba(255,224,102,.65), 0 0 40px rgba(255,165,61,.4), 0 2px 12px rgba(0,0,0,.95);
+  margin-top:1.4rem;animation:fadeUp 1s .6s both;
+}
+h1.sign{animation:fadeUp 1.2s .45s both;line-height:0}
+/* the actual sign, cropped from the drone footage, feathered into the hero */
+.sign-photo{
+  display:block;margin:0 auto;
+  width:clamp(320px,76vw,880px);height:auto;
+  -webkit-mask-image:radial-gradient(ellipse 62% 58% at 50% 50%, #000 48%, transparent 74%);
+  mask-image:radial-gradient(ellipse 62% 58% at 50% 50%, #000 48%, transparent 74%);
+  animation:signbreathe 5.5s ease-in-out infinite;
+}
+@keyframes signbreathe{
+  0%,100%{filter:brightness(1) saturate(1)}
+  50%{filter:brightness(1.09) saturate(1.14)}
+}
+.sub{
+  margin-top:1.4rem;max-width:40ch;margin-inline:auto;
+  font-size:clamp(1.05rem,2.4vw,1.3rem);font-style:italic;color:var(--chalk);
+  text-shadow:0 2px 10px rgba(0,0,0,.95);
+  animation:fadeUp 1.2s .75s both;
+}
+.hero-meta{
+  margin-top:2.2rem;display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;
+  font-size:.84rem;letter-spacing:.16em;text-transform:uppercase;color:var(--chalk-dim);
+  text-shadow:0 1px 6px rgba(0,0,0,.9);
+  animation:fadeUp 1.2s 1s both;
+}
+.hero-meta span b{color:#fff;font-weight:600}
+.hero-cta{margin-top:2.5rem;animation:fadeUp 1.2s 1.15s both}
+.btn{
+  display:inline-block;padding:.9rem 2.3rem;
+  font-size:.85rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  text-decoration:none;color:#fff;border-radius:3px;
+  background:linear-gradient(160deg,#ff5560,var(--neon-red) 55%,var(--neon-red-deep));
+  box-shadow:0 0 30px rgba(255,46,62,.45), inset 0 1px 0 rgba(255,255,255,.3);
+  transition:transform .2s, box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 48px rgba(255,46,62,.7), inset 0 1px 0 rgba(255,255,255,.3)}
+.btn.ghost{
+  background:transparent;color:var(--chalk-cyan);
+  border:1px solid rgba(111,227,255,.5);box-shadow:none;margin-left:.8rem;
+}
+.btn.ghost:hover{border-color:var(--chalk-cyan);box-shadow:0 0 24px rgba(111,227,255,.3)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---------- LED ticker ---------- */
+.ticker{
+  position:relative;z-index:3;overflow:hidden;white-space:nowrap;
+  background:var(--ink-2);
+  border-top:2px dotted var(--led-purple);
+  border-bottom:2px dotted var(--led-purple);
+  padding:.85rem 0;
+}
+.ticker .track{display:inline-block;animation:scroll 36s linear infinite}
+.ticker span{
+  font-family:'Permanent Marker',cursive;font-size:1.02rem;
+  margin:0 1.6rem;letter-spacing:.04em;
+}
+.ticker span:nth-child(5n+1){color:var(--chalk-orange)}
+.ticker span:nth-child(5n+2){color:var(--chalk-lime)}
+.ticker span:nth-child(5n+3){color:var(--chalk-pink)}
+.ticker span:nth-child(5n+4){color:var(--chalk-cyan)}
+.ticker span:nth-child(5n+5){color:var(--chalk-yellow)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+main{position:relative;z-index:2}
+section{padding:6rem 1.5rem;max-width:1120px;margin:0 auto}
+.kicker{
+  font-family:'Permanent Marker',cursive;font-size:1rem;letter-spacing:.12em;
+  color:var(--chalk-orange);margin-bottom:.8rem;
+}
+h2{
+  font-family:'Passion One',sans-serif;font-weight:700;
+  font-size:clamp(2.2rem,5.5vw,3.6rem);line-height:1.04;color:#fff;
+  letter-spacing:.015em;margin-bottom:1.4rem;text-transform:uppercase;
+}
+h2 em{font-style:normal;color:var(--neon-red);text-shadow:0 0 18px rgba(255,46,62,.55)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease, transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* LED frame — dots show only on the perimeter */
+.led{
+  padding:12px;border-radius:10px;
+  background-image:radial-gradient(circle, var(--led-purple) 2.1px, transparent 3.1px);
+  background-size:17px 17px;background-position:8px 8px;
+  animation:ledpulse 2.6s ease-in-out infinite;
+}
+.led.blue{background-image:radial-gradient(circle, var(--led-blue) 2.1px, transparent 3.1px)}
+.led.pink{background-image:radial-gradient(circle, var(--chalk-pink) 2.1px, transparent 3.1px)}
+@keyframes ledpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.45)}}
+.board{
+  background:linear-gradient(170deg,#141019,#0e0b12);
+  border-radius:6px;height:100%;
+  padding:2.2rem 2rem;
+}
+
+/* story */
+.story{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
+.story p{margin-bottom:1.1rem;font-size:1.12rem;color:var(--chalk-dim)}
+.story p strong{color:var(--chalk);font-weight:600}
+.story .snap{transform:rotate(2deg)}
+.snap{
+  background:#f5f0e4;padding:.7rem .7rem 1rem;border-radius:2px;
+  box-shadow:0 22px 55px rgba(0,0,0,.65);
+}
+.snap img{border-radius:1px}
+.snap figcaption{
+  font-family:'Permanent Marker',cursive;color:#2b2118;font-size:.95rem;
+  text-align:center;padding-top:.6rem;
+}
+@media(max-width:840px){.story{grid-template-columns:1fr}.story .snap{transform:none}}
+
+/* specials */
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.4rem}
+.spec h3{
+  font-family:'Permanent Marker',cursive;font-weight:400;font-size:1.35rem;margin-bottom:.4rem;
+}
+.spec p{font-size:1.02rem;color:var(--chalk-dim)}
+.spec p b{color:var(--chalk);font-weight:600}
+.spec:nth-child(6n+1) h3{color:var(--chalk-orange)}
+.spec:nth-child(6n+2) h3{color:var(--chalk-lime)}
+.spec:nth-child(6n+3) h3{color:var(--chalk-pink)}
+.spec:nth-child(6n+4) h3{color:var(--chalk-cyan)}
+.spec:nth-child(6n+5) h3{color:var(--chalk-yellow)}
+.spec:nth-child(6n+6) h3{color:#ff8b6b}
+@media(max-width:840px){.spec-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.spec-grid{grid-template-columns:1fr}}
+
+/* drink board */
+.drink-wrap{margin-top:2.4rem}
+.drink-board{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2.2rem;
+}
+.drink-col h3{
+  font-family:'Permanent Marker',cursive;font-weight:400;font-size:1.25rem;
+  margin-bottom:.9rem;padding-bottom:.4rem;border-bottom:2px dashed rgba(242,234,216,.2);
+}
+.drink-col:nth-child(1) h3{color:var(--chalk-orange)}
+.drink-col:nth-child(2) h3{color:var(--chalk-cyan)}
+.drink-col:nth-child(3) h3{color:var(--chalk-lime)}
+.drink-col:nth-child(4) h3{color:var(--chalk-pink)}
+.drink-col ul{list-style:none}
+.drink-col li{padding:.3rem 0;font-size:1.02rem;color:var(--chalk)}
+.drink-col li small{color:var(--chalk-dim);font-style:italic}
+.fineprint{margin-top:1.6rem;font-size:.85rem;color:var(--chalk-dim);font-style:italic}
+@media(max-width:920px){.drink-board{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.drink-board{grid-template-columns:1fr}}
+
+/* grub */
+.grub-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2.4rem}
+.menu-list{list-style:none}
+.menu-list li{
+  display:flex;align-items:baseline;gap:.8rem;
+  padding:.62rem 0;font-size:1.12rem;
+}
+.menu-list li .dots{flex:1;border-bottom:2px dotted rgba(242,234,216,.25);transform:translateY(-4px)}
+.menu-list li .price{font-family:'Permanent Marker',cursive;color:var(--chalk-yellow);font-size:1.05rem}
+.menu-list li:nth-child(odd) .price{color:var(--chalk-lime)}
+@media(max-width:840px){.grub-grid{grid-template-columns:1fr}}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem}
+.shot{position:relative;border-radius:6px;overflow:hidden;background:var(--ink-3)}
+.shot img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .5s ease, filter .5s ease}
+.shot:hover img{transform:scale(1.045);filter:brightness(1.12)}
+.shot figcaption{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:1.6rem 1rem .8rem;
+  background:linear-gradient(to top, rgba(12,10,14,.92), transparent);
+  font-family:'Permanent Marker',cursive;font-size:1rem;
+}
+.shot:nth-child(6n+1) figcaption{color:var(--chalk-cyan)}
+.shot:nth-child(6n+2) figcaption{color:var(--chalk-orange)}
+.shot:nth-child(6n+3) figcaption{color:var(--chalk-pink)}
+.shot:nth-child(6n+4) figcaption{color:var(--chalk-lime)}
+.shot:nth-child(6n+5) figcaption{color:var(--chalk-yellow)}
+.shot:nth-child(6n+6) figcaption{color:#ff8b6b}
+.shot.wide{grid-column:span 2}
+@media(max-width:840px){.gallery{grid-template-columns:1fr 1fr}.shot.wide{grid-column:span 2}}
+@media(max-width:540px){.gallery{grid-template-columns:1fr}.shot.wide{grid-column:span 1}}
+
+/* regulars */
+.reg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.6rem}
+.reg-card{
+  background:#f5f0e4;color:#241b14;border-radius:3px;
+  padding:1.7rem 1.5rem 1.5rem;
+  box-shadow:0 18px 45px rgba(0,0,0,.6);
+  transition:transform .3s ease;
+}
+.reg-card:nth-child(3n+1){transform:rotate(-1.3deg)}
+.reg-card:nth-child(3n+2){transform:rotate(1.4deg)}
+.reg-card:nth-child(3n+3){transform:rotate(-.5deg)}
+.reg-card:hover{transform:rotate(0) translateY(-5px)}
+.coaster{
+  width:72px;height:72px;border-radius:50%;
+  border:4px solid var(--neon-red-deep);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Passion One',sans-serif;font-weight:700;font-size:1.8rem;color:var(--neon-red-deep);
+  background:repeating-radial-gradient(circle at 50% 50%, #fffdf6 0 6px, #f3ecd9 6px 12px);
+  margin-bottom:1rem;
+}
+.reg-card h3{font-family:'Permanent Marker',cursive;font-weight:400;font-size:1.45rem;line-height:1.2}
+.reg-title{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#8a7758;margin-bottom:.8rem;font-weight:600}
+.reg-card p{font-size:.98rem;line-height:1.55}
+.reg-card p b{font-weight:600}
+.reg-quote{font-style:italic;margin-top:.9rem;border-top:2px dotted #c9bda4;padding-top:.9rem}
+@media(max-width:840px){.reg-grid{grid-template-columns:1fr}}
+
+/* google reviews */
+.rev-head{
+  display:flex;align-items:baseline;gap:1.2rem;flex-wrap:wrap;margin-top:.4rem;
+  font-size:1.15rem;color:var(--chalk-dim);
+}
+.rev-head .score{font-family:'Passion One',sans-serif;font-size:2.4rem;color:#fff;line-height:1}
+.stars{color:var(--chalk-yellow);letter-spacing:.16em;text-shadow:0 0 12px rgba(255,224,102,.55)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.4rem}
+.rev-card .rev-quote{font-size:1.06rem;color:var(--chalk);margin:.7rem 0 1rem;font-style:italic}
+.rev-card .rev-name{font-family:'Permanent Marker',cursive;font-size:.95rem;color:var(--chalk-cyan)}
+.rev-cta{text-align:center;margin-top:2.4rem}
+@media(max-width:840px){.rev-grid{grid-template-columns:1fr}}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:2.4rem}
+.visit-block h3{
+  font-family:'Permanent Marker',cursive;font-size:1.1rem;
+  color:var(--chalk-cyan);margin-bottom:1rem;font-weight:400;
+}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table td{padding:.65rem 0;border-bottom:1px solid rgba(242,234,216,.1);font-size:1.05rem}
+.hours-table td:last-child{text-align:right;color:var(--chalk-yellow);font-family:'Permanent Marker',cursive;font-size:.95rem}
+.addr{font-size:1.5rem;line-height:1.45;margin-bottom:1rem;font-weight:400}
+.addr a{color:var(--chalk);text-decoration:none;border-bottom:1px solid var(--neon-red-deep);transition:color .25s,border-color .25s}
+.addr a:hover{color:#ffb3b8;border-color:var(--neon-red)}
+.phone{font-size:1.3rem;margin-bottom:1.6rem}
+.phone a{color:var(--chalk-orange);text-decoration:none}
+.socials{display:flex;gap:1rem;flex-wrap:wrap}
+.socials a{
+  display:inline-flex;align-items:center;padding:.6rem 1.2rem;
+  border:1px solid rgba(255,46,62,.45);border-radius:3px;
+  color:var(--chalk-dim);text-decoration:none;font-size:.8rem;
+  letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+  transition:border-color .25s,color .25s,box-shadow .25s;
+}
+.socials a:hover{border-color:var(--neon-red);color:#fff;box-shadow:0 0 22px rgba(255,46,62,.3)}
+@media(max-width:840px){.visit-grid{grid-template-columns:1fr}}
+.map-frame{
+  margin-top:3rem;border-radius:8px;overflow:hidden;line-height:0;
+  border:1px solid rgba(255,46,62,.3);
+  box-shadow:0 18px 45px rgba(0,0,0,.55), 0 0 30px rgba(255,46,62,.1);
+}
+.map-frame iframe{
+  display:block;
+  filter:invert(.92) hue-rotate(180deg) saturate(.85) brightness(.95) contrast(1.05);
+  transition:filter .4s ease;
+}
+.map-frame:hover iframe{filter:none}
+
+/* footer */
+footer{
+  text-align:center;padding:3.5rem 1.5rem 5rem;color:var(--chalk-dim);font-size:.9rem;
+  border-top:2px dotted var(--led-blue);
+}
+footer .mark{
+  font-family:'Yesteryear',cursive;font-size:2rem;color:var(--neon-red);
+  text-shadow:0 0 16px rgba(255,46,62,.6);display:block;margin-bottom:.5rem;
+}
+footer .tag{letter-spacing:.28em;text-transform:uppercase;font-size:.72rem}
+@media (prefers-reduced-motion: reduce){
+  .hero-video{display:none}
+  header{background:url('assets/storefront-poster.jpg') center/cover}
+  .ticker .track,.led,.sign-photo{animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="mark" href="#top">The Fireplace</a>
+  <ul>
+    <li><a href="#story">The Story</a></li>
+    <li><a href="#specials">Specials</a></li>
+    <li><a href="#drinks">Drinks</a></li>
+    <li><a href="#grub">Grub</a></li>
+    <li><a href="#around">Around the Bar</a></li>
+    <li><a href="#regulars">Regulars</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#visit">Find Us</a></li>
+  </ul>
+</nav>
+
+<header id="top">
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/storefront-poster.jpg">
+    <source src="assets/storefront.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade"></div>
+  <div class="hero-inner">
+    <h1 class="sign">
+      <img class="sign-photo" src="assets/sign.jpg" alt="The Fireplace — the bar's neon sign: a red awning reading The in white script, above white channel letters spelling FIREPLACE crowned with red neon flames">
+    </h1>
+    <p class="est">Everett's oldest running bar · 85+ years strong</p>
+    <p class="sub">Cold beer, good games, and a stool that's been waiting for you since before your grandfather's time.</p>
+    <div class="hero-meta">
+      <span><b>2320 Everett Ave</b> · Everett, WA</span>
+      <span>Open daily from <b>11 AM</b></span>
+      <span><b>(425) 259-9911</b></span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn" href="#specials">See the Specials</a>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="track" id="ticker-track">
+    <span>★ $1 JELLO SHOTS ★</span>
+    <span>WATCH FIFA WORLD CUP 26 MATCHES HERE</span>
+    <span>FREE POOL ALL DAY SUNDAY</span>
+    <span>TRIVIA TUESDAYS 7–9 PM</span>
+    <span>ALL DAY HAPPY HOUR MONDAYS</span>
+    <span>GOLDEN TEE · $1 FOR 3 HOLES</span>
+    <span>LADIES NIGHT THURSDAYS</span>
+    <span>PULL TABS AT THE BAR</span>
+  </div>
+</div>
+
+<main>
+  <section id="story">
+    <div class="story">
+      <div class="reveal">
+        <p class="kicker">The Story</p>
+        <h2>Everett's <em>oldest</em> running bar.</h2>
+        <p>Bars come and go. <strong>The Fireplace has stayed lit for more than 85 years</strong> — through booms, busts, and everything Everett has thrown at it. No gimmicks, no rebrand, no craft-cocktail pivot. Just a proper neighborhood dive that knows exactly what it is.</p>
+        <p>House rules are simple: <strong>no politics or religion at the bar</strong>, everybody gets a fair pour, and <strong>everyone's welcome</strong> — and we mean everyone. You'll find the Pride flags right next to the pull tabs.</p>
+        <p>Come for a beer. Stay for the next 85 years.</p>
+      </div>
+      <figure class="snap reveal">
+        <img src="assets/pride-wall.jpg" alt="The Fireplace Bar wall with hand-painted logo, Everett Pride posters, and tin signs" loading="lazy">
+        <figcaption>house rules &amp; local love, on the wall</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="specials">
+    <div class="reveal">
+      <p class="kicker">Straight off the chalkboard</p>
+      <h2>Daily <em>specials.</em></h2>
+    </div>
+    <div class="spec-grid">
+      <div class="led reveal"><div class="board spec"><h3>Monday</h3><p><b>All Day Happy Hour.</b> The only good thing about Mondays.</p></div></div>
+      <div class="led blue reveal"><div class="board spec"><h3>Tuesday</h3><p><b>Trivia 7–9 PM.</b> $1 off drinks when you're playing.</p></div></div>
+      <div class="led pink reveal"><div class="board spec"><h3>Wednesday</h3><p><b>$1 off whiskey.</b> Excluding well — we have standards.</p></div></div>
+      <div class="led blue reveal"><div class="board spec"><h3>Thursday</h3><p><b>Ladies Night.</b> $1 off drinks after 6 PM.</p></div></div>
+      <div class="led pink reveal"><div class="board spec"><h3>Sunday</h3><p><b>Industry Night.</b> $2 off 6 PM–close with MAST/food handler card. Plus <b>free pool all day</b>.</p></div></div>
+      <div class="led reveal"><div class="board spec"><h3>Every Week</h3><p><b>Happy Hour Tue–Fri, 3–6 PM.</b> Arena event? $1 off before shows with your ticket.</p></div></div>
+    </div>
+  </section>
+
+  <section id="drinks">
+    <div class="reveal">
+      <p class="kicker">Drink it your way</p>
+      <h2>The <em>board.</em></h2>
+    </div>
+    <div class="led blue drink-wrap reveal">
+      <div class="board drink-board">
+        <div class="drink-col">
+          <h3>Draft</h3>
+          <ul>
+            <li>Coors Light</li>
+            <li>Manny's</li>
+            <li>Big Dumper</li>
+            <li>Modelo</li>
+            <li>District Amber</li>
+            <li>Elysian Hazy Ale</li>
+            <li>Rotating tap <small>— Kona Big Wave / Mango Cart</small></li>
+          </ul>
+        </div>
+        <div class="drink-col">
+          <h3>Bottles</h3>
+          <ul>
+            <li>Rainier</li>
+            <li>Coors Banquet</li>
+            <li>Corona</li>
+            <li>Blue Moon</li>
+            <li>Michelob Ultra</li>
+            <li>Widmer Hefe</li>
+            <li>Bud Light · Budweiser</li>
+          </ul>
+        </div>
+        <div class="drink-col">
+          <h3>Cans</h3>
+          <ul>
+            <li>Rainier Tall Boy · PBR</li>
+            <li>Guinness</li>
+            <li>Twisted Tea · Sun Cruiser</li>
+            <li>Two Towns Pineapple</li>
+            <li>White Claw <small>— 4 flavors</small></li>
+            <li>NÜTRL <small>— pineapple, strawberry</small></li>
+            <li>Athletic &amp; Mich Ultra N/A</li>
+          </ul>
+        </div>
+        <div class="drink-col">
+          <h3>&amp; More</h3>
+          <ul>
+            <li>Full liquor shelf</li>
+            <li>Chardonnay · Pinot Grigio</li>
+            <li>Cabernet · Champagne</li>
+            <li>$1 Jello Shots</li>
+            <li>Pull tabs at the bar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="fineprint">Board rotates — what's pouring tonight is whatever the chalk says.</p>
+  </section>
+
+  <section id="grub">
+    <div class="grub-grid">
+      <div class="reveal">
+        <p class="kicker">Grub</p>
+        <h2>Bar food, done <em>right.</em></h2>
+        <p style="color:var(--chalk-dim);font-size:1.1rem;margin-bottom:1.6rem">No foam, no tasting menu. Just the stuff that tastes best on a barstool, served until late.</p>
+        <ul class="menu-list">
+          <li>Fried Pickles <span class="dots"></span> <span class="price">$7</span></li>
+          <li>Chicken Strips <span class="dots"></span> <span class="price">$8</span></li>
+          <li>Chicken Wings <span class="dots"></span> <span class="price">$8</span></li>
+          <li>Mini Corn Dogs <span class="dots"></span> <span class="price">$7</span></li>
+          <li>Jalapeño Poppers <span class="dots"></span> <span class="price">$7</span></li>
+          <li>Mac &amp; Cheese Bites <span class="dots"></span> <span class="price">$7</span></li>
+          <li>Pretzel Bites <span class="dots"></span> <span class="price">$7</span></li>
+          <li>Mozzarella Sticks <span class="dots"></span> <span class="price">$6</span></li>
+          <li>Pork &amp; Veg Egg Rolls <span class="dots"></span> <span class="price">$6</span></li>
+          <li>Fries <span class="dots"></span> <span class="price">$4</span></li>
+        </ul>
+        <p class="fineprint">Prices per the board — subject to the bartender's chalk.</p>
+      </div>
+      <figure class="snap reveal" style="transform:rotate(-1.5deg)">
+        <img src="assets/bar.jpg" alt="The bar at The Fireplace — taps, full liquor shelf, pull tabs, and the game on" loading="lazy">
+        <figcaption>the office. taps left, tabs up top, game on.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="around">
+    <div class="reveal">
+      <p class="kicker">Around the bar</p>
+      <h2>Plenty of ways to <em>lose</em> a friendly bet.</h2>
+    </div>
+    <div class="gallery">
+      <figure class="shot wide reveal"><img src="assets/pool.jpg" alt="Pool table under green lamps at The Fireplace" loading="lazy"><figcaption>rack 'em — free all day Sundays</figcaption></figure>
+      <figure class="shot reveal"><img src="assets/darts.jpg" alt="BullShooter electronic dart boards in the red-lit dart room" loading="lazy"><figcaption>the dart room. four boards, zero excuses</figcaption></figure>
+      <figure class="shot reveal"><img src="assets/goldentee.jpg" alt="Golden Tee arcade golf machine" loading="lazy"><figcaption>Golden Tee — $1 for 3 holes</figcaption></figure>
+      <figure class="shot wide reveal"><img src="assets/patio.jpg" alt="Covered back patio with picnic tables, string lights and vintage beer signs" loading="lazy"><figcaption>the patio — we even have sunscreen, ask the bartender</figcaption></figure>
+      <figure class="shot reveal"><img src="assets/worldcup.jpg" alt="FIFA World Cup 26 banner above the stone fireplace" loading="lazy"><figcaption>World Cup 26 matches, on every screen</figcaption></figure>
+      <figure class="shot reveal"><img src="assets/chalkboards.jpg" alt="Hand-chalked drink menu and daily specials boards lined with LED lights" loading="lazy"><figcaption>the boards never lie</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="regulars">
+    <div class="reveal">
+      <p class="kicker">Wall of flame</p>
+      <h2>Featured <em>regulars.</em></h2>
+      <p style="color:var(--chalk-dim);font-size:1.1rem;max-width:60ch">Some people have a gym. These people have a stool. 85 years of regulars built this place — here's the current rotation.</p>
+    </div>
+    <!-- PLACEHOLDER REGULARS — swap in real names, photos & quotes before launch -->
+    <div class="reg-grid">
+      <div class="reg-card reveal">
+        <div class="coaster">BM</div>
+        <h3>Big Mike</h3>
+        <p class="reg-title">Stool #3 · Regular since '98</p>
+        <p><b>Usual:</b> Rainier tall boy &amp; a pull tab</p>
+        <p class="reg-quote">"If the stool's warm, it's mine."</p>
+      </div>
+      <div class="reg-card reveal">
+        <div class="coaster">D</div>
+        <h3>Darlene</h3>
+        <p class="reg-title">Trivia night assassin · Since '05</p>
+        <p><b>Usual:</b> Whiskey press, Wednesdays only</p>
+        <p class="reg-quote">"$1 off whiskey is not a special. It's a lifestyle."</p>
+      </div>
+      <div class="reg-card reveal">
+        <div class="coaster">TD</div>
+        <h3>Tin Can Dan</h3>
+        <p class="reg-title">Patio philosopher · Since '12</p>
+        <p><b>Usual:</b> PBR and mini corn dogs</p>
+        <p class="reg-quote">"I've never lost at darts. I've simply run out of time."</p>
+      </div>
+    </div>
+    <p class="fineprint">Think you've earned the wall? Ask the bartender.</p>
+  </section>
+
+  <section id="reviews">
+    <div class="reveal">
+      <p class="kicker">Word on the Ave</p>
+      <h2>Don't take <em>our</em> word for it.</h2>
+      <p style="color:var(--chalk-dim);font-size:1.1rem;max-width:60ch">Regulars, first-timers, dart leagues and drag brunch crowds — they've all left their two cents on Google. Read the real, unfiltered reviews and see why folks keep pulling up a stool.</p>
+    </div>
+    <!--
+      ════════════════════════════════════════════════════════════════════════
+      GOOGLE REVIEWS WIDGET (Elfsight) — ONE-TIME SETUP
+      ------------------------------------------------------------------------
+      1. Go to https://elfsight.com  →  free account.
+      2. Create a "Google Reviews" widget, connect "The Fireplace Bar" (Everett).
+      3. Elfsight gives you a div like:
+            <div class="elfsight-app-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" data-elfsight-app-lazy></div>
+      4. Paste that div in place of the placeholder div below (keep this section).
+         The loader <script> is already added at the bottom of the page.
+      Until you do, the fallback button below shows instead.
+      ════════════════════════════════════════════════════════════════════════
+    -->
+    <div class="reveal" style="margin-top:2.4rem">
+
+      <!-- Elfsight Google Reviews widget -->
+      <div class="elfsight-app-c861b7f2-ca39-4135-8d4c-fd768c45ec10" data-elfsight-app-lazy></div>
+
+      <!-- Fallback shown when the widget isn't configured yet -->
+      <div class="led blue rev-fallback" style="max-width:560px;margin:0 auto">
+        <div class="board rev-card" style="text-align:center;padding:2.6rem 2rem">
+          <div class="stars" style="font-size:1.6rem">★★★★★</div>
+          <p style="font-family:'Permanent Marker',cursive;color:var(--chalk);font-size:1.25rem;margin:.9rem 0 1.4rem">See what Everett's saying on Google.</p>
+          <a class="btn" href="https://www.google.com/maps/place/The+Fireplace+Bar/@47.9816484,-122.2000833,17z/data=!4m8!3m7!1s0x549aaa941c3de78f:0x79192aacd5fcb675!8m2!3d47.9816448!4d-122.1975084!9m1!1b1!16s%2Fg%2F11cltc53yz" target="_blank" rel="noopener">Read the Google reviews</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="reveal">
+      <p class="kicker">Find us</p>
+      <h2>The neon's <em>on.</em></h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-block reveal">
+        <h3>Hours</h3>
+        <table class="hours-table">
+          <tr><td>Monday — Saturday</td><td>11 AM — 1 AM</td></tr>
+          <tr><td>Sunday</td><td>11 AM — 12 AM</td></tr>
+          <tr><td>Happy Hour (Tue–Fri)</td><td>3 — 6 PM</td></tr>
+          <tr><td>Patio</td><td>'til midnight</td></tr>
+        </table>
+      </div>
+      <div class="visit-block reveal">
+        <h3>Where &amp; How</h3>
+        <p class="addr"><a href="https://maps.google.com/?q=2320+Everett+Ave,+Everett,+WA+98201" target="_blank" rel="noopener">2320 Everett Ave<br>Everett, WA 98201</a></p>
+        <p class="phone"><a href="tel:+14252599911">(425) 259-9911</a></p>
+        <div class="socials">
+          <a href="https://www.instagram.com/fireplacebar.everett/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=100063573522795" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="map-frame reveal">
+      <iframe
+        src="https://www.google.com/maps?q=The+Fireplace+Bar,+2320+Everett+Ave,+Everett,+WA+98201&output=embed"
+        width="100%" height="380" style="border:0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="Map to The Fireplace Bar, 2320 Everett Ave, Everett WA"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="mark">The Fireplace</span>
+  <p class="tag">2320 Everett Ave · Everett, WA · Since way back</p>
+  <p style="margin-top:1rem;opacity:.65">Everyone's welcome at this fire. 🔥</p>
+</footer>
+
+<script>
+// duplicate ticker content for a seamless loop
+const track = document.getElementById('ticker-track');
+track.innerHTML += track.innerHTML;
+
+// scroll reveals
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((en) => {
+    if (en.isIntersecting) {
+      en.target.style.transitionDelay = (en.target.dataset.idx % 6) * 80 + 'ms';
+      en.target.classList.add('in');
+      io.unobserve(en.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.dataset.idx = i;
+  io.observe(el);
+});
+// reveal anything already in view at load, and the target section when arriving via an anchor link
+document.querySelectorAll('.reveal').forEach((el) => {
+  const r = el.getBoundingClientRect();
+  if (r.top < innerHeight && r.bottom > 0) el.classList.add('in');
+});
+if (location.hash) {
+  const target = document.querySelector(location.hash);
+  if (target) target.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+}
+
+// Once the Elfsight Google-reviews widget actually mounts, hide the fallback card.
+(function () {
+  const fallback = document.querySelector('.rev-fallback');
+  const slot = document.querySelector('[class^="elfsight-app-"], [class*=" elfsight-app-"]');
+  if (!fallback || !slot) return;
+  // If the placeholder ID was never replaced, leave the fallback visible.
+  if (slot.className.includes('PASTE-YOUR-ID-HERE')) return;
+  const check = () => {
+    if (slot.childElementCount > 0) { fallback.style.display = 'none'; return true; }
+    return false;
+  };
+  if (!check()) new MutationObserver((_, obs) => { if (check()) obs.disconnect(); })
+    .observe(slot, { childList: true, subtree: true });
+})();
+</script>
+
+<!-- Elfsight platform loader — powers the Google Reviews widget above -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+</body>
+</html>
