@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Traveling Goat — Asian Fusion Tapas & Cocktails | Lower Queen Anne, Seattle</title>
+<meta name="description" content="Asian fusion tapas and hand-crafted cocktails in Lower Queen Anne, Seattle. A 21+ lounge near Seattle Center & Climate Pledge Arena. Open daily from 4pm, happy hour 4–5pm." />
+<meta name="theme-color" content="#15100B" />
+
+<!-- Social preview -->
+<meta property="og:title" content="The Traveling Goat — Eat & Drink" />
+<meta property="og:description" content="Asian fusion tapas & hand-crafted cocktails in an intimate Lower Queen Anne lounge. Voted Best in the PNW." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/steve-tina-bar.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Zilla+Slab:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   THE TRAVELING GOAT — candlelit lounge redesign
+   Tokens
+   ============================================================ */
+:root{
+  --ink:        #15100B;   /* page background, warm near-black   */
+  --ink-2:      #1D1610;   /* raised panels / cards              */
+  --ink-3:      #0F0B07;   /* deepest — header, footer           */
+  --brass:      #C9A25C;   /* primary accent (their camel/gold)  */
+  --brass-2:    #E7C887;   /* bright brass — hover / highlights  */
+  --brass-deep: #9C7536;
+  --cream:      #F2E8D6;   /* primary text on dark               */
+  --sand:       #B3A488;   /* secondary / muted text             */
+  --wine:       #8A3330;   /* rare deep accent (chili / cocktail)*/
+  --line:       rgba(201,162,92,.20);
+  --line-soft:  rgba(201,162,92,.12);
+
+  --maxw: 1180px;
+  --r:    5px;       /* card radius  */
+  --r-lg: 9px;
+  --shadow: 0 18px 50px -22px rgba(0,0,0,.85);
+  --ease: cubic-bezier(.22,.61,.36,1);
+
+  --f-display: "Zilla Slab", Georgia, serif;
+  --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ============================================================ Reset / base */
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--cream);
+  font-family:var(--f-body);
+  font-size:clamp(16px,.95rem + .15vw,17.5px);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{ display:block; max-width:100%; }
+a{ color:var(--brass-2); text-decoration:none; }
+button{ font-family:inherit; }
+::selection{ background:var(--brass); color:#1a1208; }
+
+/* ============================================================ Atmosphere: vignette + film grain (no tiled backgrounds) */
+.vignette{
+  position:fixed; inset:0; pointer-events:none; z-index:1;
+  background:
+    radial-gradient(130% 100% at 50% -10%, rgba(201,162,92,.06), transparent 45%),
+    radial-gradient(120% 95% at 50% 0%, transparent 52%, rgba(0,0,0,.55) 100%);
+}
+.grain{
+  position:fixed; inset:0; pointer-events:none; z-index:120; opacity:.045;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================ Layout helpers */
+.wrap{ width:min(100% - 2.4rem, var(--maxw)); margin-inline:auto; }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:.7rem;
+  font-size:.74rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--brass); margin:0 0 1.1rem;
+}
+.eyebrow::before{ content:""; width:30px; height:1px; background:var(--brass); opacity:.7; }
+.eyebrow.center{ justify-content:center; }
+.eyebrow.center::after{ content:""; width:30px; height:1px; background:var(--brass); opacity:.7; }
+
+h1,h2,h3{ font-family:var(--f-display); font-weight:600; line-height:1.06; margin:0; letter-spacing:-.01em; }
+.h-xl{ font-size:clamp(2.6rem,1.7rem + 4.4vw,5rem); font-weight:700; text-wrap:balance; }
+.h-lg{ font-size:clamp(2rem,1.4rem + 2.6vw,3.2rem); text-wrap:balance; }
+.h-md{ font-size:clamp(1.45rem,1.2rem + 1.2vw,2rem); }
+.lede{ font-size:clamp(1.08rem,1rem + .4vw,1.3rem); color:var(--cream); text-wrap:pretty; }
+.muted{ color:var(--sand); }
+.brass-text{ color:var(--brass-2); }
+
+/* ============================================================ Buttons + chips */
+.btn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-weight:600; font-size:.93rem; letter-spacing:.01em;
+  padding:.85rem 1.45rem; border-radius:var(--r); border:1px solid transparent;
+  cursor:pointer; transition:transform .25s var(--ease), background .25s, border-color .25s, color .25s;
+  white-space:nowrap;
+}
+.btn svg{ width:18px; height:18px; }
+.btn-primary{ background:var(--brass); color:#1c1407; }
+.btn-primary:hover{ background:var(--brass-2); transform:translateY(-2px); }
+.btn-ghost{ background:transparent; color:var(--cream); border-color:var(--line); }
+.btn-ghost:hover{ border-color:var(--brass); color:var(--brass-2); transform:translateY(-2px); }
+.btn-row{ display:flex; flex-wrap:wrap; gap:.85rem; }
+
+.chip{
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  padding:.4rem .8rem; border:1px solid var(--line); border-radius:999px; color:var(--sand);
+}
+.chip .dot{ width:6px; height:6px; border-radius:50%; background:var(--brass); }
+.chip.wine{ border-color:rgba(138,51,48,.55); color:#e7b4a6; }
+.chip.wine .dot{ background:var(--wine); }
+
+/* ============================================================ Header / tabs */
+.site-header{
+  position:sticky; top:0; z-index:100;
+  background:linear-gradient(180deg, rgba(15,11,7,.92), rgba(15,11,7,.74));
+  backdrop-filter:blur(12px) saturate(130%);
+  -webkit-backdrop-filter:blur(12px) saturate(130%);
+  border-bottom:1px solid var(--line-soft);
+}
+.header-inner{
+  display:flex; align-items:center; gap:1.4rem;
+  width:min(100% - 2.4rem, var(--maxw)); margin-inline:auto;
+  padding:.7rem 0;
+}
+.brand{ display:flex; align-items:center; gap:.7rem; text-decoration:none; }
+.brand .coin{
+  width:44px; height:44px; border-radius:50%; object-fit:cover;
+  border:1.5px solid var(--brass); box-shadow:0 0 0 4px rgba(201,162,92,.08);
+  flex:none;
+}
+.brand .name{
+  font-family:var(--f-display); font-weight:700; color:var(--cream);
+  font-size:1.18rem; line-height:1; letter-spacing:.01em;
+}
+.brand .name small{ display:block; font-family:var(--f-body); font-weight:600;
+  font-size:.6rem; letter-spacing:.42em; color:var(--brass); margin-top:.32rem; }
+
+.tabs{ display:flex; gap:.1rem; margin-left:auto; overflow-x:auto; scrollbar-width:none; }
+.tabs::-webkit-scrollbar{ display:none; }
+.tab{
+  position:relative; appearance:none; background:none; border:0; cursor:pointer;
+  color:var(--sand); font-weight:600; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase;
+  padding:.7rem .85rem; border-radius:6px; white-space:nowrap;
+  transition:color .2s;
+}
+.tab:hover{ color:var(--cream); }
+.tab[aria-selected="true"]{ color:var(--brass-2); }
+.tab[aria-selected="true"]::after{
+  content:""; position:absolute; left:.85rem; right:.85rem; bottom:.32rem; height:2px;
+  background:var(--brass); border-radius:2px;
+}
+.tab:focus-visible{ outline:2px solid var(--brass-2); outline-offset:2px; }
+.header-cta{ margin-left:.4rem; }
+
+/* ============================================================ Panels */
+.panel{ display:block; }
+.panel[hidden]{ display:none; }
+.panel.is-active{ animation:panelIn .55s var(--ease) both; }
+@keyframes panelIn{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+
+section{ padding-block:clamp(3.5rem,2rem + 6vw,6rem); }
+.section-divider{ border:0; border-top:1px solid var(--line-soft); margin:0; }
+
+/* ============================================================ HERO */
+.hero{ position:relative; padding-top:clamp(3rem,2rem + 4vw,5rem); padding-bottom:clamp(3rem,2rem + 5vw,5.5rem); }
+.hero-grid{
+  display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(2rem,1rem + 4vw,5rem); align-items:center;
+}
+.hero h1{ margin:.2rem 0 1.3rem; }
+.hero .lede{ max-width:34ch; margin:0 0 1.8rem; }
+.hero-chips{ display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:2rem; }
+.hero-hours{ margin-top:2.1rem; display:flex; gap:2.4rem; flex-wrap:wrap; }
+.hero-hours .lbl{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--brass); margin-bottom:.35rem; }
+.hero-hours .val{ font-family:var(--f-display); font-size:1.05rem; color:var(--cream); }
+
+/* framed photo */
+.frame{
+  position:relative; border-radius:var(--r-lg); overflow:hidden;
+  border:1px solid var(--line); box-shadow:var(--shadow);
+  background:var(--ink-2);
+}
+.frame::after{ /* warm candlelight grade + bottom fade for caption legibility */
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(21,16,11,0) 45%, rgba(15,11,7,.78) 100%),
+    radial-gradient(120% 80% at 70% 20%, rgba(231,200,135,.10), transparent 60%);
+}
+.frame img{ width:100%; height:100%; object-fit:cover; }
+.frame .caption{
+  position:absolute; left:1rem; bottom:.85rem; z-index:2;
+  font-size:.82rem; color:var(--cream); letter-spacing:.01em;
+  display:flex; align-items:center; gap:.5rem;
+}
+.frame .caption::before{ content:""; width:18px; height:1px; background:var(--brass); }
+
+.hero-photo{ position:relative; max-width:460px; margin-inline:auto; }
+.hero-photo-clip{ aspect-ratio:7/9; }
+.hero-photo-clip img{ object-position:center 28%; }
+
+/* small floating cocktail accent on hero photo */
+.hero-photo .accent{
+  position:absolute; z-index:3; right:-22px; bottom:-22px;
+  width:118px; height:118px; border-radius:50%; overflow:hidden;
+  border:3px solid var(--ink); box-shadow:0 0 0 1px var(--brass), var(--shadow);
+}
+.hero-photo .accent img{ width:100%; height:100%; object-fit:cover; }
+
+/* ============================================================ Vibe gallery */
+.gallery{ display:grid; grid-template-columns:repeat(12,1fr); gap:1rem; }
+.gallery .frame{ aspect-ratio:4/5; }
+.g-a{ grid-column:span 5; }
+.g-b{ grid-column:span 4; }
+.g-c{ grid-column:span 3; }
+.gallery .frame:hover img{ transform:scale(1.04); }
+.gallery .frame img{ transition:transform .8s var(--ease); }
+
+.pullquote{
+  font-family:var(--f-display); font-style:italic; font-weight:500;
+  font-size:clamp(1.5rem,1.1rem + 1.8vw,2.4rem); line-height:1.28;
+  color:var(--cream); max-width:24ch; margin:0;
+}
+.pullquote .brass-text{ font-style:italic; }
+
+/* ============================================================ Generic card grids */
+.cards{ display:grid; gap:1.1rem; }
+.cards-3{ grid-template-columns:repeat(3,1fr); }
+.cards-2{ grid-template-columns:repeat(2,1fr); }
+.card{
+  background:var(--ink-2); border:1px solid var(--line-soft); border-radius:var(--r-lg);
+  padding:1.6rem 1.5rem; transition:border-color .3s, transform .3s var(--ease);
+}
+.card:hover{ border-color:var(--line); transform:translateY(-3px); }
+.card h3{ margin-bottom:.5rem; }
+.card .k{ font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--brass); margin-bottom:.7rem; }
+.card p{ margin:0; color:var(--sand); }
+
+/* ============================================================ Menu */
+.menu-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,1rem + 4vw,4.5rem); align-items:center; }
+.menu-photos{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:1rem; }
+.menu-photos .frame{ aspect-ratio:1/1; }
+.menu-photos .tall{ grid-row:span 2; aspect-ratio:auto; }
+.dish{ display:flex; gap:1rem; padding:1.05rem 0; border-bottom:1px solid var(--line-soft); }
+.dish:last-child{ border-bottom:0; }
+.dish .num{ font-family:var(--f-display); color:var(--brass); font-size:1rem; width:1.6rem; flex:none; padding-top:.15rem; }
+.dish h3{ font-size:1.18rem; }
+.dish p{ margin:.2rem 0 0; color:var(--sand); font-size:.95rem; }
+
+/* happy hour highlight band */
+.hh{
+  background:
+    linear-gradient(180deg, rgba(201,162,92,.07), rgba(201,162,92,.02)),
+    var(--ink-2);
+  border:1px solid var(--line); border-radius:var(--r-lg);
+  padding:clamp(1.6rem,1rem + 2vw,2.4rem);
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem;
+}
+.hh .big{ font-family:var(--f-display); font-size:clamp(1.6rem,1.2rem + 1.6vw,2.3rem); color:var(--brass-2); line-height:1.1; }
+
+/* ============================================================ Awards */
+.awards{ text-align:center; }
+.medallions{ display:flex; justify-content:center; flex-wrap:wrap; gap:clamp(1.4rem,1rem + 2vw,3rem); margin:2.2rem 0 1.8rem; }
+.medallion{ width:clamp(96px,9vw,128px); height:auto; aspect-ratio:1/1; transition:transform .35s var(--ease); }
+.medallion img{ width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 8px 18px rgba(0,0,0,.5)); }
+.medallion:hover{ transform:translateY(-5px) rotate(-2deg); }
+.awards .wins{ max-width:60ch; margin:0 auto; color:var(--sand); }
+.awards .wins b{ color:var(--cream); font-weight:600; }
+
+/* ============================================================ About */
+.about-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(2rem,1rem + 4vw,4.5rem); align-items:center; }
+.about-photo{ aspect-ratio:4/5; }
+.about-photo img{ object-position:center 25%; }
+.about-body p{ margin:0 0 1.2rem; }
+.signature{ font-family:var(--f-display); font-style:italic; font-size:1.5rem; color:var(--brass-2); margin-top:1.6rem; }
+.press{
+  margin-top:2rem; padding:1.3rem 1.5rem; border-left:2px solid var(--brass);
+  background:var(--ink-2); border-radius:0 var(--r) var(--r) 0;
+}
+.press q{ font-family:var(--f-display); font-style:italic; font-size:1.15rem; color:var(--cream); }
+.press cite{ display:block; margin-top:.6rem; font-style:normal; font-size:.82rem; letter-spacing:.04em; color:var(--sand); }
+
+/* watermark goat */
+.watermark{ position:absolute; pointer-events:none; opacity:.05; width:min(42vw,480px); right:-3%; top:4%; z-index:0; }
+.has-wm{ position:relative; overflow:hidden; }
+.has-wm > .wrap{ position:relative; z-index:1; }
+
+/* ============================================================ Visit */
+.visit-grid{ display:grid; grid-template-columns:1fr 1.05fr; gap:clamp(2rem,1rem + 4vw,4rem); align-items:stretch; }
+.info-list{ display:grid; gap:1.5rem; }
+.info-item{ display:flex; gap:1rem; }
+.info-item .ic{ width:40px; height:40px; flex:none; border:1px solid var(--line); border-radius:50%; display:grid; place-items:center; color:var(--brass); }
+.info-item .ic svg{ width:19px; height:19px; }
+.info-item .k{ font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--brass); margin-bottom:.2rem; }
+.info-item .v{ font-size:1.05rem; color:var(--cream); }
+.info-item a.v:hover{ color:var(--brass-2); }
+.map{
+  width:100%; height:100%; min-height:340px; border:1px solid var(--line); border-radius:var(--r-lg);
+  filter:grayscale(.35) contrast(.95) brightness(.85) sepia(.18);
+}
+.socials{ display:flex; gap:.7rem; margin-top:.4rem; }
+.social{
+  width:42px; height:42px; border:1px solid var(--line); border-radius:50%;
+  display:grid; place-items:center; color:var(--cream); transition:border-color .25s, color .25s, transform .25s var(--ease);
+}
+.social:hover{ border-color:var(--brass); color:var(--brass-2); transform:translateY(-2px); }
+.social svg{ width:19px; height:19px; }
+
+/* ============================================================ Footer */
+.site-footer{ background:var(--ink-3); border-top:1px solid var(--line-soft); padding-block:3rem 2rem; }
+.footer-top{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem; align-items:flex-start; }
+.footer-brand{ display:flex; align-items:center; gap:.9rem; }
+.footer-brand img{ width:58px; height:58px; border-radius:50%; border:1.5px solid var(--brass); }
+.footer-brand .name{ font-family:var(--f-display); font-weight:700; font-size:1.3rem; }
+.footer-brand .name small{ display:block; font-family:var(--f-body); font-weight:600; font-size:.62rem; letter-spacing:.4em; color:var(--brass); margin-top:.3rem; }
+.footer-cols{ display:flex; gap:3rem; flex-wrap:wrap; }
+.footer-col .k{ font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--brass); margin-bottom:.7rem; }
+.footer-col a, .footer-col p{ display:block; color:var(--sand); margin:.3rem 0; font-size:.92rem; }
+.footer-col a:hover{ color:var(--brass-2); }
+.footer-bottom{
+  margin-top:2.5rem; padding-top:1.4rem; border-top:1px solid var(--line-soft);
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem;
+  font-size:.8rem; color:var(--sand); letter-spacing:.02em;
+}
+
+/* ============================================================ Responsive */
+@media (max-width:980px){
+  .hero-grid, .menu-grid, .about-grid, .visit-grid{ grid-template-columns:1fr; }
+  .hero-photo{ order:-1; }
+  .about-photo{ max-width:440px; margin-inline:auto; }
+  .menu-grid .menu-photos{ order:-1; }
+}
+@media (max-width:860px){
+  .header-inner{ flex-wrap:wrap; row-gap:.2rem; }
+  .brand{ margin-right:auto; }
+  .header-cta{ order:2; }
+  .tabs{ order:3; width:100%; margin-left:0; padding:.15rem 0 .25rem; gap:.05rem; }
+  .cards-3, .cards-2{ grid-template-columns:1fr; }
+}
+@media (max-width:680px){
+  .gallery{ grid-template-columns:repeat(2,1fr); }
+  .g-a,.g-b,.g-c{ grid-column:span 1; }
+  .g-c{ display:none; }
+  .menu-photos{ grid-template-columns:1fr 1fr; }
+  .hero-photo .accent{ width:92px; height:92px; right:-10px; bottom:-10px; }
+  .hh{ flex-direction:column; align-items:flex-start; }
+}
+@media (max-width:430px){
+  .brand .name{ font-size:1.05rem; }
+  .footer-cols{ gap:2rem; }
+}
+
+/* ============================================================ Motion / a11y */
+.skip{ position:absolute; left:-999px; top:0; background:var(--brass); color:#1a1208; padding:.6rem 1rem; border-radius:0 0 var(--r) 0; z-index:200; font-weight:600; }
+.skip:focus{ left:0; }
+:focus-visible{ outline:2px solid var(--brass-2); outline-offset:3px; border-radius:2px; }
+@media (prefers-reduced-motion:reduce){
+  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}
+</style>
+</head>
+<body>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================================================== HEADER ===================================================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#home" data-goto="home" aria-label="The Traveling Goat — home">
+      <img class="coin" src="assets/goat-coin.png" alt="" width="44" height="44" />
+      <span class="name">The Traveling Goat<small>EAT &amp; DRINK</small></span>
+    </a>
+
+    <nav class="tabs" role="tablist" aria-label="Primary">
+      <button class="tab" role="tab" data-tab="home"   id="tab-home"   aria-selected="true"  aria-controls="panel-home">Home</button>
+      <button class="tab" role="tab" data-tab="menu"   id="tab-menu"   aria-selected="false" aria-controls="panel-menu" tabindex="-1">Menu &amp; Happy Hour</button>
+      <button class="tab" role="tab" data-tab="events" id="tab-events" aria-selected="false" aria-controls="panel-events" tabindex="-1">Events</button>
+      <button class="tab" role="tab" data-tab="about"  id="tab-about"  aria-selected="false" aria-controls="panel-about" tabindex="-1">About</button>
+      <button class="tab" role="tab" data-tab="visit"  id="tab-visit"  aria-selected="false" aria-controls="panel-visit" tabindex="-1">Visit</button>
+    </nav>
+
+    <a class="btn btn-primary header-cta" href="tel:+12064201052">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+      Call
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================================================== HOME ===================================================== -->
+  <div class="panel is-active" id="panel-home" role="tabpanel" aria-labelledby="tab-home" tabindex="-1">
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Lower Queen Anne · Seattle · Since 2021</p>
+          <h1 class="h-xl">Asian fusion tapas &amp; hand-crafted cocktails.</h1>
+          <p class="lede muted">An intimate lounge where strangers feel like friends — and friends feel like family.</p>
+
+          <div class="hero-chips">
+            <span class="chip wine"><span class="dot"></span>21+ only</span>
+            <span class="chip"><span class="dot"></span>Happy hour daily 4–5pm</span>
+            <span class="chip"><span class="dot"></span>Dog-friendly</span>
+          </div>
+
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#menu" data-goto="menu">See the menu</a>
+            <a class="btn btn-ghost" href="#visit" data-goto="visit">Find us</a>
+          </div>
+
+          <div class="hero-hours">
+            <div>
+              <div class="lbl">Sun – Thu</div>
+              <div class="val">4pm – 1am</div>
+            </div>
+            <div>
+              <div class="lbl">Fri – Sat</div>
+              <div class="val">4pm – 1:30am</div>
+            </div>
+          </div>
+        </div>
+
+        <figure class="hero-photo">
+          <div class="frame hero-photo-clip">
+            <img src="assets/steve-tina-bar.jpg" alt="Steve and Tina behind the bar at The Traveling Goat, with the back bar stocked with bottles" width="464" height="596" />
+            <figcaption class="caption">Steve &amp; Tina, behind the bar since day one</figcaption>
+          </div>
+          <span class="accent">
+            <img src="assets/cocktail.jpg" alt="A layered house cocktail on the rocks" width="118" height="118" />
+          </span>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- Vibe gallery -->
+    <section>
+      <div class="wrap">
+        <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:2rem; margin-bottom:2.4rem;">
+          <div>
+            <p class="eyebrow">A candlelit corner of Queen Anne</p>
+            <p class="pullquote">Eclectic cocktails, tapas built to share, and a room that <span class="brass-text">feels like home.</span></p>
+          </div>
+          <a class="btn btn-ghost" href="#about" data-goto="about">Our story</a>
+        </div>
+
+        <div class="gallery">
+          <figure class="frame g-a">
+            <img src="assets/fried-chicken.jpg" alt="Crispy Korean-style fried chicken glazed in chili sauce and sesame" loading="lazy" />
+            <figcaption class="caption">Korean-style fried chicken</figcaption>
+          </figure>
+          <figure class="frame g-b">
+            <img src="assets/shrimp-taco.jpg" alt="Asian fusion shrimp tacos topped with cilantro and carrot" loading="lazy" />
+            <figcaption class="caption">Asian fusion tacos</figcaption>
+          </figure>
+          <figure class="frame g-c">
+            <img src="assets/cocktail.jpg" alt="A layered house cocktail served on the rocks" loading="lazy" />
+            <figcaption class="caption">House cocktails</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- Awards -->
+    <section class="awards">
+      <div class="wrap">
+        <p class="eyebrow center">Voted Best in the PNW</p>
+        <h2 class="h-lg">The Seattle Times People’s Choice, 2023</h2>
+        <div class="medallions">
+          <div class="medallion"><img src="assets/badge_gold.png" alt="Seattle Times Best in the PNW gold winner medallion" loading="lazy" /></div>
+          <div class="medallion"><img src="assets/badge_silver.png" alt="Seattle Times Best in the PNW silver winner medallion" loading="lazy" /></div>
+          <div class="medallion"><img src="assets/badge_dog.png" alt="Best Dog-Friendly Restaurant medallion" loading="lazy" /></div>
+        </div>
+        <p class="wins">
+          <b>Gold</b> — Best Bar / Tavern · Best Martini · Best Tapas &nbsp;|&nbsp;
+          <b>Silver</b> — Best Cocktails · Best Happy Hour &nbsp;|&nbsp;
+          <b>Bronze</b> — Best Dog-Friendly Restaurant.
+          <br>Also featured in <em>Redfin’s “21 Date Ideas in Seattle.”</em>
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===================================================== MENU & HAPPY HOUR ===================================================== -->
+  <div class="panel" id="panel-menu" role="tabpanel" aria-labelledby="tab-menu" tabindex="-1" hidden>
+    <section>
+      <div class="wrap">
+        <div class="menu-grid">
+          <div>
+            <p class="eyebrow">Eat &amp; Drink</p>
+            <h2 class="h-lg">Tapas-style, made to share.</h2>
+            <p class="lede muted" style="margin:1.2rem 0 1.8rem; max-width:42ch;">
+              Eclectic cocktails and delicious tapas-style Asian fusion cuisine, served in an intimate lounge.
+              Order a few small plates for the table and a round of hand-crafted cocktails — that’s the way to do it.
+            </p>
+
+            <div class="dish">
+              <span class="num">01</span>
+              <div><h3>Korean-style fried chicken</h3><p>Double-fried and tossed in a glossy chili glaze with toasted sesame.</p></div>
+            </div>
+            <div class="dish">
+              <span class="num">02</span>
+              <div><h3>Asian fusion tacos</h3><p>Shrimp, pork, and chicken on warm tortillas with slaw, herbs, and house sauces.</p></div>
+            </div>
+            <div class="dish">
+              <span class="num">03</span>
+              <div><h3>Cocktails &amp; martinis</h3><p>Award-winning, hand-crafted, and a little eclectic — ask the bar what’s good tonight.</p></div>
+            </div>
+
+            <div class="btn-row" style="margin-top:1.8rem;">
+              <a class="btn btn-primary" href="https://www.travelinggoatseattle.com/menu" target="_blank" rel="noopener">View the full menu</a>
+              <a class="btn btn-ghost" href="tel:+12064201052">Call the bar</a>
+            </div>
+          </div>
+
+          <div class="menu-photos">
+            <figure class="frame tall"><img src="assets/fried-chicken.jpg" alt="Korean-style fried chicken" loading="lazy" /></figure>
+            <figure class="frame"><img src="assets/tacos.jpg" alt="A plate of four Asian fusion tacos" loading="lazy" /></figure>
+            <figure class="frame"><img src="assets/cocktail.jpg" alt="A layered house cocktail" loading="lazy" /></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section style="padding-block:clamp(2.5rem,1.5rem + 3vw,4rem);">
+      <div class="wrap">
+        <div class="hh">
+          <div>
+            <p class="eyebrow" style="margin-bottom:.7rem;">Happy Hour</p>
+            <div class="big">Every day, 4 – 5pm</div>
+            <p class="muted" style="margin:.6rem 0 0;">And during every Kraken and Storm home game. Pull up a stool.</p>
+          </div>
+          <a class="btn btn-primary" href="#visit" data-goto="visit">Plan your visit</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================================================== EVENTS ===================================================== -->
+  <div class="panel" id="panel-events" role="tabpanel" aria-labelledby="tab-events" tabindex="-1" hidden>
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">What’s on</p>
+        <h2 class="h-lg" style="max-width:18ch;">There’s always something happening.</h2>
+        <p class="lede muted" style="margin:1.2rem 0 2.6rem; max-width:46ch;">
+          From live music to a weekly game of bingo, the lounge is built for hanging out. Here’s the regular lineup.
+        </p>
+
+        <div class="cards cards-3">
+          <div class="card">
+            <div class="k">Mondays</div>
+            <h3 class="h-md">Bingo Night</h3>
+            <p>Grab a card, grab a cocktail, and play along with the room every Monday.</p>
+          </div>
+          <div class="card">
+            <div class="k">Tuesdays · all day</div>
+            <h3 class="h-md">Industry Tuesday</h3>
+            <p>For the folks who pour, plate, and serve the rest of the week. All day, every Tuesday.</p>
+          </div>
+          <div class="card">
+            <div class="k">Ongoing</div>
+            <h3 class="h-md">Live Music</h3>
+            <p>Local sounds in an intimate room. Follow along on Instagram for the schedule.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section>
+      <div class="wrap">
+        <div class="menu-grid">
+          <figure class="frame about-photo" style="max-width:none;">
+            <img src="assets/steve-tina-bar.jpg" alt="The bar at The Traveling Goat, ready for guests" loading="lazy" />
+            <figcaption class="caption">Reserve the room for your people</figcaption>
+          </figure>
+          <div>
+            <p class="eyebrow">Private &amp; semi-private</p>
+            <h2 class="h-lg">Host your party with us.</h2>
+            <p class="lede muted" style="margin:1.2rem 0 1.8rem; max-width:40ch;">
+              Interested in reserving our space for your private or semi-private party? Give us a call or send an inquiry — we’d love to host you.
+            </p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="tel:+12064201052">Call 206.420.1052</a>
+              <a class="btn btn-ghost" href="https://www.instagram.com/thetravelinggoat_wa/" target="_blank" rel="noopener">Message on Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================================================== ABOUT ===================================================== -->
+  <div class="panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about" tabindex="-1" hidden>
+    <section class="has-wm">
+      <img class="watermark" src="assets/goat-coin.png" alt="" aria-hidden="true" />
+      <div class="wrap about-grid">
+        <figure class="frame about-photo">
+          <img src="assets/steve-tina-bar.jpg" alt="Steve and Tina, owners of The Traveling Goat, behind their bar" />
+          <figcaption class="caption">Steve &amp; Tina</figcaption>
+        </figure>
+        <div class="about-body">
+          <p class="eyebrow">About us</p>
+          <h2 class="h-lg" style="margin-bottom:1.6rem;">Born out of a love for travel and connection.</h2>
+          <p>The Traveling Goat opened in Lower Queen Anne in 2021, offering eclectic cocktails and delicious tapas-style Asian fusion cuisine in an intimate lounge environment.</p>
+          <p>We are dedicated to serving Seattle in an inclusive and warm atmosphere where strangers feel like friends and friends feel like family.</p>
+          <p>Whether you live around the corner or are in the neighborhood for an event, stop by. We’re walking distance from Seattle Center and Climate Pledge Arena, and we’d love to meet you.</p>
+          <p class="signature">— Steve &amp; Tina</p>
+
+          <div class="press">
+            <q>dear Seattle — thank you so much for the warm welcome.</q>
+            <cite>Queen Anne &amp; Magnolia News · “Putting a dream into action,” April 2022</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================================================== VISIT ===================================================== -->
+  <div class="panel" id="panel-visit" role="tabpanel" aria-labelledby="tab-visit" tabindex="-1" hidden>
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Contact &amp; location</p>
+        <h2 class="h-lg" style="margin-bottom:2.4rem;">Stay in touch. We’d love to hear from you.</h2>
+
+        <div class="visit-grid">
+          <div class="info-list">
+            <div class="info-item">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div>
+                <div class="k">Find us</div>
+                <a class="v" href="https://www.google.com/maps/search/?api=1&query=621+1%2F2+Queen+Anne+Ave+N+Seattle+WA+98109" target="_blank" rel="noopener">621 ½ Queen Anne Ave N<br>Seattle, WA 98109</a>
+                <p class="muted" style="margin:.5rem 0 0; font-size:.9rem;">Walking distance from Seattle Center &amp; Climate Pledge Arena.</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+              <div>
+                <div class="k">Call us</div>
+                <a class="v" href="tel:+12064201052">1.206.420.1052</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <div>
+                <div class="k">Hours</div>
+                <div class="v">Sun – Thu&nbsp; 4pm – 1am<br>Fri – Sat&nbsp; 4pm – 1:30am</div>
+                <p class="muted" style="margin:.5rem 0 0; font-size:.9rem;">Happy hour daily 4–5pm · 21+ only.</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+              <div>
+                <div class="k">Private parties</div>
+                <div class="v">Interested in reserving our space?</div>
+                <p class="muted" style="margin:.4rem 0 .7rem; font-size:.9rem;">Give us a call or send an inquiry.</p>
+                <div class="socials">
+                  <a class="social" href="https://www.instagram.com/thetravelinggoat_wa/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                  </a>
+                  <a class="social" href="https://m.facebook.com/travelinggoatseattle/" target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <iframe class="map" title="Map showing The Traveling Goat at 621½ Queen Anne Ave N, Seattle"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=621%201%2F2%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA%2098109&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<!-- ===================================================== FOOTER ===================================================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/goat-coin.png" alt="The Traveling Goat emblem" width="58" height="58" />
+        <div class="name">The Traveling Goat<small>EAT &amp; DRINK</small></div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="k">Visit</div>
+          <a href="https://www.google.com/maps/search/?api=1&query=621+1%2F2+Queen+Anne+Ave+N+Seattle+WA+98109" target="_blank" rel="noopener">621 ½ Queen Anne Ave N<br>Seattle, WA 98109</a>
+          <a href="tel:+12064201052">1.206.420.1052</a>
+        </div>
+        <div class="footer-col">
+          <div class="k">Hours</div>
+          <p>Sun–Thu · 4pm–1am</p>
+          <p>Fri–Sat · 4pm–1:30am</p>
+          <p>Happy hour · 4–5pm daily</p>
+        </div>
+        <div class="footer-col">
+          <div class="k">Follow</div>
+          <a href="https://www.instagram.com/thetravelinggoat_wa/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://m.facebook.com/travelinggoatseattle/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.travelinggoatseattle.com/menu" target="_blank" rel="noopener">Menu</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© The Traveling Goat · Lower Queen Anne, Seattle</span>
+      <span>Must be 21+ · Please drink responsibly.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+
+  function activate(id, opts) {
+    opts = opts || {};
+    tabs.forEach(function (t) {
+      var on = t.dataset.tab === id;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach(function (p) {
+      var on = p.id === 'panel-' + id;
+      p.hidden = !on;
+      p.classList.toggle('is-active', on);
+    });
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+    if (opts.focusTab) { var active = tabs.filter(function (t){ return t.dataset.tab === id; })[0]; if (active) active.focus(); }
+    if (opts.scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () { activate(t.dataset.tab, { scroll: true }); });
+    t.addEventListener('keydown', function (e) {
+      var i = tabs.indexOf(t), n = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') n = 0;
+      else if (e.key === 'End') n = tabs.length - 1;
+      else return;
+      e.preventDefault();
+      activate(tabs[n].dataset.tab, { focusTab: true });
+    });
+  });
+
+  // In-page links / buttons that switch tabs
+  document.querySelectorAll('[data-goto]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      activate(el.dataset.goto, { scroll: true });
+    });
+  });
+
+  // Init from URL hash, default to home
+  var start = (location.hash || '').replace('#', '');
+  var valid = tabs.some(function (t) { return t.dataset.tab === start; });
+  activate(valid ? start : 'home');
+})();
+</script>
+</body>
+</html>
