@@ -215,13 +215,10 @@ section{ padding-block:clamp(3.5rem,2rem + 6vw,6rem); }
 /* ============================================================ Location gallery */
 .sec-head{ display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:1.2rem 2rem; margin-bottom:2.4rem; }
 .sec-head-note{ max-width:36ch; }
-.loc-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:1rem; }
-.loc-grid .frame{ aspect-ratio:4/3; }
-.loc-grid .frame img{ transition:transform .8s var(--ease); }
-.loc-grid .frame:hover img{ transform:scale(1.045); }
-.lg-half{ grid-column:span 3; aspect-ratio:16/10; }
-.lg-third{ grid-column:span 2; }
-.lg-wide{ grid-column:span 6; aspect-ratio:24/9; }
+.masonry{ column-count:3; column-gap:1rem; }
+.masonry .frame{ display:block; width:100%; margin:0 0 1rem; break-inside:avoid; aspect-ratio:auto; }
+.masonry .frame img{ position:static; width:100%; height:auto; object-fit:initial; transition:transform .8s var(--ease); }
+.masonry .frame:hover img{ transform:scale(1.04); }
 
 .pullquote{
   font-family:var(--f-display); font-style:italic; font-weight:500;
@@ -343,13 +340,10 @@ section{ padding-block:clamp(3.5rem,2rem + 6vw,6rem); }
   .header-cta{ order:2; }
   .tabs{ order:3; width:100%; margin-left:0; padding:.15rem 0 .25rem; gap:.05rem; }
   .cards-3, .cards-2{ grid-template-columns:1fr; }
-  .lg-half{ grid-column:span 6; aspect-ratio:16/9; }
-  .lg-third{ grid-column:span 3; }
-  .lg-wide{ grid-column:span 6; }
+  .masonry{ column-count:2; }
 }
 @media (max-width:680px){
-  .loc-grid{ grid-template-columns:repeat(2,1fr); }
-  .lg-half,.lg-third,.lg-wide{ grid-column:span 2; aspect-ratio:4/3; }
+  .masonry{ column-count:1; }
   .menu-photos{ grid-template-columns:1fr 1fr; }
   .hh{ flex-direction:column; align-items:flex-start; }
 }
@@ -449,30 +443,42 @@ section{ padding-block:clamp(3.5rem,2rem + 6vw,6rem); }
           <p class="muted sec-head-note">Relaxed and friendly, with travel-postcard murals, a deep back bar, live music, and a shelf of board games. Pull up a stool and stay a while.</p>
         </div>
 
-        <div class="loc-grid">
-          <figure class="frame lg-half">
-            <img src="assets/travel-murals.jpg" alt="Dining room lined with large travel murals of Hong Kong, the White Temple, and Edinburgh" loading="lazy" />
-            <figcaption class="caption">Travels on the wall</figcaption>
+        <div class="masonry">
+          <figure class="frame">
+            <img src="assets/g-bartender.jpg" alt="A smiling bartender behind the bar with a fresh cocktail in the foreground" loading="lazy" />
+            <figcaption class="caption">A warm welcome at the bar</figcaption>
           </figure>
-          <figure class="frame lg-half">
+          <figure class="frame">
+            <img src="assets/g-murals-buddha.jpg" alt="Dining room with travel murals, a Buddha artwork, and a world map" loading="lazy" />
+            <figcaption class="caption">Travels on the walls</figcaption>
+          </figure>
+          <figure class="frame">
             <img src="assets/live-music.jpg" alt="The live-music corner with an upright bass under warm Edison lights" loading="lazy" />
             <figcaption class="caption">Live music most weeks</figcaption>
           </figure>
-          <figure class="frame lg-third">
-            <img src="assets/jukebox.jpg" alt="The jukebox glowing beside a eucalyptus-framed doorway" loading="lazy" />
-            <figcaption class="caption">Good vibes, on rotation</figcaption>
+          <figure class="frame">
+            <img src="assets/g-busy-night.jpg" alt="Guests gathered along the bar on a lively evening under pendant lights" loading="lazy" />
+            <figcaption class="caption">A good night in the lounge</figcaption>
           </figure>
-          <figure class="frame lg-third">
+          <figure class="frame">
+            <img src="assets/g-fried-chicken.jpg" alt="Korean-style fried chicken plated with slaw and a rainbow flag pick" loading="lazy" />
+            <figcaption class="caption">Korean-style fried chicken</figcaption>
+          </figure>
+          <figure class="frame">
+            <img src="assets/g-goat-cheers.jpg" alt="A white goat figurine beside a sparkling CHEERS sign above the bottles" loading="lazy" />
+            <figcaption class="caption">Cheers, from the goat</figcaption>
+          </figure>
+          <figure class="frame">
             <img src="assets/games.jpg" alt="A stack of board games on a vintage steamer trunk" loading="lazy" />
             <figcaption class="caption">Game night, anytime</figcaption>
           </figure>
-          <figure class="frame lg-third">
+          <figure class="frame">
+            <img src="assets/g-bar-interior.jpg" alt="The bar with stools, exposed pipes, and a stacked-stone column" loading="lazy" />
+            <figcaption class="caption">Pull up a stool</figcaption>
+          </figure>
+          <figure class="frame">
             <img src="assets/google-storefront-night.jpg" alt="The Traveling Goat storefront at night, neon glowing over a warm interior" loading="lazy" />
             <figcaption class="caption">Open late on Queen Anne</figcaption>
-          </figure>
-          <figure class="frame lg-wide">
-            <img src="assets/murals-fireplace.jpg" alt="Travel murals beside a stacked-stone wall across the lounge" loading="lazy" />
-            <figcaption class="caption">Settle in</figcaption>
           </figure>
         </div>
 
