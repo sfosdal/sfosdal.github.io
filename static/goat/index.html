@@ -251,6 +251,23 @@ section{ padding-block:clamp(3.5rem,2rem + 6vw,6rem); }
 .dish h3{ font-size:1.18rem; }
 .dish p{ margin:.2rem 0 0; color:var(--sand); font-size:.95rem; }
 
+/* full self-contained menu */
+.menu-full{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(2.2rem,1rem + 4vw,4.5rem); align-items:start; }
+.menu-col{ display:grid; gap:clamp(2rem,1.4rem + 1.6vw,2.8rem); align-content:start; }
+.menu-cat-head h3{ font-family:var(--f-display); font-size:clamp(1.5rem,1.2rem + 1vw,1.95rem); color:var(--brass-2); }
+.menu-cat-head .note{ display:block; font-style:italic; color:var(--sand); font-size:.92rem; margin-top:.35rem; }
+.menu-cat ul{ list-style:none; margin:1rem 0 0; padding:0; }
+.m-item{ padding:.72rem 0; border-bottom:1px solid var(--line-soft); }
+.m-item:first-child{ padding-top:0; }
+.m-item:last-child{ border-bottom:0; }
+.m-row{ display:flex; align-items:flex-end; gap:.55rem; }
+.m-name{ font-family:var(--f-display); font-weight:600; font-size:1.05rem; color:var(--cream); line-height:1.2; }
+.m-lead{ flex:1 1 auto; border-bottom:1px dotted var(--line); transform:translateY(-.28rem); min-width:1.4rem; }
+.m-price{ font-family:var(--f-display); font-weight:600; color:var(--brass); white-space:nowrap; }
+.m-desc{ margin:.24rem 0 0; color:var(--sand); font-size:.9rem; max-width:48ch; }
+.m-add{ color:var(--brass); font-style:italic; }
+.menu-note{ margin-top:1.4rem; font-size:.82rem; color:var(--sand); letter-spacing:.02em; }
+
 /* happy hour highlight band */
 .hh{
   background:
@@ -340,6 +357,7 @@ section{ padding-block:clamp(3.5rem,2rem + 6vw,6rem); }
   .header-cta{ order:2; }
   .tabs{ order:3; width:100%; margin-left:0; padding:.15rem 0 .25rem; gap:.05rem; }
   .cards-3, .cards-2{ grid-template-columns:1fr; }
+  .menu-full{ grid-template-columns:1fr; gap:2.4rem; }
   .masonry{ column-count:2; }
 }
 @media (max-width:680px){
@@ -526,11 +544,11 @@ section{ padding-block:clamp(3.5rem,2rem + 6vw,6rem); }
 
             <div class="dish">
               <span class="num">01</span>
-              <div><h3>Korean-style fried chicken</h3><p>Double-fried and tossed in a glossy chili glaze with toasted sesame.</p></div>
+              <div><h3>Gochujang chicken wings</h3><p>Crispy wings in a spicy gochujang glaze — or salt-and-pepper dry rub with ranch.</p></div>
             </div>
             <div class="dish">
               <span class="num">02</span>
-              <div><h3>Asian fusion tacos</h3><p>Shrimp, pork, and chicken on warm tortillas with slaw, herbs, and house sauces.</p></div>
+              <div><h3>Tacos, two ways</h3><p>Beer-battered cod with chipotle crema, or broiled garlic-butter prawns.</p></div>
             </div>
             <div class="dish">
               <span class="num">03</span>
@@ -538,15 +556,191 @@ section{ padding-block:clamp(3.5rem,2rem + 6vw,6rem); }
             </div>
 
             <div class="btn-row" style="margin-top:1.8rem;">
-              <a class="btn btn-primary" href="https://www.travelinggoatseattle.com/menu" target="_blank" rel="noopener">View the full menu</a>
+              <a class="btn btn-primary" href="#full-menu">See the full menu</a>
               <a class="btn btn-ghost" href="tel:+12064201052">Call the bar</a>
             </div>
           </div>
 
           <div class="menu-photos">
-            <figure class="frame tall"><img src="assets/fried-chicken.jpg" alt="Korean-style fried chicken" loading="lazy" /></figure>
-            <figure class="frame"><img src="assets/tacos.jpg" alt="A plate of four Asian fusion tacos" loading="lazy" /></figure>
+            <figure class="frame tall"><img src="assets/fried-chicken.jpg" alt="A platter of crispy chicken wings" loading="lazy" /></figure>
+            <figure class="frame"><img src="assets/tacos.jpg" alt="A plate of four tacos" loading="lazy" /></figure>
             <figure class="frame"><img src="assets/cocktail.jpg" alt="A layered house cocktail" loading="lazy" /></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- Full menu (self-contained) -->
+    <section id="full-menu">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <p class="eyebrow">The full menu</p>
+            <h2 class="h-lg">Small plates, bigger plates,<br>and something sweet.</h2>
+          </div>
+          <p class="muted sec-head-note">Everything’s built to share. Prices and offerings rotate with the season — give us a call to confirm tonight’s lineup.</p>
+        </div>
+
+        <div class="menu-full">
+          <!-- LEFT: Appetizers -->
+          <div class="menu-col">
+            <div class="menu-cat">
+              <div class="menu-cat-head">
+                <h3>Appetizers</h3>
+                <span class="note">Meant to share — and so good you’ll want more than one.</span>
+              </div>
+              <ul>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">The Bar Companion</span><span class="m-lead"></span><span class="m-price">$12</span></div>
+                  <p class="m-desc">Pine-nut roasted hummus, vegan &amp; gluten-free crackers, garlic &amp; jalapeño stuffed olives, Thai-herb roasted peanuts. <span class="m-add">Add prosciutto $6 · extra hummus $3 · extra crackers $3</span></p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Burrata</span><span class="m-lead"></span><span class="m-price">$17</span></div>
+                  <p class="m-desc">Tomato, pesto, pistachio, black-truffle olive oil, balsamic glaze, baguette. <span class="m-add">Add prosciutto $6</span></p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Cheese Board</span><span class="m-lead"></span><span class="m-price">$15</span></div>
+                  <p class="m-desc">Chef’s selection of three cheeses, nuts, gluten-free &amp; vegan crackers. <span class="m-add">Add prosciutto $6</span></p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Chicken Skewers</span><span class="m-lead"></span><span class="m-price">$14</span></div>
+                  <p class="m-desc">Grilled chicken breast, sweet &amp; spicy tamarind sauce; three per order.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Brussels Sprouts</span><span class="m-lead"></span><span class="m-price">$10</span></div>
+                  <p class="m-desc">Sweet chili sauce, toasted crushed peanuts. <span class="m-add">Add bacon $2</span></p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Cauliflower Wings</span><span class="m-lead"></span><span class="m-price">$10</span></div>
+                  <p class="m-desc">Buffalo style, hand-breaded.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Fried Ravioli</span><span class="m-lead"></span><span class="m-price">$11</span></div>
+                  <p class="m-desc">Spinach, mozzarella, creamy buffalo sauce.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Pot Stickers</span><span class="m-lead"></span><span class="m-price">$9</span></div>
+                  <p class="m-desc">Pork, cabbage, sweet soy sauce.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Tofu</span><span class="m-lead"></span><span class="m-price">$10</span></div>
+                  <p class="m-desc">Fried tofu, salt &amp; pepper, crispy onions, ponzu dipping sauce.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Pesto Pasta Salad</span><span class="m-lead"></span><span class="m-price">$9</span></div>
+                  <p class="m-desc">Served cold; pine-nut basil pesto, truffle olive oil, parmesan, crushed pistachio.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Mozzarella Sticks</span><span class="m-lead"></span><span class="m-price">$9</span></div>
+                  <p class="m-desc">Breaded, marinara dipping sauce.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Garlic Parmesan Fries</span><span class="m-lead"></span><span class="m-price">$11</span></div>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Side of Fries</span><span class="m-lead"></span><span class="m-price">$7</span></div>
+                  <p class="m-desc">Crispy, shareable, delicious. <span class="m-add">Add fresh garlic $2</span></p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Garlic Edamame</span><span class="m-lead"></span><span class="m-price">$5.50</span></div>
+                  <p class="m-desc">Fresh garlic, salt.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Mixed Nuts</span><span class="m-lead"></span><span class="m-price">$4</span></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- RIGHT: Mains, Dessert, Cocktails -->
+          <div class="menu-col">
+            <div class="menu-cat">
+              <div class="menu-cat-head">
+                <h3>Mains</h3>
+                <span class="note">Bigger plates — easy to share, or enjoy on your own.</span>
+              </div>
+              <ul>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Burger &amp; Fries</span><span class="m-lead"></span><span class="m-price">$19</span></div>
+                  <p class="m-desc">Bacon, cheese, lettuce, tomato. <span class="m-add">Veggie patty available</span></p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Chicken Wings</span><span class="m-lead"></span><span class="m-price">$14</span></div>
+                  <p class="m-desc">Salt &amp; pepper dry rub with ranch, buffalo, or spicy gochujang. Extra sauces on request.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Coconut Prawns &amp; Fries</span><span class="m-lead"></span><span class="m-price">$15</span></div>
+                  <p class="m-desc">Served with sweet chili dipping sauce.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Grilled Cheese</span><span class="m-lead"></span><span class="m-price">$15</span></div>
+                  <p class="m-desc">Tillamook cheddar, brioche, fries. <span class="m-add">Add tomato $2 · bacon $3</span></p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Beer-Battered Fish Tacos</span><span class="m-lead"></span><span class="m-price">$13</span></div>
+                  <p class="m-desc">Two tacos; cod, greens, onion, corn, spicy chipotle crema.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Prawn Tacos</span><span class="m-lead"></span><span class="m-price">$15</span></div>
+                  <p class="m-desc">Two tacos; broiled prawns, garlic, lemon, butter, cilantro.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Spring Mix Salad</span><span class="m-lead"></span><span class="m-price">$13</span></div>
+                  <p class="m-desc">Feta, sunflower seeds, balsamic vinaigrette. <span class="m-add">Add chicken $4 · prawns $6</span></p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Tina’s Tom Kha Soup</span><span class="m-lead"></span><span class="m-price">$12</span></div>
+                  <p class="m-desc">Chicken, coconut milk, lime, Thai chili, mushroom. <span class="m-add">Sub prawns $5 · combo $7 · side of rice $3</span></p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="menu-cat">
+              <div class="menu-cat-head">
+                <h3>Dessert</h3>
+              </div>
+              <ul>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Ube Bread Pudding</span><span class="m-lead"></span><span class="m-price">$10</span></div>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Macaron</span><span class="m-lead"></span><span class="m-price">$7</span></div>
+                  <p class="m-desc">Assorted flavors; plate of four.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Dessert Platter</span><span class="m-lead"></span><span class="m-price">$15</span></div>
+                  <p class="m-desc">A variety of sweet treats, made for sharing.</p>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Bubbles</span><span class="m-lead"></span><span class="m-price">Glass $10 · Btl $37</span></div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="menu-cat">
+              <div class="menu-cat-head">
+                <h3>Cocktails</h3>
+                <span class="note">Award-winning, hand-crafted, a little eclectic. The list rotates — ask your bartender what’s pouring tonight.</span>
+              </div>
+              <ul>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Passengers 75</span><span class="m-lead"></span><span class="m-price">Signature</span></div>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Let’s Go Camping</span><span class="m-lead"></span><span class="m-price">Signature</span></div>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">Choose Your Adventure</span><span class="m-lead"></span><span class="m-price">Signature</span></div>
+                </li>
+                <li class="m-item">
+                  <div class="m-row"><span class="m-name">White Manhattan · Cold Brew Martini</span><span class="m-lead"></span></div>
+                  <p class="m-desc">Plus classic martinis, lemon drops, cosmos, old fashioneds, and a rotating seasonal pour.</p>
+                </li>
+              </ul>
+              <p class="menu-note">Happy hour: $8 martinis, lemon drops &amp; cosmos — weekdays 4–5pm and every Kraken &amp; Storm home game. 21+ only.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -741,7 +935,7 @@ section{ padding-block:clamp(3.5rem,2rem + 6vw,6rem); }
           <div class="k">Follow</div>
           <a href="https://www.instagram.com/thetravelinggoat_wa/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://m.facebook.com/travelinggoatseattle/" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.travelinggoatseattle.com/menu" target="_blank" rel="noopener">Menu</a>
+          <a href="#menu" data-goto="menu">Menu</a>
         </div>
       </div>
     </div>
