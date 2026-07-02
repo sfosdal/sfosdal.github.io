@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Streamline Tavern — Lower Queen Anne's Friendly Neighborhood Dive</title>
 <meta name="description" content="The Streamline Tavern is a beloved dive bar in Lower Queen Anne, Seattle. Cheap drinks, free peanuts, pool, darts, pinball, and Christmas lights that never come down. 174 Roy St. Open daily, noon–2am.">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fugaz+One&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,47 +13,15 @@
 </head>
 <body>
 
-<!-- ===== LOGO (inline SVG, reused via <use>) ===== -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="logo" viewBox="0 0 520 1000">
-    <defs>
-      <path id="arc" d="M 92 250 Q 260 120 428 250"></path>
-    </defs>
-    <!-- black base plate -->
-    <rect x="136" y="880" width="248" height="82" rx="7" fill="#171514"></rect>
-    <!-- sign silhouette (head + stem) with black border -->
-    <path d="M 130 48 L 390 48 C 445 48 459 70 456 132 L 450 286
-             C 448 336 400 362 340 362 L 340 873 C 340 883 333 886 323 886
-             L 197 886 C 187 886 180 883 180 873 L 180 362
-             C 120 362 72 336 70 286 L 64 132 C 61 70 75 48 130 48 Z"
-          fill="#F5C40C" stroke="#171514" stroke-width="20" stroke-linejoin="round"></path>
-    <!-- arched STREAMLINE -->
-    <text fill="#D9121B" font-family="'Fugaz One',sans-serif" font-size="55">
-      <textPath href="#arc" startOffset="50%" text-anchor="middle" textLength="332" lengthAdjust="spacingAndGlyphs">STREAMLINE</textPath>
-    </text>
-    <!-- vertical TAVERN -->
-    <g fill="#D9121B" font-family="'Anton',sans-serif" font-size="94" text-anchor="middle">
-      <text x="259" y="452">T</text>
-      <text x="259" y="534">A</text>
-      <text x="259" y="616">V</text>
-      <text x="259" y="698">E</text>
-      <text x="259" y="780">R</text>
-      <text x="259" y="862">N</text>
-    </g>
-    <!-- Seattle -->
-    <text x="260" y="939" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-weight="900"
-          font-size="48" text-anchor="middle" letter-spacing="-0.5">Seattle</text>
-  </symbol>
-</svg>
-
 <header class="nav" id="nav">
   <a href="#top" class="nav__brand" aria-label="Streamline Tavern home">
-    <svg class="nav__logo"><use href="#logo"></use></svg>
+    <img class="nav__logo" src="images/logo.png" alt="Streamline Tavern">
     <span class="nav__word">Streamline&nbsp;Tavern</span>
   </a>
   <nav class="nav__links">
     <a href="#about">The Bar</a>
     <a href="#specials">Specials</a>
+    <a href="#menu">Menu</a>
     <a href="#gallery">Gallery</a>
     <a href="#visit">Visit</a>
   </nav>
@@ -64,7 +32,7 @@
   <div class="hero__bg" style="background-image:url('images/full/08.jpg')"></div>
   <div class="hero__scrim"></div>
   <div class="hero__inner">
-    <svg class="hero__logo" role="img" aria-label="Streamline Tavern, Seattle"><use href="#logo"></use></svg>
+    <img class="hero__logo" src="images/logo.png" alt="Streamline Tavern, Seattle">
     <p class="hero__tag">Lower Queen Anne's friendly neighborhood dive.</p>
     <div class="hero__facts">
       <span>Cheap drinks</span><span class="dot">◆</span>
@@ -90,8 +58,8 @@
         and everybody's welcome.
       </p>
       <p>
-        Tucked inside an unassuming old Craftsman a stone's throw from Seattle Center,
-        it's been a neighborhood institution for years and has held down <strong>174 Roy St</strong>
+        Tucked inside an unassuming old Craftsman a stone's throw from Seattle Center
+        and Climate Pledge Arena, it's been a neighborhood institution for years and has held down <strong>174 Roy St</strong>
         since 2015. Belly up to the oval bar, rack a game of pool, feed the pinball
         machine, and grab a fistful of peanuts from the barrel. The walls are papered
         in chalk, photos, band flyers and years of regulars' handwriting. The floor is
@@ -99,16 +67,20 @@
       </p>
       <p>
         It's quirky, a little punk, and it feels like home — the kind of place where
-        the TV might play an old Charles Bronson flick instead of the game, and your
-        well-behaved dog is just as welcome as you are.
+        the TV might play an old Charles Bronson flick instead of the game. Everybody's
+        welcome here, exactly as you are — every name, every pronoun, every kind of
+        person gets the same friendly "What's up, Buttercup?" And it's seriously
+        dog-friendly: well-behaved pups are regulars too, with a water bowl by the door,
+        a scratch behind the ears, and the run of the place right alongside you.
       </p>
       <blockquote class="pullquote">"What's up, Buttercup?"<cite>— the standard Streamline welcome</cite></blockquote>
       <ul class="features">
+        <li class="feat--accent">Everyone welcome</li>
+        <li class="feat--accent">Dog-friendly</li>
         <li>Oval bar</li>
         <li>Pool &amp; darts</li>
         <li>Pinball</li>
         <li>Free peanuts</li>
-        <li>Dog-friendly</li>
         <li>Xmas lights, always</li>
         <li>Chalkboard walls</li>
         <li>Cheap &amp; cold</li>
@@ -152,11 +124,56 @@
   <p class="specials__note">Pool · darts · pinball · chess · Jenga — always free to play.</p>
 </section>
 
+<!-- MENU -->
+<section class="menu" id="menu">
+  <h2 class="section-title center">Eat &amp; Drink</h2>
+  <p class="section-sub">Eight taps of PNW beer &amp; cider · sandwiches off the griddle</p>
+  <div class="menu__inner">
+    <div class="menu__col">
+      <h3 class="menu__head">Beer on Tap</h3>
+      <ul class="taplist">
+        <li><span class="tap__name">Douglas</span><span class="tap__dots"></span><span class="tap__style">Lager</span></li>
+        <li><span class="tap__name">Bizarre</span><span class="tap__dots"></span><span class="tap__style">Pilsner</span></li>
+        <li><span class="tap__name">pFriem</span><span class="tap__dots"></span><span class="tap__style">IPA</span></li>
+        <li><span class="tap__name">Manny's</span><span class="tap__dots"></span><span class="tap__style">Pale Ale</span></li>
+        <li><span class="tap__name">Schilling</span><span class="tap__dots"></span><span class="tap__style">Dry Cider</span></li>
+        <li><span class="tap__name">Bodhizafa</span><span class="tap__dots"></span><span class="tap__style">IPA</span></li>
+        <li><span class="tap__name">Obec</span><span class="tap__dots"></span><span class="tap__style">Porter</span></li>
+        <li><span class="tap__name">Holy Mountain</span><span class="tap__dots"></span><span class="tap__style">Belgian Wit</span></li>
+      </ul>
+      <p class="menu__foot">Handles rotate constantly — plus a full well, cold cans &amp; the usual dive-bar staples.</p>
+    </div>
+    <div class="menu__col">
+      <h3 class="menu__head">From the Kitchen</h3>
+      <ul class="foodlist">
+        <li>
+          <div class="food__row"><span class="food__name">Tavern Burger</span><span class="food__price">$14</span></div>
+          <p>The house burger, with fries or tots.</p>
+        </li>
+        <li>
+          <div class="food__row"><span class="food__name">Spicy Buffalo Chicken Sandwich</span><span class="food__price">$14</span></div>
+          <p>Crispy, hot &amp; messy — with fries or tots.</p>
+        </li>
+      </ul>
+      <p class="menu__foot">And free peanuts by the barrel, always. Hungry mid-week? The
+        <a href="#specials">nightly specials ↑</a> — wings, wieners, tacos &amp; sliders — are the move.</p>
+    </div>
+  </div>
+</section>
+
 <!-- GALLERY -->
 <section class="gallery" id="gallery">
   <h2 class="section-title center">Inside the Streamline</h2>
   <p class="section-sub">Fifty snapshots of the neon, the checkerboard, and the clutter.</p>
-  <div class="gallery__grid" id="galleryGrid"><!-- populated by app.js --></div>
+  <div class="carousel" id="carousel">
+    <button class="carousel__btn carousel__prev" id="carPrev" aria-label="Previous photo">&#8249;</button>
+    <div class="carousel__stage" id="carStage">
+      <img class="carousel__img" id="carImg" src="" alt="" draggable="false">
+      <div class="carousel__count"><span id="carNow">1</span> <span class="carousel__slash">/</span> <span id="carTotal">50</span></div>
+    </div>
+    <button class="carousel__btn carousel__next" id="carNext" aria-label="Next photo">&#8250;</button>
+  </div>
+  <div class="carousel__thumbs" id="carThumbs" role="tablist" aria-label="Choose a photo"><!-- populated by app.js --></div>
 </section>
 
 <!-- VISIT -->
@@ -172,9 +189,18 @@
       <dl class="visit__meta">
         <div><dt>Hours</dt><dd>Every day · noon – 2:00 am</dd></div>
         <div><dt>Phone</dt><dd><a href="tel:+12065010024">(206) 501-0024</a></dd></div>
+        <div><dt>Dogs</dt><dd>Always welcome — water bowl's by the door.</dd></div>
         <div><dt>Cash</dt><dd>It's a dive — bring some, just in case.</dd></div>
       </dl>
       <a class="btn btn--red" href="https://www.google.com/maps/search/?api=1&query=Streamline+Tavern+174+Roy+St+Seattle+WA+98109" target="_blank" rel="noopener">Get Directions</a>
+      <div class="visit__note">
+        <strong>Game night? Show night?</strong>
+        We're just a few blocks from Seattle Center &amp;
+        <a href="https://climatepledgearena.com/events/" target="_blank" rel="noopener">Climate Pledge Arena</a>
+        — the perfect warm-up or wind-down for a Kraken game, a Seattle Storm night, or a big concert.
+        Skip the arena prices and start (or end) the night with us.
+        <a class="visit__note-link" href="https://climatepledgearena.com/events/" target="_blank" rel="noopener">See what's on at the arena →</a>
+      </div>
     </div>
     <div class="visit__links">
       <h3>Find us around the web</h3>
@@ -189,8 +215,9 @@
 <footer class="footer">
   <div class="checker checker--strip" aria-hidden="true"></div>
   <div class="footer__inner">
-    <svg class="footer__logo" aria-hidden="true"><use href="#logo"></use></svg>
+    <img class="footer__logo" src="images/logo.png" alt="" aria-hidden="true">
     <p class="footer__tag">Never change, Streamline.</p>
+    <p class="footer__welcome">Everybody's welcome — every name, every pronoun, and every good dog.</p>
     <p class="footer__fine">174 Roy St, Seattle, WA · Open daily noon–2am · An unofficial tribute site built from neighborhood photos.</p>
   </div>
 </footer>
