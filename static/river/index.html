@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Streamline Tavern — Lower Queen Anne's Friendly Neighborhood Dive</title>
+<meta name="description" content="The Streamline Tavern is a beloved dive bar in Lower Queen Anne, Seattle. Cheap drinks, free peanuts, pool, darts, pinball, and Christmas lights that never come down. 174 Roy St. Open daily, noon–2am.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fugaz+One&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== LOGO (inline SVG, reused via <use>) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 520 1000">
+    <defs>
+      <path id="arc" d="M 92 250 Q 260 120 428 250"></path>
+    </defs>
+    <!-- black base plate -->
+    <rect x="136" y="880" width="248" height="82" rx="7" fill="#171514"></rect>
+    <!-- sign silhouette (head + stem) with black border -->
+    <path d="M 130 48 L 390 48 C 445 48 459 70 456 132 L 450 286
+             C 448 336 400 362 340 362 L 340 873 C 340 883 333 886 323 886
+             L 197 886 C 187 886 180 883 180 873 L 180 362
+             C 120 362 72 336 70 286 L 64 132 C 61 70 75 48 130 48 Z"
+          fill="#F5C40C" stroke="#171514" stroke-width="20" stroke-linejoin="round"></path>
+    <!-- arched STREAMLINE -->
+    <text fill="#D9121B" font-family="'Fugaz One',sans-serif" font-size="55">
+      <textPath href="#arc" startOffset="50%" text-anchor="middle" textLength="332" lengthAdjust="spacingAndGlyphs">STREAMLINE</textPath>
+    </text>
+    <!-- vertical TAVERN -->
+    <g fill="#D9121B" font-family="'Anton',sans-serif" font-size="94" text-anchor="middle">
+      <text x="259" y="452">T</text>
+      <text x="259" y="534">A</text>
+      <text x="259" y="616">V</text>
+      <text x="259" y="698">E</text>
+      <text x="259" y="780">R</text>
+      <text x="259" y="862">N</text>
+    </g>
+    <!-- Seattle -->
+    <text x="260" y="939" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-weight="900"
+          font-size="48" text-anchor="middle" letter-spacing="-0.5">Seattle</text>
+  </symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <a href="#top" class="nav__brand" aria-label="Streamline Tavern home">
+    <svg class="nav__logo"><use href="#logo"></use></svg>
+    <span class="nav__word">Streamline&nbsp;Tavern</span>
+  </a>
+  <nav class="nav__links">
+    <a href="#about">The Bar</a>
+    <a href="#specials">Specials</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#visit">Visit</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__bg" style="background-image:url('images/full/08.jpg')"></div>
+  <div class="hero__scrim"></div>
+  <div class="hero__inner">
+    <svg class="hero__logo" role="img" aria-label="Streamline Tavern, Seattle"><use href="#logo"></use></svg>
+    <p class="hero__tag">Lower Queen Anne's friendly neighborhood dive.</p>
+    <div class="hero__facts">
+      <span>Cheap drinks</span><span class="dot">◆</span>
+      <span>Free peanuts</span><span class="dot">◆</span>
+      <span>Open till 2am</span>
+    </div>
+    <div class="hero__cta">
+      <a class="btn btn--red" href="#visit">Find the Bar</a>
+      <a class="btn btn--ghost" href="#gallery">Take a Look Inside</a>
+    </div>
+  </div>
+  <div class="checker checker--hero" aria-hidden="true"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about__grid">
+    <div class="about__copy">
+      <h2 class="section-title">Pull up a stool.</h2>
+      <p class="lead">
+        For decades the Streamline has been Lower Queen Anne's living room — a dark,
+        warm, gloriously cluttered dive where the Christmas lights never come down
+        and everybody's welcome.
+      </p>
+      <p>
+        Tucked inside an unassuming old Craftsman a stone's throw from Seattle Center,
+        it's been a neighborhood institution for years and has held down <strong>174 Roy St</strong>
+        since 2015. Belly up to the oval bar, rack a game of pool, feed the pinball
+        machine, and grab a fistful of peanuts from the barrel. The walls are papered
+        in chalk, photos, band flyers and years of regulars' handwriting. The floor is
+        red-and-black checkerboard. The beer is cold and the pours are honest.
+      </p>
+      <p>
+        It's quirky, a little punk, and it feels like home — the kind of place where
+        the TV might play an old Charles Bronson flick instead of the game, and your
+        well-behaved dog is just as welcome as you are.
+      </p>
+      <blockquote class="pullquote">"What's up, Buttercup?"<cite>— the standard Streamline welcome</cite></blockquote>
+      <ul class="features">
+        <li>Oval bar</li>
+        <li>Pool &amp; darts</li>
+        <li>Pinball</li>
+        <li>Free peanuts</li>
+        <li>Dog-friendly</li>
+        <li>Xmas lights, always</li>
+        <li>Chalkboard walls</li>
+        <li>Cheap &amp; cold</li>
+      </ul>
+    </div>
+    <div class="about__stack">
+      <figure><img src="images/full/01.jpg" alt="The corner exterior of the Streamline Tavern in Lower Queen Anne" loading="lazy"></figure>
+      <figure><img src="images/full/20.jpg" alt="Chalkboard listing the beers on tap at the Streamline Tavern" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<div class="checker checker--strip" aria-hidden="true"></div>
+
+<!-- SPECIALS -->
+<section class="specials" id="specials">
+  <h2 class="section-title center">The Weekly Lineup</h2>
+  <p class="section-sub">Rotating specialty food nights — arrive hungry.</p>
+  <div class="specials__grid">
+    <article class="special">
+      <span class="special__day">Mon</span>
+      <h3>Wing Mondays</h3>
+      <p>Start the week with a basket of wings.</p>
+    </article>
+    <article class="special">
+      <span class="special__day">Wed</span>
+      <h3>Wiener Wednesday</h3>
+      <p>Dogs on the griddle, drinks in hand.</p>
+    </article>
+    <article class="special">
+      <span class="special__day">Thu</span>
+      <h3>Taco Thursday</h3>
+      <p>Tacos and the taco salad regulars swear by.</p>
+    </article>
+    <article class="special">
+      <span class="special__day">Sun</span>
+      <h3>Slider Sunday</h3>
+      <p>Little burgers, big Sunday energy.</p>
+    </article>
+  </div>
+  <p class="specials__note">Pool · darts · pinball · chess · Jenga — always free to play.</p>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <h2 class="section-title center">Inside the Streamline</h2>
+  <p class="section-sub">Fifty snapshots of the neon, the checkerboard, and the clutter.</p>
+  <div class="gallery__grid" id="galleryGrid"><!-- populated by app.js --></div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="visit__inner">
+    <div class="visit__info">
+      <h2 class="section-title">Come Find Us</h2>
+      <p class="visit__addr">
+        <strong>174 Roy St</strong><br>
+        Seattle, WA 98109<br>
+        <span class="muted">Lower Queen Anne / Uptown</span>
+      </p>
+      <dl class="visit__meta">
+        <div><dt>Hours</dt><dd>Every day · noon – 2:00 am</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+12065010024">(206) 501-0024</a></dd></div>
+        <div><dt>Cash</dt><dd>It's a dive — bring some, just in case.</dd></div>
+      </dl>
+      <a class="btn btn--red" href="https://www.google.com/maps/search/?api=1&query=Streamline+Tavern+174+Roy+St+Seattle+WA+98109" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+    <div class="visit__links">
+      <h3>Find us around the web</h3>
+      <a class="linkcard" href="https://www.facebook.com/streamlinetavern/" target="_blank" rel="noopener"><span>Facebook</span><em>Hours, events &amp; the latest goings-on</em></a>
+      <a class="linkcard" href="https://www.yelp.com/biz/streamline-tavern-seattle-2" target="_blank" rel="noopener"><span>Yelp</span><em>Reviews, photos &amp; the menu</em></a>
+      <a class="linkcard" href="https://seattle.eater.com/venue/14589/streamline-tavern" target="_blank" rel="noopener"><span>Eater Seattle</span><em>Why it made the map</em></a>
+      <a class="linkcard" href="https://do206.com/venues/streamline-tavern" target="_blank" rel="noopener"><span>Do206</span><em>Upcoming events &amp; nights out</em></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="checker checker--strip" aria-hidden="true"></div>
+  <div class="footer__inner">
+    <svg class="footer__logo" aria-hidden="true"><use href="#logo"></use></svg>
+    <p class="footer__tag">Never change, Streamline.</p>
+    <p class="footer__fine">174 Roy St, Seattle, WA · Open daily noon–2am · An unofficial tribute site built from neighborhood photos.</p>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lightbox__nav lightbox__prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <img class="lightbox__img" id="lbImg" src="" alt="">
+  <button class="lightbox__nav lightbox__next" id="lbNext" aria-label="Next">&#8250;</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
