@@ -53,8 +53,13 @@
       thumbBtns[k].classList.toggle('is-active', k === current);
       thumbBtns[k].setAttribute('aria-selected', k === current ? 'true' : 'false');
     }
-    if (thumbBtns[current]) {
-      thumbBtns[current].scrollIntoView({ block: 'nearest', inline: 'center' });
+    // center the active thumb within the strip WITHOUT scrolling the page
+    var active = thumbBtns[current];
+    if (active) {
+      var wrapRect = thumbWrap.getBoundingClientRect();
+      var btnRect = active.getBoundingClientRect();
+      var delta = (btnRect.left - wrapRect.left) - (thumbWrap.clientWidth - active.clientWidth) / 2;
+      thumbWrap.scrollLeft += delta;
     }
     if (lb.classList.contains('open')) {
       lbImg.src = srcs[current];
@@ -117,10 +122,4 @@
 
   // ---- init ----
   show(0);
-
-  // ---- Nav background on scroll ----
-  var nav = document.getElementById('nav');
-  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 40); }
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
 })();
