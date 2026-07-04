@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Streamline Tavern — Lower Queen Anne's Friendly Neighborhood Dive</title>
-<meta name="description" content="The Streamline Tavern is a beloved dive bar in Lower Queen Anne, Seattle. Cheap drinks, pool, pinball, and Christmas lights that never come down. 174 Roy St. Open daily, noon–2am.">
+<title>Streamline Tavern — Lower Queen Anne's Friendliest Neighborhood Dive</title>
+<meta name="description" content="The Streamline Tavern is a beloved dive bar in Lower Queen Anne, Seattle. Great drinks, pool, pinball, and Christmas lights that never come down. 174 Roy St. Open daily, noon–2am.">
 <link rel="icon" href="images/logo.png?v=3" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fugaz+One&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
     <nav class="hero__nav" aria-label="Primary">
       <div class="hero__nav-side hero__nav-left">
         <a class="hbtn" href="#about">History</a>
-        <a class="hbtn" href="#specials">Weekly</a>
+        <a class="hbtn" href="#specials">Daily</a>
         <a class="hbtn" href="#menu">Food</a>
       </div>
       <img class="hero__logo" src="images/logo.png?v=3" alt="Streamline Tavern">
@@ -30,20 +30,28 @@
         <a class="hbtn" href="#visit">Find Us</a>
       </div>
     </nav>
-    <p class="hero__tag">Lower Queen Anne's friendly neighborhood dive.</p>
+    <p class="hero__tag">Lower Queen Anne's friendliest neighborhood dive.</p>
+    <p class="hero__welcome">Every name, pronoun, and good dog welcome.</p>
     <div class="hero__facts">
-      <span>Cheap drinks</span><span class="dot">◆</span>
+      <span>Great drinks</span><span class="dot">◆</span>
       <span>Free peanuts</span><span class="dot">◆</span>
-      <span>Open till 2am</span>
+      <span>Open till 2</span>
     </div>
-    <p class="hero__crew">Poured by the friendliest, most one-of-a-kind bartenders around.</p>
+    <p class="hero__games">Pool · Pinball · Chess · Jenga and more — always easy to play.</p>
+    <p class="hero__crew">Poured by awesome, genuinely one-of-a-kind bartenders you won't find anywhere else.</p>
+    <ul class="features">
+      <li class="feat--accent">Everyone welcome</li>
+      <li class="feat--accent">Dog-friendly</li>
+      <li>Pool</li>
+      <li>Pinball</li>
+    </ul>
   </div>
   <div class="checker checker--hero" aria-hidden="true"></div>
 </section>
 
 <!-- SPECIALS -->
 <section class="specials" id="specials">
-  <h2 class="section-title center">The Weekly Lineup</h2>
+  <h2 class="section-title center">The Daily Lineup</h2>
   <p class="section-sub">Rotating specialty food nights — arrive hungry.</p>
   <div class="specials__grid">
     <article class="special">
@@ -67,10 +75,7 @@
       <p>Little burgers, big Sunday energy.</p>
     </article>
   </div>
-  <p class="specials__note">Pool · Pinball · Chess · Jenga and more — always free to play.</p>
 </section>
-
-<div class="checker checker--strip" aria-hidden="true"></div>
 
 <!-- ABOUT -->
 <section class="about" id="about">
@@ -94,12 +99,6 @@
         dog-friendly: well-behaved pups are regulars too, with a water bowl by the door,
         a scratch behind the ears, and the run of the place right alongside you.
       </p>
-      <ul class="features">
-        <li class="feat--accent">Everyone welcome</li>
-        <li class="feat--accent">Dog-friendly</li>
-        <li>Pool</li>
-        <li>Pinball</li>
-      </ul>
     </div>
     <div class="about__stack">
       <figure><img src="images/full/01.jpg" alt="The corner exterior of the Streamline Tavern in Lower Queen Anne" loading="lazy"></figure>
@@ -197,7 +196,6 @@
 </section>
 
 <footer class="footer">
-  <div class="checker checker--strip" aria-hidden="true"></div>
   <div class="footer__inner">
     <img class="footer__logo" src="images/logo.png?v=3" alt="" aria-hidden="true">
     <p class="footer__tag">Never change, Streamline.</p>
@@ -213,6 +211,10 @@
   <img class="lightbox__img" id="lbImg" src="" alt="">
   <button class="lightbox__nav lightbox__next" id="lbNext" aria-label="Next">&#8250;</button>
 </div>
+
+<div class="checker checker--side checker--left" aria-hidden="true"></div>
+<div class="checker checker--side checker--right" aria-hidden="true"></div>
+<div class="checker checker--fixed" aria-hidden="true"></div>
 
 <script src="app.js?v=4"></script>
 </body>
