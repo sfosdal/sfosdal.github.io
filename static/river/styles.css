@@ -140,8 +140,9 @@ h1,h2,h3{margin:0;line-height:1.02}
 }
 .hero__facts .dot{color:var(--red-glow)}
 .hero__crew{
-  font-family:"Caveat",cursive;font-size:clamp(1.35rem,2.4vw,1.75rem);
-  color:var(--gold);margin:1.1rem auto 0;line-height:1.2;max-width:34ch;
+  font-family:var(--label);text-transform:uppercase;letter-spacing:2px;
+  font-size:1rem;line-height:1.35;color:var(--cream);
+  margin:1rem auto 0;max-width:46ch;
 }
 @media(max-width:760px){
   .hero__nav{flex-direction:column;gap:1.2rem}
@@ -166,16 +167,14 @@ h1,h2,h3{margin:0;line-height:1.02}
 
 /* checkerboard motifs */
 .checker{
-  --sq:22px;
-  background-image:
-    linear-gradient(45deg,var(--red-deep) 25%,transparent 25%,transparent 75%,var(--red-deep) 75%),
-    linear-gradient(45deg,var(--red-deep) 25%,transparent 25%,transparent 75%,var(--red-deep) 75%);
+  /* red-and-black floor-tile checkerboard; each square is --sq/2 */
+  --sq:32px;
+  background-image:conic-gradient(var(--red-deep) 0 25%,#0c0a0a 0 50%,var(--red-deep) 0 75%,#0c0a0a 0);
   background-size:var(--sq) var(--sq);
-  background-position:0 0,calc(var(--sq)/2) calc(var(--sq)/2);
   background-color:#0c0a0a;
 }
-.checker--hero{position:absolute;bottom:0;left:0;right:0;height:14px;z-index:4;opacity:.95}
-.checker--strip{height:16px;width:100%}
+.checker--hero{position:absolute;bottom:0;left:0;right:0;height:32px;z-index:4;opacity:.95}
+.checker--strip{height:32px;width:100%}
 
 /* ===== ABOUT ===== */
 .about{max-width:var(--maxw);margin:0 auto;padding:clamp(4rem,9vw,7rem) clamp(1.2rem,5vw,3rem)}
