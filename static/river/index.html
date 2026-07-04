@@ -3,15 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Streamline Tavern — Lower Queen Anne's Friendliest Neighborhood Dive</title>
+<title>Streamline Tavern — Lower Queen Anne's Friendliest Hangout</title>
 <meta name="description" content="The Streamline Tavern is a beloved dive bar in Lower Queen Anne, Seattle. Great drinks, pool, pinball, and Christmas lights that never come down. 174 Roy St. Open daily, noon–2am.">
 <link rel="icon" href="images/logo.png?v=3" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fugaz+One&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=11">
+<link rel="stylesheet" href="styles.css?v=17">
 </head>
 <body>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Show menu" aria-expanded="false">🍺</button>
+<nav class="menu-pop" id="menuPop" aria-label="Menu">
+  <a href="#about">Our History</a>
+  <a href="#specials">your day</a>
+  <a href="#menu">Your Food</a>
+  <a href="#gallery">See Us</a>
+  <a href="#visit">Join Us</a>
+  <a href="https://www.instagram.com/streamlineseattle/" target="_blank" rel="noopener">Follow Us</a>
+</nav>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -20,39 +30,35 @@
   <div class="hero__inner">
     <nav class="hero__nav" aria-label="Primary">
       <div class="hero__nav-side hero__nav-left">
-        <a class="hbtn" href="#about">History</a>
-        <a class="hbtn" href="#specials">Daily</a>
-        <a class="hbtn" href="#menu">Food</a>
+        <a class="hbtn" href="#about">Our History</a>
+        <a class="hbtn" href="#specials">your day</a>
+        <a class="hbtn" href="#menu">Your Food</a>
       </div>
       <img class="hero__logo" src="images/logo.png?v=3" alt="Streamline Tavern">
       <div class="hero__nav-side hero__nav-right">
-        <a class="hbtn" href="#gallery">Gallery</a>
-        <a class="hbtn" href="#visit">Find Us</a>
+        <a class="hbtn" href="#gallery">See Us</a>
+        <a class="hbtn" href="#visit">Join Us</a>
+        <a class="hbtn" href="https://www.instagram.com/streamlineseattle/" target="_blank" rel="noopener">Follow Us</a>
       </div>
     </nav>
-    <p class="hero__tag">Lower Queen Anne's friendliest neighborhood dive.</p>
-    <p class="hero__welcome">Every name, pronoun, and good dog welcome.</p>
+    <p class="hero__tag">Lower Queen Anne's friendliest hangout</p>
+    <p class="hero__welcome">Every One, Every pronoun, and Every Good Dog always welcome</p>
     <div class="hero__facts">
       <span>Great drinks</span><span class="dot">◆</span>
-      <span>Free peanuts</span><span class="dot">◆</span>
-      <span>Open till 2</span>
+      <span>peaNUTS</span><span class="dot">◆</span>
+      <span>Open till 2</span><span class="dot">◆</span>
+      <span>Pool</span><span class="dot">◆</span>
+      <span>Free pinball, chess &amp; Jenga</span>
     </div>
-    <p class="hero__games">Pool · Pinball · Chess · Jenga and more — always easy to play.</p>
-    <p class="hero__crew">Poured by awesome, genuinely one-of-a-kind bartenders you won't find anywhere else.</p>
-    <ul class="features">
-      <li class="feat--accent">Everyone welcome</li>
-      <li class="feat--accent">Dog-friendly</li>
-      <li>Pool</li>
-      <li>Pinball</li>
-    </ul>
+    <p class="hero__crew">Poured by awesome, genuinely one-of-a-kind local bartenders you will never find anywhere else</p>
   </div>
   <div class="checker checker--hero" aria-hidden="true"></div>
 </section>
 
 <!-- SPECIALS -->
 <section class="specials" id="specials">
-  <h2 class="section-title center">The Daily Lineup</h2>
-  <p class="section-sub">Rotating specialty food nights — arrive hungry.</p>
+  <h2 class="section-title center">Daily Lineup</h2>
+  <p class="section-sub">Rotating specialty food nights — arrive hungry</p>
   <div class="specials__grid">
     <article class="special">
       <span class="special__day">Mon</span>
@@ -74,36 +80,6 @@
       <h3>Slider Sunday</h3>
       <p>Little burgers, big Sunday energy.</p>
     </article>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about__grid">
-    <div class="about__copy">
-      <h2 class="section-title">Pull up a stool.</h2>
-      <p class="lead">
-        For decades the Streamline has been Lower Queen Anne's living room — a dark,
-        warm, gloriously cluttered dive where everybody's welcome.
-      </p>
-      <p>
-        Tucked inside an unassuming old Craftsman a stone's throw from Seattle Center
-        and Climate Pledge Arena, it's been a neighborhood institution for years and has held down <strong>174 Roy St</strong>
-        since 2015. The walls are papered
-        in chalk, photos, band flyers and years of regulars' handwriting. The beer is
-        cold and the pours are honest.
-      </p>
-      <p>
-        It's quirky, a little punk, and it feels like home. Everybody's
-        welcome here, exactly as you are — every name, every pronoun. And it's seriously
-        dog-friendly: well-behaved pups are regulars too, with a water bowl by the door,
-        a scratch behind the ears, and the run of the place right alongside you.
-      </p>
-    </div>
-    <div class="about__stack">
-      <figure><img src="images/full/01.jpg" alt="The corner exterior of the Streamline Tavern in Lower Queen Anne" loading="lazy"></figure>
-      <figure><img src="images/full/20.jpg" alt="Chalkboard listing the beers on tap at the Streamline Tavern" loading="lazy"></figure>
-    </div>
   </div>
 </section>
 
@@ -145,9 +121,62 @@
   </div>
 </section>
 
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about__grid">
+    <div class="about__copy">
+      <h2 class="section-title">Our Story</h2>
+      <p class="lead">
+        For as long as most of the neighborhood can remember, we've been Lower Queen
+        Anne's living room — dark, warm, gloriously cluttered, and open to absolutely
+        everybody.
+      </p>
+      <p>
+        We've been pouring since the mid-1950s. We got our start near the Uptown Theater
+        and spent decades on West Mercer Street — right up until the end of 2014, when the
+        block got bought out from under us for the new South Korean Consulate (a cool
+        $2.4 million). Most bars would've just called it. Instead we packed up the whole
+        place — the wall paneling, the tile, even the toilets — and hauled it a few blocks
+        to the old Jabu's Pub at <strong>174 Roy St</strong>. We reopened on Friday the
+        13th of February 2015, and we've held this corner ever since.
+      </p>
+      <p>
+        You can thank Mike Lewis and Mary McIntyre for keeping the lights on. Mike, a
+        former Seattle Post-Intelligencer columnist, put his severance into the bar when
+        the P-I printed its last edition back in 2009. A stone's throw from Seattle Center
+        and Climate Pledge Arena, we've stayed exactly what we've always been: a low-lit
+        room with a wraparound bar, walls layered in chalk, old photos, band flyers and
+        years of regulars' handwriting, cold beer, and honest pours.
+      </p>
+      <p>
+        The neighborhood's changed plenty — condos, cranes, a shiny arena down the street
+        — but we haven't, much. This is still the rare corner where a first-timer and a
+        longtime regular wind up elbow to elbow and nobody blinks: pre-show crowds,
+        off-shift cooks, dog-walkers, and folks who just live around the block, all coming
+        through the same door.
+      </p>
+      <p>
+        We're quirky, a little punk, and we feel like home. Everyone's welcome here,
+        exactly as you are — every name, every pronoun. And we're seriously dog-friendly:
+        well-behaved pups are regulars too, with a water bowl by the door, a scratch
+        behind the ears, and the run of the place right beside you.
+      </p>
+      <p>
+        Come in for one and stay for four, or nurse a soda in the corner and just take it
+        all in — both are completely fine by us. We run on one simple idea: a neighborhood
+        needs a room like this, and everyone deserves a seat in it.
+      </p>
+    </div>
+    <div class="about__stack">
+      <figure><img src="images/full/01.jpg" alt="The corner exterior of the Streamline Tavern in Lower Queen Anne" loading="lazy"></figure>
+      <figure><img src="images/full/20.jpg" alt="Chalkboard listing the beers on tap at the Streamline Tavern" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
 <!-- GALLERY -->
 <section class="gallery" id="gallery">
-  <h2 class="section-title center">Inside the Streamline</h2>
+  <h2 class="section-title center">See Inside</h2>
   <div class="carousel" id="carousel">
     <button class="carousel__btn carousel__prev" id="carPrev" aria-label="Previous photo">&#8249;</button>
     <div class="carousel__stage" id="carStage">
@@ -163,7 +192,7 @@
 <section class="visit" id="visit">
   <div class="visit__inner">
     <div class="visit__info">
-      <h2 class="section-title">Come Find Us</h2>
+      <h2 class="section-title">Find Us</h2>
       <p class="visit__addr">
         <strong>174 Roy St</strong><br>
         Seattle, WA 98109<br>
@@ -171,7 +200,6 @@
       </p>
       <dl class="visit__meta">
         <div><dt>Hours</dt><dd>Every day · noon – 2:00 am</dd></div>
-        <div><dt>Phone</dt><dd><a href="tel:+12065010024">(206) 501-0024</a></dd></div>
         <div><dt>Dogs</dt><dd>Always welcome — water bowl's by the door.</dd></div>
         <div><dt>Cash</dt><dd>It's a dive — bring some, just in case.</dd></div>
       </dl>
@@ -193,13 +221,15 @@
       <a class="linkcard" href="https://do206.com/venues/streamline-tavern" target="_blank" rel="noopener"><span>Do206</span><em>Upcoming events &amp; nights out</em></a>
     </div>
   </div>
+  <div class="visit__map">
+    <iframe title="Map to Streamline Tavern — 174 Roy St, Seattle" src="https://www.google.com/maps?q=174%20Roy%20St%2C%20Seattle%2C%20WA%2098109&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
 </section>
 
 <footer class="footer">
   <div class="footer__inner">
     <img class="footer__logo" src="images/logo.png?v=3" alt="" aria-hidden="true">
-    <p class="footer__tag">Never change, Streamline.</p>
-    <p class="footer__welcome">Everybody's welcome — every name, every pronoun, and every good dog.</p>
+    <p class="footer__welcome">Everybody's welcome — every name, every pronoun, and every good dog</p>
     <p class="footer__fine">174 Roy St, Seattle, WA · Open daily noon–2am · An unofficial tribute site built from neighborhood photos.</p>
   </div>
 </footer>
@@ -212,10 +242,6 @@
   <button class="lightbox__nav lightbox__next" id="lbNext" aria-label="Next">&#8250;</button>
 </div>
 
-<div class="checker checker--side checker--left" aria-hidden="true"></div>
-<div class="checker checker--side checker--right" aria-hidden="true"></div>
-<div class="checker checker--fixed" aria-hidden="true"></div>
-
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

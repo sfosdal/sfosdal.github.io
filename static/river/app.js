@@ -122,4 +122,20 @@
 
   // ---- init ----
   show(0);
+
+  // ---- fun menu toggle (narrow screens) ----
+  var mt = document.getElementById('menuToggle');
+  var mp = document.getElementById('menuPop');
+  if (mt && mp) {
+    mt.addEventListener('click', function () {
+      var open = mp.classList.toggle('open');
+      mt.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mp.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        mp.classList.remove('open');
+        mt.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 })();
