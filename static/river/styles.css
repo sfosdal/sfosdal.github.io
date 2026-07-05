@@ -198,12 +198,12 @@ h1,h2,h3{margin:0;line-height:1.02}
 /* checkerboard motifs */
 .checker{
   /* red-and-black floor-tile checkerboard; each square is --sq/2 */
-  --sq:32px;
-  background-image:conic-gradient(var(--red-deep) 0 25%,#0c0a0a 0 50%,var(--red-deep) 0 75%,#0c0a0a 0);
+  --sq:40px;
+  background-image:conic-gradient(#8a1f1f 0 25%,#0c0a0a 0 50%,#8a1f1f 0 75%,#0c0a0a 0);
   background-size:var(--sq) var(--sq);
   background-color:#0c0a0a;
 }
-.checker--hero{position:absolute;bottom:0;left:0;right:0;height:32px;z-index:4;opacity:.95}
+.checker--hero{position:absolute;bottom:0;left:0;right:0;height:46px;z-index:4;opacity:1}
 .checker--strip{height:32px;width:100%}
 
 /* ===== ABOUT ===== */
