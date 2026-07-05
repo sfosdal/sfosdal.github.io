@@ -203,7 +203,7 @@ h1,h2,h3{margin:0;line-height:1.02}
   background-size:var(--sq) var(--sq);
   background-color:#0c0a0a;
 }
-.checker--hero{position:absolute;bottom:0;left:0;right:0;height:46px;z-index:4;opacity:1}
+.hero__rule{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:50%;max-width:480px;height:3px;z-index:4;border-radius:3px;background:linear-gradient(90deg,transparent,var(--red) 18%,var(--red) 82%,transparent)}
 .checker--strip{height:32px;width:100%}
 
 /* ===== ABOUT ===== */
