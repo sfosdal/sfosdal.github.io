@@ -1,0 +1,37 @@
+name: aggregate neighborhood events
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'   # every ~6h (GitHub cron is best-effort)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aggregate-events
+  cancel-in-progress: false
+
+jobs:
+  events:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Fetch & aggregate events
+        env:
+          TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+        run: node scripts/fetch-events.mjs
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain static/river/events.json)" ]]; then
+            git config user.name "events-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add static/river/events.json
+            git commit -m "chore(river): refresh neighborhood events"
+            git push
+          else
+            echo "No event changes."
+          fi
