@@ -276,7 +276,7 @@ h1,h2,h3{margin:0;line-height:1.02}
 
 /* ===== NEIGHBORHOOD EVENTS ===== */
 .events{padding:clamp(3.2rem,6vw,4.5rem) clamp(1.2rem,5vw,3rem);border-bottom:1px solid var(--line)}
-.events__grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.events__grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
 .event{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1.8rem 1.4rem;
   transition:transform .2s,border-color .2s}
 .event:hover{transform:translateY(-4px);border-color:var(--red)}
@@ -285,7 +285,8 @@ h1,h2,h3{margin:0;line-height:1.02}
 .event p{color:var(--muted);font-size:.95rem;margin:0 0 1rem}
 .event a{font-family:var(--label);text-transform:uppercase;letter-spacing:1.5px;font-size:.9rem;color:var(--red-glow)}
 .event a:hover{text-decoration:underline}
-@media(max-width:820px){.events__grid{grid-template-columns:1fr}}
+@media(max-width:820px){.events__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.events__grid{grid-template-columns:1fr}}
 .events-live-wrap{max-width:var(--maxw);margin:0 auto clamp(2rem,4vw,3rem)}
 .events-live__title{font-family:var(--label);text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;text-align:center}
 .events-live{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
