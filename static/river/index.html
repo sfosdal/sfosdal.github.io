@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fugaz+One&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=22">
+<link rel="stylesheet" href="styles.css?v=23">
 </head>
 <body>
 
@@ -46,7 +46,7 @@
       </div>
     </nav>
     <p class="hero__tag">Lower Queen Anne's friendliest hangout</p>
-    <p class="hero__welcome">Every One, Every pronoun, and Good Dogs Welcome</p>
+    <p class="hero__welcome">Every Person, Pronoun,<br>&amp; Good Pup Welcome</p>
     <div class="hero__facts">
       <span>Full bar</span><span class="dot">◆</span>
       <span>Pool</span><span class="dot">◆</span>
@@ -89,24 +89,25 @@
 <section class="events" id="events">
   <h2 class="section-title center">The Neighborhood</h2>
   <p class="section-sub">Big nights nearby pack the place — see what's on before you come</p>
+  <div class="events-live-wrap" id="events-live-wrap" hidden>
+    <h3 class="events-live__title">Coming up nearby</h3>
+    <ul class="events-live" id="events-live"></ul>
+  </div>
   <div class="events__grid">
     <article class="event">
-      <span class="event__tag">A few blocks away</span>
       <h3>Climate Pledge Arena</h3>
       <p>Kraken hockey, Seattle Storm &amp; major concerts.</p>
       <a href="https://climatepledgearena.com/events/" target="_blank" rel="noopener">See the schedule →</a>
     </article>
     <article class="event">
-      <span class="event__tag">Seattle Center</span>
       <h3>McCaw Hall</h3>
       <p>Opera, ballet &amp; the big performances.</p>
       <a href="https://www.mccawhall.com/" target="_blank" rel="noopener">See the schedule →</a>
     </article>
     <article class="event">
-      <span class="event__tag">Right next door</span>
       <h3>Seattle Center</h3>
       <p>Festivals, films &amp; events on the grounds.</p>
-      <a href="https://www.seattlecenter.com/" target="_blank" rel="noopener">See what's on →</a>
+      <a href="https://www.seattlecenter.com/events/event-calendar" target="_blank" rel="noopener">See what's on →</a>
     </article>
   </div>
 </section>
@@ -257,6 +258,6 @@
   <button class="lightbox__nav lightbox__next" id="lbNext" aria-label="Next">&#8250;</button>
 </div>
 
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>
