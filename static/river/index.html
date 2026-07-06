@@ -9,18 +9,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fugaz+One&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=21">
+<link rel="stylesheet" href="styles.css?v=22">
 </head>
 <body>
 
 <button class="menu-toggle" id="menuToggle" aria-label="Show menu" aria-expanded="false">🍺</button>
 <nav class="menu-pop" id="menuPop" aria-label="Menu">
-  <a href="#about">Our History</a>
-  <a href="#specials">your day</a>
-  <a href="#menu">Your Food</a>
+  <a href="#about">The Story</a>
+  <a href="#specials">The Day</a>
+  <a href="#menu">The Food</a>
+  <a href="#events">The Hood</a>
   <a href="#gallery">See Us</a>
   <a href="#visit">Join Us</a>
   <a href="https://www.instagram.com/streamlineseattle/" target="_blank" rel="noopener">Follow Us</a>
+  <a href="#reviews">Rate Us</a>
 </nav>
 
 <!-- HERO -->
@@ -30,15 +32,17 @@
   <div class="hero__inner">
     <nav class="hero__nav" aria-label="Primary">
       <div class="hero__nav-side hero__nav-left">
-        <a class="hbtn" href="#about">Our History</a>
-        <a class="hbtn" href="#specials">your day</a>
-        <a class="hbtn" href="#menu">Your Food</a>
+        <a class="hbtn" href="#about">The Story</a>
+        <a class="hbtn" href="#specials">The Day</a>
+        <a class="hbtn" href="#menu">The Food</a>
+        <a class="hbtn" href="#events">The Hood</a>
       </div>
       <img class="hero__logo" src="images/logo.png?v=3" alt="Streamline Tavern">
       <div class="hero__nav-side hero__nav-right">
         <a class="hbtn" href="#gallery">See Us</a>
         <a class="hbtn" href="#visit">Join Us</a>
         <a class="hbtn" href="https://www.instagram.com/streamlineseattle/" target="_blank" rel="noopener">Follow Us</a>
+        <a class="hbtn" href="#reviews">Rate Us</a>
       </div>
     </nav>
     <p class="hero__tag">Lower Queen Anne's friendliest hangout</p>
@@ -47,7 +51,7 @@
       <span>Full bar</span><span class="dot">◆</span>
       <span>Pool</span><span class="dot">◆</span>
       <span>Pinball</span><span class="dot">◆</span>
-      <span>New friends</span>
+      <span>Friends</span>
     </div>
     <p class="hero__crew">Open till 2 every day all year</p>
   </div>
@@ -77,6 +81,32 @@
       <span class="special__day">Sun</span>
       <h3>Slider Sunday</h3>
       <p>Little burgers, big Sunday energy.</p>
+    </article>
+  </div>
+</section>
+
+<!-- NEIGHBORHOOD EVENTS -->
+<section class="events" id="events">
+  <h2 class="section-title center">The Neighborhood</h2>
+  <p class="section-sub">Big nights nearby pack the place — see what's on before you come</p>
+  <div class="events__grid">
+    <article class="event">
+      <span class="event__tag">A few blocks away</span>
+      <h3>Climate Pledge Arena</h3>
+      <p>Kraken hockey, Seattle Storm &amp; major concerts.</p>
+      <a href="https://climatepledgearena.com/events/" target="_blank" rel="noopener">See the schedule →</a>
+    </article>
+    <article class="event">
+      <span class="event__tag">Seattle Center</span>
+      <h3>McCaw Hall</h3>
+      <p>Opera, ballet &amp; the big performances.</p>
+      <a href="https://www.mccawhall.com/" target="_blank" rel="noopener">See the schedule →</a>
+    </article>
+    <article class="event">
+      <span class="event__tag">Right next door</span>
+      <h3>Seattle Center</h3>
+      <p>Festivals, films &amp; events on the grounds.</p>
+      <a href="https://www.seattlecenter.com/" target="_blank" rel="noopener">See what's on →</a>
     </article>
   </div>
 </section>
@@ -198,21 +228,9 @@
         Seattle, WA 98109<br>
         <span class="muted">Lower Queen Anne</span>
       </p>
-      <dl class="visit__meta">
-        <div><dt>Dogs</dt><dd>Good Dogs welcome, water bowl's by the door.</dd></div>
-        <div><dt>Cash</dt><dd>It's a dive — bring some, just in case.</dd></div>
-      </dl>
       <a class="btn btn--red" href="https://www.google.com/maps/search/?api=1&query=Streamline+Tavern+174+Roy+St+Seattle+WA+98109" target="_blank" rel="noopener">Get Directions</a>
-      <div class="visit__note">
-        <strong>Game night? Show night?</strong>
-        We're just a few blocks from Seattle Center &amp;
-        <a href="https://climatepledgearena.com/events/" target="_blank" rel="noopener">Climate Pledge Arena</a>
-        — the perfect warm-up or wind-down for a Kraken game, a Seattle Storm night, or a big concert.
-        Skip the arena prices and start (or end) the night with us.
-        <a class="visit__note-link" href="https://climatepledgearena.com/events/" target="_blank" rel="noopener">See what's on at the arena →</a>
-      </div>
     </div>
-    <div class="visit__links">
+    <div class="visit__links" id="reviews">
       <h3>What People Say</h3>
       <a class="linkcard" href="https://www.google.com/maps/search/?api=1&amp;query=Streamline+Tavern+174+Roy+St+Seattle+WA+98109" target="_blank" rel="noopener"><span>Google</span><em>Ratings, reviews &amp; photos</em></a>
       <a class="linkcard" href="https://www.yelp.com/biz/streamline-tavern-seattle-2" target="_blank" rel="noopener"><span>Yelp</span><em>Reviews, photos &amp; the lowdown</em></a>
