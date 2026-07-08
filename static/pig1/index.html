@@ -189,13 +189,9 @@ h1,h2,h3,h4{ margin:0; line-height:1.02; }
     linear-gradient(180deg, rgba(20,26,25,.78), rgba(20,26,25,.62) 40%, rgba(20,26,25,.92)); }
 @keyframes kenburns{ from{ transform:scale(1.02); } to{ transform:scale(1.12); } }
 .hero-inner{ position:relative; z-index:2; width:min(100% - 2.2rem,820px); }
-.hero-emblem{ position:relative; width:clamp(150px,20vw,220px); margin:0 auto 1.4rem; }
+.hero-emblem{ position:relative; width:clamp(200px,27vw,340px); margin:0 auto 1.4rem; }
 .hero-emblem img{ width:100%; filter:drop-shadow(0 12px 28px rgba(0,0,0,.55)); position:relative; z-index:2; }
-.hero-emblem::before{ /* rotating instrument bezel behind the roundel */
-  content:""; position:absolute; inset:-16% ; border-radius:50%; z-index:1;
-  border:2px dashed rgba(242,184,69,.5);
-  animation:spin 40s linear infinite;
-}
+.hero-emblem::before{ content:none; }
 @keyframes spin{ to{ transform:rotate(360deg); } }
 .hero h1{ color:#fff; text-shadow:0 4px 24px rgba(0,0,0,.4); }
 .hero .born{ font-family:var(--f-cond); font-weight:700; letter-spacing:.42em; text-transform:uppercase;
@@ -409,7 +405,7 @@ h1,h2,h3,h4{ margin:0; line-height:1.02; }
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="#top" aria-label="The Flying Pig — home">
-      <img src="../pig-assets/logo.png" alt="The Flying Pig biplane roundel logo" />
+      <img src="../pig-assets/logo-ink.svg" alt="The Flying Pig winged crest logo" />
       <span class="txt">Flying Pig<small>BORN IN EVERETT</small></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
@@ -435,7 +431,7 @@ h1,h2,h3,h4{ margin:0; line-height:1.02; }
   <section class="hero" aria-label="Welcome">
     <div class="hero-bg"><img src="../pig-assets/hero.jpg" alt="A slow-roasted pork sandwich and a flight of beers on the bar at The Flying Pig" /></div>
     <div class="hero-inner">
-      <div class="hero-emblem"><img src="../pig-assets/logo.png" alt="The Flying Pig biplane roundel" /></div>
+      <div class="hero-emblem"><img src="../pig-assets/logo-pale.svg" alt="The Flying Pig winged crest" /></div>
       <p class="born">Born in Everett · Est. 2021</p>
       <h1 class="h-hero">The Flying Pig</h1>
       <p class="tag">No Frills. <span>No Fads.</span> No Gimmicks.</p>
@@ -737,7 +733,7 @@ h1,h2,h3,h4{ margin:0; line-height:1.02; }
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="../pig-assets/logo.png" alt="The Flying Pig logo" />
+        <img src="../pig-assets/logo-pale.svg" alt="The Flying Pig logo" />
         <p>A veteran-owned gastropub in the heart of downtown Everett. No frills, no fads, no gimmicks — just a good room, honest food, and a stiff drink.</p>
         <img class="vet" src="../pig-assets/veteran.webp" alt="Veteran-owned business" />
       </div>
