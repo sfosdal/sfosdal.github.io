@@ -70,7 +70,15 @@ img{ display:block; max-width:100%; }
 .foot a{ color:var(--pine-deep); text-decoration:underline; text-underline-offset:2px; }
 .foot .note{ display:block; margin-top:.4rem; font-size:.82rem; }
 
-@media (max-width:720px){ .card{ flex-basis:100%; max-width:440px; } }
+.altverse{ background:var(--ink); color:#f3ecdc; border-radius:22px; margin:0 0 3rem; padding:clamp(2rem,1.4rem+3vw,3.4rem) clamp(1rem,.5rem+2vw,2rem) clamp(2.4rem,1.6rem+2vw,3.2rem); }
+.av-head{ text-align:center; margin-bottom:2rem; }
+.av-eyebrow{ font-family:var(--f-cond); font-weight:700; letter-spacing:.26em; text-transform:uppercase; font-size:.82rem; color:var(--gold-2); margin:0 0 .6rem; }
+.av-head h2{ font-family:var(--f-display); text-transform:uppercase; font-size:clamp(1.7rem,1.2rem+2.4vw,2.8rem); color:#fff; line-height:.95; }
+.av-sub{ max-width:52ch; margin:.9rem auto 0; color:#c9c1ab; font-size:1rem; }
+.av-cards{ padding-bottom:0; }
+.altverse .badge{ background:var(--gold); color:#20160a; }
+
+@media (max-width:720px){ .card{ flex-basis:100%; max-width:440px; } .altverse{ padding-left:.8rem; padding-right:.8rem; } }
 :focus-visible{ outline:2px solid var(--pine); outline-offset:3px; border-radius:4px; }
 @media (prefers-reduced-motion:reduce){ *{ transition:none !important; } html{ scroll-behavior:auto; } }
 </style>
@@ -80,8 +88,8 @@ img{ display:block; max-width:100%; }
   <header class="top">
     <img class="roundel" src="../pig-assets/logo.png" alt="The Flying Pig biplane roundel logo" />
     <p class="eyebrow">Concept redesign · Everett, WA</p>
-    <h1>The Flying Pig,<br><span>seven ways.</span></h1>
-    <p>Same restaurant, same info — seven different looks for a modern, mobile-first site. Take a look and tell us which one feels like the Pig.</p>
+    <h1>The Flying Pig,<br><span>nine ways.</span></h1>
+    <p>Same restaurant, same info — nine different looks for a modern, mobile-first site. Six grounded directions, plus three from the Alternate Universe. Tell us which one feels like the Pig.</p>
   </header>
 
   <section class="cards" aria-label="Design directions">
@@ -169,20 +177,58 @@ img{ display:block; max-width:100%; }
         <span class="view">View this look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
     </a>
-    <!-- V7 -->
-    <a class="card" href="../pig7/">
-      <div class="thumb"><span class="badge" style="background:#0e2f4d;color:#cfe6f5">Option 7</span><img src="../pig-assets/thumb7.jpg" alt="Preview of the Blueprint design — aviation schematic wildcard" loading="lazy" /></div>
-      <div class="card-body">
-        <div class="kicker">Surprise · Schematic</div>
-        <h2>The Blueprint</h2>
-        <p>A wildcard — the whole site drawn like an aviation blueprint: grid paper, spec-sheet menus, and a flight schedule.</p>
-        <div class="swatches" aria-hidden="true">
-          <span class="sw" style="background:#0e2f4d"></span><span class="sw" style="background:#2c7a57"></span>
-          <span class="sw" style="background:#cfe6f5"></span><span class="sw" style="background:#12303f"></span>
+  </section>
+
+  <section class="altverse">
+    <div class="av-head">
+      <p class="av-eyebrow">◆ Alternate Universe ◆</p>
+      <h2>Same Pig, wilder timelines.</h2>
+      <p class="av-sub">Just-for-fun what-ifs — three concepts beamed in from parallel dimensions. Not the safe pick, but maybe the memorable one.</p>
+    </div>
+    <div class="cards av-cards">
+      <!-- AU: Supper Club -->
+      <a class="card" href="../pig7/">
+        <div class="thumb"><span class="badge">Alt Universe</span><img src="../pig-assets/thumb7.jpg" alt="Preview of the Supper Club design — Art Deco green and gold glamour" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="kicker">Deco · Glamour</div>
+          <h2>Supper Club</h2>
+          <p>A 1930s Art Deco supper club — deep green and gold, sunburst geometry, and a gold-framed crest. Aviation-age glamour.</p>
+          <div class="swatches" aria-hidden="true">
+            <span class="sw" style="background:#14261c"></span><span class="sw" style="background:#1e5c40"></span>
+            <span class="sw" style="background:#c9a227"></span><span class="sw" style="background:#f3ecdc"></span>
+          </div>
+          <span class="view">View this look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
-        <span class="view">View this look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </a>
+      </a>
+      <!-- AU: Pop Art -->
+      <a class="card" href="../pig8/">
+        <div class="thumb"><span class="badge">Alt Universe</span><img src="../pig-assets/thumb8.jpg" alt="Preview of the Pop Art design — comic-book halftone style" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="kicker">Playful · Pop</div>
+          <h2>Pop Art</h2>
+          <p>Comic-book pop art — halftone dots, speech bubbles, and bold outlines, with the flying-pig mural energy turned way up.</p>
+          <div class="swatches" aria-hidden="true">
+            <span class="sw" style="background:#f4eede"></span><span class="sw" style="background:#2c7a57"></span>
+            <span class="sw" style="background:#e2a02c"></span><span class="sw" style="background:#e23b2e"></span>
+          </div>
+          <span class="view">View this look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <!-- AU: Riso Zine -->
+      <a class="card" href="../pig9/">
+        <div class="thumb"><span class="badge">Alt Universe</span><img src="../pig-assets/thumb9.jpg" alt="Preview of the Riso Zine design — indie two-color print collage" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="kicker">Indie · Print</div>
+          <h2>Riso Zine</h2>
+          <p>A hand-made risograph zine — newsprint paper, a green-and-persimmon overprint, taped photos, and marker notes.</p>
+          <div class="swatches" aria-hidden="true">
+            <span class="sw" style="background:#f3ecdc"></span><span class="sw" style="background:#2c7a57"></span>
+            <span class="sw" style="background:#f0563b"></span><span class="sw" style="background:#20211c"></span>
+          </div>
+          <span class="view">View this look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
   </section>
 
   <footer class="foot">
