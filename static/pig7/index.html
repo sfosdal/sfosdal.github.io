@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Flying Pig — Born in Everett | Downtown Everett Gastropub</title>
+<meta name="description" content="No frills. No fads. No gimmicks. The Flying Pig — a veteran-owned gastropub in a turn-of-the-century brick building at 1414 Hewitt Ave, downtown Everett. Burgers, flatbreads, brunch, and hand-poured cocktails." />
+<meta name="theme-color" content="#0e2f4d" />
+<meta property="og:title" content="The Flying Pig — Born in Everett" />
+<meta property="og:description" content="A veteran-owned downtown Everett gastropub. Solid tunes, honest food, and cocktails. Make memories. Stay sane." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="../pig-assets/storefront.webp" />
+<link rel="icon" href="../pig-assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   THE FLYING PIG — "SPEC SHEET"  ·  aviation blueprint concept
+   Everett is a Boeing town; the logo is a biplane. So the whole
+   site is drawn like an engineering drafting sheet.
+   ============================================================ */
+:root{
+  --blue:#0e2f4d;         /* blueprint deep            */
+  --blue-2:#123a5c;
+  --blue-3:#0a2438;       /* deepest (title block)     */
+  --cyan:#a9d8ff;         /* linework / text on blue   */
+  --cyan-dim:#6fa7d0;
+  --paper:#f2eee2;        /* drafting paper            */
+  --paper-2:#f8f5ec;
+  --ink:#16324a;          /* navy ink on paper         */
+  --graphite:#47586a;
+  --green:#2c7a57;        /* Flying Pig accent         */
+  --green-deep:#1e5c40;
+  --gold:#e2a02c;         /* stamp / approve           */
+  --red:#b23a3a;          /* "not for construction"    */
+  --muted:#5c6b77;
+  --line:rgba(22,50,74,.22);
+  --line-soft:rgba(22,50,74,.12);
+  --grid:rgba(22,50,74,.07);
+  --grid-blue:rgba(169,216,255,.14);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --f-disp:"Oswald", Impact, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, monospace;
+  --f-body:"IBM Plex Sans", system-ui, sans-serif;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0; color:var(--ink); font-family:var(--f-body);
+  font-size:clamp(15.5px,.9rem + .18vw,17px); line-height:1.62;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:26px 26px;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img{ display:block; max-width:100%; }
+a{ color:var(--green-deep); text-decoration:none; }
+button{ font-family:inherit; cursor:pointer; }
+::selection{ background:var(--green); color:#fff; }
+.wrap{ width:min(100% - 2.2rem, var(--maxw)); margin-inline:auto; }
+section{ padding-block:clamp(3.2rem,2rem + 5vw,5.5rem); scroll-margin-top:96px; position:relative; }
+
+/* ---------- technical type helpers ---------- */
+h1,h2,h3,h4{ margin:0; font-family:var(--f-disp); font-weight:600; text-transform:uppercase; line-height:1; letter-spacing:.01em; }
+.mono{ font-family:var(--f-mono); }
+.h-hero{ font-size:clamp(3rem,1.8rem + 7.5vw,6.6rem); font-weight:700; letter-spacing:.005em; }
+.h-xl{ font-size:clamp(2rem,1.4rem + 3vw,3.4rem); font-weight:600; }
+.h-lg{ font-size:clamp(1.5rem,1.2rem + 1.4vw,2.1rem); }
+.fig{ font-family:var(--f-mono); font-weight:600; font-size:.74rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--green-deep); display:inline-flex; align-items:center; gap:.6rem; margin:0 0 1rem; }
+.fig::before{ content:""; width:30px; height:1px; background:var(--green); }
+.fig.on-blue{ color:var(--cyan); }
+.fig.on-blue::before{ background:var(--cyan-dim); }
+.fig.center{ justify-content:center; }
+.fig.center::after{ content:""; width:30px; height:1px; background:var(--green); }
+.lede{ font-size:clamp(1.04rem,1rem + .4vw,1.24rem); color:var(--graphite); text-wrap:pretty; }
+.muted{ color:var(--muted); }
+
+/* dimension-line rule */
+.dim{ display:flex; align-items:center; gap:.6rem; font-family:var(--f-mono); font-size:.7rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--graphite); }
+.dim::before,.dim::after{ content:""; height:1px; background:var(--line); flex:1; }
+
+/* ---------- buttons / chips ---------- */
+.btn{ display:inline-flex; align-items:center; gap:.5rem; font-family:var(--f-mono); font-weight:600; font-size:.9rem;
+  letter-spacing:.06em; text-transform:uppercase; padding:.8rem 1.3rem; border:1.5px solid var(--ink); background:transparent;
+  color:var(--ink); border-radius:2px; transition:all .2s var(--ease); }
+.btn svg{ width:17px; height:17px; }
+.btn-solid{ background:var(--green); border-color:var(--green); color:#fff; }
+.btn-solid:hover{ background:var(--green-deep); border-color:var(--green-deep); transform:translateY(-2px); }
+.btn-ghost:hover{ border-color:var(--green); color:var(--green-deep); transform:translateY(-2px); }
+.btn-blue{ border-color:var(--cyan); color:var(--cyan); }
+.btn-blue.solid{ background:var(--cyan); color:var(--blue); }
+.btn-blue:hover{ background:rgba(169,216,255,.14); transform:translateY(-2px); }
+.btn-row{ display:flex; flex-wrap:wrap; gap:.8rem; }
+.chip{ display:inline-flex; align-items:center; gap:.5rem; font-family:var(--f-mono); font-size:.72rem; font-weight:500;
+  letter-spacing:.08em; text-transform:uppercase; padding:.36rem .7rem; border:1px solid var(--grid-blue);
+  border-radius:2px; color:var(--cyan); }
+.chip::before{ content:"+"; color:var(--green); font-weight:700; }
+
+/* ============================================================ concept ribbon */
+.concept{ background:var(--blue-3); color:var(--cyan); font-family:var(--f-mono); font-size:.74rem; letter-spacing:.04em;
+  text-align:center; padding:.42rem 1rem; border-bottom:1px solid var(--grid-blue); }
+.concept b{ color:var(--gold); } .concept a{ color:#fff; text-decoration:underline; text-underline-offset:2px; }
+
+/* ============================================================ header */
+.site-header{ position:sticky; top:0; z-index:100; background:rgba(242,238,226,.94);
+  backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); border-bottom:1.5px solid var(--ink); }
+.header-inner{ display:flex; align-items:center; gap:1rem; width:min(100% - 2.2rem,var(--maxw)); margin-inline:auto; padding:.5rem 0; }
+.brand{ display:flex; align-items:center; gap:.6rem; }
+.brand img{ height:44px; width:auto; }
+.brand .t{ font-family:var(--f-disp); text-transform:uppercase; color:var(--ink); font-size:1.02rem; line-height:.95; }
+.brand .t small{ display:block; font-family:var(--f-mono); font-weight:500; font-size:.56rem; letter-spacing:.24em; color:var(--green-deep); margin-top:.25rem; }
+.nav{ display:flex; align-items:center; gap:.1rem; margin-left:auto; }
+.nav a{ font-family:var(--f-mono); font-weight:500; font-size:.8rem; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--graphite); padding:.5rem .65rem; border-radius:2px; transition:color .2s, background .2s; }
+.nav a:hover{ color:var(--green-deep); background:rgba(44,122,87,.08); }
+.header-cta{ margin-left:.4rem; color:#fff; }
+.nav-toggle{ display:none; margin-left:auto; background:none; border:1.5px solid var(--ink); border-radius:2px; padding:.4rem .5rem; color:var(--ink); }
+.nav-toggle svg{ width:22px; height:22px; display:block; }
+
+/* ============================================================ hero (blueprint) */
+.hero{ background-color:var(--blue);
+  background-image:
+    linear-gradient(var(--grid-blue) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-blue) 1px, transparent 1px);
+  background-size:30px 30px;
+  color:var(--cyan); border-bottom:1.5px solid var(--blue-3); position:relative; overflow:hidden;
+  padding-block:clamp(3rem,2rem + 5vw,5rem); }
+.hero::before{ /* corner crop marks */
+  content:""; position:absolute; inset:14px; border:1px dashed var(--grid-blue); pointer-events:none; }
+.hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(2rem,1rem + 4vw,4rem); align-items:center; position:relative; z-index:2; }
+.hero h1{ color:#fff; }
+.hero .born{ font-family:var(--f-mono); letter-spacing:.28em; text-transform:uppercase; color:var(--gold); font-size:.82rem; margin:0 0 .8rem; }
+.hero .tag{ font-family:var(--f-disp); text-transform:uppercase; color:var(--cyan); font-size:clamp(1.2rem,1rem + 1.6vw,1.9rem); margin:1rem 0 0; }
+.hero .tag b{ color:var(--gold); font-weight:600; }
+.hero .sub{ color:#d7e9fb; max-width:46ch; margin:1rem 0 0; }
+.hero-chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin:1.5rem 0 1.5rem; }
+/* schematic plate */
+.plate{ position:relative; border:1px solid var(--grid-blue); border-radius:3px; padding:1.6rem; background:rgba(10,36,56,.4); }
+.plate .corner{ position:absolute; width:10px; height:10px; border:1px solid var(--cyan-dim); }
+.plate .corner.tl{ top:-1px; left:-1px; border-right:0; border-bottom:0; }
+.plate .corner.tr{ top:-1px; right:-1px; border-left:0; border-bottom:0; }
+.plate .corner.bl{ bottom:-1px; left:-1px; border-right:0; border-top:0; }
+.plate .corner.br{ bottom:-1px; right:-1px; border-left:0; border-top:0; }
+.plate .schematic{ position:relative; display:grid; place-items:center; padding:1rem 0 .5rem; }
+.plate .schematic::before{ content:""; position:absolute; width:min(78%,300px); aspect-ratio:1; border:1px dashed var(--grid-blue); border-radius:50%; }
+.plate .schematic img{ width:min(72%,270px); filter:brightness(0) invert(1) opacity(.92); }
+.plate .cap{ font-family:var(--f-mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan-dim);
+  display:flex; justify-content:space-between; border-top:1px solid var(--grid-blue); padding-top:.7rem; margin-top:.5rem; }
+.callout{ font-family:var(--f-mono); font-size:.64rem; letter-spacing:.06em; text-transform:uppercase; color:var(--cyan-dim);
+  display:flex; align-items:center; gap:.4rem; margin-top:.5rem; }
+.callout::before{ content:"⌀"; color:var(--green); }
+/* flight schedule (hours) */
+.sched{ margin-top:1.6rem; border:1px solid var(--grid-blue); border-radius:3px; overflow:hidden; }
+.sched .hd{ font-family:var(--f-mono); font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--blue);
+  background:var(--cyan); padding:.4rem .8rem; }
+.sched .row{ display:flex; justify-content:space-between; font-family:var(--f-mono); font-size:.86rem; padding:.4rem .8rem;
+  border-top:1px solid var(--grid-blue); color:#d7e9fb; }
+.sched .row .d{ color:var(--cyan-dim); }
+.sched .row.brunch{ color:var(--gold); } .sched .row.brunch .d{ color:var(--gold); }
+
+/* ============================================================ reveal */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal.in{ opacity:1; transform:none; }
+
+/* ============================================================ story */
+.story-grid{ display:grid; grid-template-columns:.95fr 1.05fr; gap:clamp(2rem,1rem + 4vw,4rem); align-items:center; }
+.blueprint-frame{ position:relative; border:1.5px solid var(--ink); border-radius:3px; overflow:hidden; }
+.blueprint-frame::after{ content:attr(data-label); position:absolute; left:0; bottom:0; font-family:var(--f-mono); font-size:.66rem;
+  letter-spacing:.1em; text-transform:uppercase; color:#fff; background:var(--ink); padding:.3rem .7rem; }
+.blueprint-frame img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/5; }
+.story-body p{ margin:0 0 1.1rem; }
+.pull{ margin:1.6rem 0 0; padding:1.1rem 1.3rem; border:1px solid var(--line); border-left:3px solid var(--green); background:var(--paper-2);
+  font-family:var(--f-mono); font-style:italic; font-size:1.02rem; color:var(--ink); }
+.pull cite{ display:block; margin-top:.6rem; font-style:normal; font-size:.76rem; letter-spacing:.06em; color:var(--muted); }
+.specs{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:1.8rem; border:1px solid var(--line); border-radius:3px; }
+.specs div{ padding:.9rem 1rem; border-right:1px solid var(--line-soft); }
+.specs div:last-child{ border-right:0; }
+.specs .k{ font-family:var(--f-mono); font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+.specs .v{ font-family:var(--f-disp); font-size:1.5rem; color:var(--green-deep); }
+.specs .v small{ display:block; font-family:var(--f-body); font-size:.72rem; color:var(--graphite); text-transform:none; letter-spacing:0; }
+
+/* ============================================================ section head */
+.sec-head{ text-align:center; max-width:46ch; margin:0 auto clamp(2rem,1rem + 3vw,3rem); }
+.sec-head .lede{ margin-top:.8rem; }
+
+/* ============================================================ menu (spec / parts list) */
+.menu-tabs{ display:flex; justify-content:center; gap:.4rem; flex-wrap:wrap; margin-bottom:2.2rem; }
+.menu-tab{ font-family:var(--f-mono); font-weight:500; font-size:.82rem; letter-spacing:.05em; text-transform:uppercase;
+  padding:.55rem 1.05rem; border:1.5px solid var(--line); background:transparent; color:var(--graphite); border-radius:2px; transition:all .2s var(--ease); }
+.menu-tab[aria-selected="true"]{ background:var(--green); border-color:var(--green); color:#fff; }
+.menu-tab:hover:not([aria-selected="true"]){ border-color:var(--green); color:var(--green-deep); }
+.menu-panel[hidden]{ display:none; }
+.menu-panel{ animation:fade .45s var(--ease) both; }
+@keyframes fade{ from{ opacity:0; transform:translateY(6px);} to{ opacity:1; transform:none;} }
+.menu-layout{ display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(1.6rem,1rem + 3vw,3.2rem); align-items:start; }
+.parts{ border:1.5px solid var(--ink); border-radius:3px; overflow:hidden; }
+.parts .thead{ display:grid; grid-template-columns:64px 1fr auto; gap:1rem; font-family:var(--f-mono); font-size:.64rem;
+  letter-spacing:.12em; text-transform:uppercase; color:#fff; background:var(--ink); padding:.5rem .9rem; }
+.p-item{ display:grid; grid-template-columns:64px 1fr auto; gap:1rem; padding:.85rem .9rem; border-top:1px solid var(--line-soft); align-items:baseline; }
+.p-item:nth-child(odd){ background:var(--paper-2); }
+.p-no{ font-family:var(--f-mono); font-size:.8rem; color:var(--green-deep); font-weight:600; }
+.p-name{ font-family:var(--f-disp); font-size:1.12rem; text-transform:uppercase; color:var(--ink); line-height:1.05; }
+.p-tag{ font-family:var(--f-mono); font-size:.58rem; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--green);
+  padding:.08rem .4rem; border-radius:2px; margin-left:.5rem; vertical-align:middle; }
+.p-desc{ font-size:.9rem; color:var(--muted); margin:.25rem 0 0; }
+.p-price{ font-family:var(--f-mono); font-weight:600; color:var(--ink); white-space:nowrap; }
+.menu-photos{ display:grid; gap:1rem; position:sticky; top:104px; }
+.menu-photos figure{ margin:0; }
+.menu-photos .blueprint-frame img{ aspect-ratio:3/2; }
+.menu-note{ text-align:center; font-family:var(--f-mono); font-size:.76rem; color:var(--muted); margin-top:2rem; }
+
+/* ============================================================ gallery (plates) */
+.gallery{ background-color:var(--blue);
+  background-image:linear-gradient(var(--grid-blue) 1px,transparent 1px),linear-gradient(90deg,var(--grid-blue) 1px,transparent 1px);
+  background-size:30px 30px; color:var(--cyan); border-block:1.5px solid var(--blue-3); }
+.gallery .sec-head h2{ color:#fff; } .gallery .sec-head .lede{ color:#bcd6ee; }
+.plates{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem; }
+.plate-fig{ border:1px solid var(--grid-blue); border-radius:3px; overflow:hidden; background:rgba(10,36,56,.35); }
+.plate-fig img{ width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .7s var(--ease); }
+.plate-fig:hover img{ transform:scale(1.05); }
+.plate-fig .lbl{ display:flex; justify-content:space-between; font-family:var(--f-mono); font-size:.66rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--cyan-dim); padding:.5rem .7rem; border-top:1px solid var(--grid-blue); }
+
+/* ============================================================ reviews (field reports) */
+.stat-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:clamp(1.2rem,1rem + 3vw,3.5rem); margin-bottom:2.6rem; text-align:center; }
+.stat .n{ font-family:var(--f-disp); color:var(--green-deep); font-size:clamp(2.2rem,1.6rem + 3vw,3.4rem); }
+.stat .l{ font-family:var(--f-mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:.3rem; }
+.stat .stars{ color:var(--gold); }
+.reports{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem; }
+.report{ border:1px solid var(--line); border-radius:3px; background:var(--paper-2); padding:1.4rem 1.3rem; position:relative; }
+.report .rh{ font-family:var(--f-mono); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--green-deep); margin-bottom:.7rem;
+  display:flex; justify-content:space-between; }
+.report .stars{ color:var(--gold); margin-bottom:.5rem; }
+.report q{ font-family:var(--f-mono); font-style:italic; font-size:.98rem; color:var(--ink); }
+.report cite{ display:block; margin-top:.9rem; font-style:normal; font-size:.76rem; color:var(--muted); }
+.fun{ margin-top:2.2rem; text-align:center; font-family:var(--f-mono); font-size:.86rem; color:var(--muted); }
+.fun b{ color:var(--green-deep); }
+
+/* ============================================================ visit */
+.visit-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,1rem + 4vw,3.5rem); align-items:start; }
+.datablock{ border:1.5px solid var(--ink); border-radius:3px; }
+.datablock .dh{ font-family:var(--f-mono); font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:#fff; background:var(--ink); padding:.5rem .9rem; }
+.drow{ display:grid; grid-template-columns:120px 1fr; gap:1rem; padding:.8rem .9rem; border-top:1px solid var(--line-soft); }
+.drow .k{ font-family:var(--f-mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); padding-top:.15rem; }
+.drow .v{ font-size:1rem; color:var(--ink); }
+.drow .v a:hover{ color:var(--green-deep); text-decoration:underline; }
+.drow .v .sub{ font-family:var(--f-mono); font-size:.74rem; color:var(--muted); }
+.hrow{ display:flex; justify-content:space-between; font-family:var(--f-mono); font-size:.86rem; padding:.1rem 0; }
+.hrow .d{ color:var(--graphite); }
+.socs{ display:flex; gap:.5rem; margin-top:.3rem; }
+.soc{ width:40px; height:40px; border:1.5px solid var(--line); border-radius:2px; display:grid; place-items:center; color:var(--ink); transition:all .2s var(--ease); }
+.soc:hover{ border-color:var(--green); color:var(--green-deep); transform:translateY(-2px); } .soc svg{ width:19px; height:19px; }
+.map{ width:100%; height:220px; border:1.5px solid var(--ink); border-radius:3px; margin-top:1rem; filter:grayscale(.3) contrast(.95); }
+.book{ border:1.5px solid var(--ink); border-radius:3px; background:var(--paper-2); padding:clamp(1.3rem,1rem + 2vw,2rem); }
+.book h3{ color:var(--green-deep); font-size:1.5rem; }
+.book .subh{ font-family:var(--f-mono); font-size:.76rem; color:var(--muted); margin:.4rem 0 0; }
+.field{ margin-top:.95rem; } .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+.field label{ display:block; font-family:var(--f-mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--graphite); margin-bottom:.3rem; }
+.field input, .field select{ width:100%; font-family:var(--f-body); font-size:.98rem; padding:.65rem .75rem; border:1.5px solid var(--line); border-radius:2px; background:var(--paper); color:var(--ink); }
+.field input:focus, .field select:focus{ outline:2px solid var(--green); outline-offset:1px; border-color:var(--green); }
+.form-note{ font-family:var(--f-mono); font-size:.72rem; color:var(--muted); margin-top:.8rem; }
+.form-ok{ display:none; margin-top:.9rem; border:1px solid var(--green); background:rgba(44,122,87,.1); color:var(--green-deep);
+  border-radius:2px; padding:.8rem .9rem; font-family:var(--f-mono); font-size:.86rem; }
+.form-ok.show{ display:block; }
+
+/* ============================================================ footer / title block */
+.site-footer{ background-color:var(--blue-3); color:#bcd6ee;
+  background-image:linear-gradient(var(--grid-blue) 1px,transparent 1px),linear-gradient(90deg,var(--grid-blue) 1px,transparent 1px);
+  background-size:30px 30px; border-top:1.5px solid #06192a; padding-block:3rem 1.4rem; }
+.f-top{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:2rem; }
+.f-brand img{ height:60px; filter:brightness(0) invert(1) opacity(.92); margin-bottom:.9rem; }
+.f-brand p{ font-size:.9rem; color:#a9c4dc; max-width:32ch; }
+.f-brand .vet{ height:64px; margin-top:1rem; filter:none; }
+.f-col .k{ font-family:var(--f-mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:.7rem; }
+.f-col a, .f-col p{ display:block; color:#bcd6ee; margin:.3rem 0; font-size:.9rem; } .f-col a:hover{ color:#fff; }
+.sources{ margin-top:2rem; } .sources .k{ font-family:var(--f-mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:.6rem; }
+.sources p{ font-family:var(--f-mono); font-size:.8rem; color:#9db8d1; line-height:1.9; }
+.sources a{ color:#bcd6ee; text-decoration:underline; text-underline-offset:2px; }
+/* engineering title block */
+.titleblock{ margin-top:2.4rem; border:1.5px solid var(--cyan-dim); border-radius:3px; overflow:hidden; font-family:var(--f-mono); }
+.tb-grid{ display:grid; grid-template-columns:repeat(4,1fr); }
+.tb-grid div{ padding:.6rem .8rem; border-right:1px solid var(--grid-blue); border-top:1px solid var(--grid-blue); }
+.tb-grid div:nth-child(-n+4){ border-top:0; }
+.tb-grid .k{ font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan-dim); }
+.tb-grid .v{ font-size:.86rem; color:#eaf4ff; margin-top:.2rem; }
+.tb-grid .v.stamp{ color:var(--gold); }
+.tb-grid .v.red{ color:#e88; }
+.f-bottom{ margin-top:1.6rem; padding-top:1.1rem; border-top:1px solid var(--grid-blue); display:flex; flex-wrap:wrap;
+  justify-content:space-between; gap:.6rem; font-family:var(--f-mono); font-size:.76rem; color:#9db8d1; }
+.f-bottom .cn{ color:var(--gold); }
+
+/* ============================================================ a11y / responsive */
+.skip{ position:absolute; left:-999px; top:0; background:var(--green); color:#fff; padding:.6rem 1rem; z-index:200; font-family:var(--f-mono); border-radius:0 0 2px 0; }
+.skip:focus{ left:0; }
+:focus-visible{ outline:2px solid var(--green); outline-offset:3px; border-radius:2px; }
+@media (prefers-reduced-motion:reduce){ *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; } .reveal{ opacity:1; transform:none; } }
+@media (max-width:900px){
+  .hero-grid,.story-grid,.menu-layout,.visit-grid{ grid-template-columns:1fr; }
+  .menu-photos{ position:static; grid-template-columns:1fr 1fr; }
+  .plates,.reports{ grid-template-columns:1fr 1fr; }
+  .f-top{ grid-template-columns:1fr 1fr; } .f-brand{ grid-column:1/-1; }
+  .tb-grid{ grid-template-columns:repeat(2,1fr); } .tb-grid div:nth-child(-n+4){ border-top:1px solid var(--grid-blue); } .tb-grid div:nth-child(-n+2){ border-top:0; }
+}
+@media (max-width:720px){
+  .nav{ display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:stretch; background:var(--paper);
+    border-bottom:1.5px solid var(--ink); padding:.6rem 1.1rem 1rem; gap:.1rem; }
+  .nav.open{ display:flex; } .nav a{ padding:.7rem .5rem; } .header-cta{ display:none; } .nav-toggle{ display:inline-flex; }
+  .menu-photos{ grid-template-columns:1fr; }
+  .parts .thead,.p-item{ grid-template-columns:48px 1fr auto; }
+}
+@media (max-width:540px){
+  .plates,.reports,.specs{ grid-template-columns:1fr; }
+  .specs div{ border-right:0; border-bottom:1px solid var(--line-soft); }
+  .grid-2{ grid-template-columns:1fr; } .drow{ grid-template-columns:1fr; gap:.2rem; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#menu">Skip to menu</a>
+
+<div class="concept">DWG STATUS: <b>CONCEPT</b> — a modern, mobile-first mockup of The Flying Pig's site · not affiliated · drawn by <a href="https://fosdal.net" target="_blank" rel="noopener">Steve Fosdal</a></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="The Flying Pig — home">
+      <img src="../pig-assets/logo.png" alt="The Flying Pig biplane roundel logo" />
+      <span class="t">Flying Pig<small>FIG.&nbsp;01 · EVERETT WA</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#story">Our Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">The Room</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+      <a class="btn btn-solid header-cta" href="tel:+14253505925">(425) 350-5925</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-label="Welcome">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="born">Born in Everett · Est. 2021</p>
+        <h1 class="h-hero">The Flying Pig</h1>
+        <p class="tag">No Frills. <b>No Fads.</b> No Gimmicks.</p>
+        <p class="sub">Just a simple destination with solid tunes, honest food, and hand-poured cocktails — from a team of service pros ready to upgrade your night out.</p>
+        <div class="hero-chips">
+          <span class="chip">Veteran-owned</span><span class="chip">Downtown Everett</span>
+          <span class="chip">Weekend brunch</span><span class="chip">Open 7 days</span>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-blue solid" href="#menu">See the menu</a>
+          <a class="btn btn-blue" href="#visit">Find us &amp; hours</a>
+        </div>
+      </div>
+      <div class="plate">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="schematic"><img src="../pig-assets/logo.png" alt="Schematic view of The Flying Pig biplane roundel" /></div>
+        <div class="callout">Winged pig · aviator roundel · prop assy.</div>
+        <div class="cap"><span>DWG FP-2021</span><span>SCALE — NTS</span></div>
+        <div class="sched" aria-label="Hours">
+          <div class="hd">Flight Schedule</div>
+          <div class="row"><span class="d">Mon–Thu</span><span>11:30a — 9:00p</span></div>
+          <div class="row"><span class="d">Fri</span><span>11:30a — 11:00p</span></div>
+          <div class="row"><span class="d">Sat</span><span>10:00a — 11:00p</span></div>
+          <div class="row"><span class="d">Sun</span><span>10:00a — 8:00p</span></div>
+          <div class="row brunch"><span class="d">Brunch</span><span>Sat &amp; Sun · 10a–2p</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STORY ===================== -->
+  <section id="story">
+    <div class="wrap story-grid">
+      <figure class="blueprint-frame reveal" data-label="FIG. 02 — 1414 HEWITT AVE" style="margin:0">
+        <img src="../pig-assets/storefront.webp" alt="The Flying Pig storefront — brick facade, winged-pig sign, green door at 1414 Hewitt Ave" />
+      </figure>
+      <div class="story-body reveal">
+        <p class="fig">Sect. A — History</p>
+        <h2 class="h-xl">Everett's classic pub, on its third life.</h2>
+        <p>The original Flying Pig Food &amp; Beverage Co. poured on Colby Avenue for nearly fifteen years — a downtown institution locals never quite forgot — and closed in 2011. In 2021 the pig took flight again, landing in a turn-of-the-century brick building on Hewitt with tin ceilings, exposed brick, and a whimsical mural of pigs flying aviators' planes — a nod to Everett's aviation roots.</p>
+        <p>Now it's on its third life: expanded hours, weekend brunch, and a menu built with a little wow factor. Same honest idea, still true.</p>
+        <blockquote class="pull">"I don't want to be everything to everyone. I want to be good at what I do — and I don't want it complicated at all."
+          <cite>— The Flying Pig, on how they run the room</cite></blockquote>
+        <div class="specs">
+          <div><div class="k">Rev. 01</div><div class="v">2000s<small>Original · Colby Ave</small></div></div>
+          <div><div class="k">Rev. 02</div><div class="v">2021<small>Reborn · 1414 Hewitt</small></div></div>
+          <div><div class="k">Rev. 03</div><div class="v">Now<small>Brunch · 7 days</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MENU ===================== -->
+  <section id="menu">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="fig center">Sect. B — Bill of Materials</p>
+        <h2 class="h-xl">Food worth flying for.</h2>
+        <p class="lede">Comfort classics done right — plus a few with names as fun as they are good. A sample of the build sheet below.</p>
+      </div>
+      <div class="menu-tabs" role="tablist" aria-label="Menu sections">
+        <button class="menu-tab" role="tab" id="tab-d" aria-controls="p-d" aria-selected="true">Lunch &amp; Dinner</button>
+        <button class="menu-tab" role="tab" id="tab-b" aria-controls="p-b" aria-selected="false">Weekend Brunch</button>
+        <button class="menu-tab" role="tab" id="tab-c" aria-controls="p-c" aria-selected="false">Cocktails</button>
+      </div>
+
+      <div class="menu-panel" id="p-d" role="tabpanel" aria-labelledby="tab-d">
+        <div class="menu-layout">
+          <div class="parts">
+            <div class="thead"><span>Part</span><span>Item / Spec</span><span>Price</span></div>
+            <div class="p-item"><span class="p-no">FP-01</span><div><span class="p-name">Mango-Bango Pulled Pork<span class="p-tag">Classic</span></span><p class="p-desc">Slow-roasted pulled pork piled high, fresh mango &amp; peach salsa.</p></div><span class="p-price">$16</span></div>
+            <div class="p-item"><span class="p-no">FP-02</span><div><span class="p-name">Pig Pie Flatbread<span class="p-tag">Signature</span></span><p class="p-desc">Canadian bacon, bacon bits, pepperoni &amp; sausage over red sauce &amp; mozzarella.</p></div><span class="p-price">$16</span></div>
+            <div class="p-item"><span class="p-no">FP-03</span><div><span class="p-name">Bacon Cheddar Cheeseburger</span><p class="p-desc">75% ground-brisket patty, brioche, shaved lettuce, tomato, onion, garlic-rosemary shoestring fries.</p></div><span class="p-price">$17</span></div>
+            <div class="p-item"><span class="p-no">FP-04</span><div><span class="p-name">Ham Solo</span><p class="p-desc">Canadian bacon &amp; golden pineapple, mozzarella, garlic red sauce.</p></div><span class="p-price">$15</span></div>
+            <div class="p-item"><span class="p-no">FP-05</span><div><span class="p-name">Cheesesteak Royale</span><p class="p-desc">Shaved steak, peppers, onions, melted cheese, toasted roll.</p></div><span class="p-price">$17</span></div>
+            <div class="p-item"><span class="p-no">FP-06</span><div><span class="p-name">New England Clam Chowder</span><p class="p-desc">Vegetables, seafood, plenty of comfort — a recipe 27 years in the begging.</p></div><span class="p-price">$8 / $12</span></div>
+          </div>
+          <div class="menu-photos">
+            <figure class="blueprint-frame" data-label="FIG. 03 — CHEESEBURGER"><img src="../pig-assets/burger.jpg" alt="Bacon cheddar cheeseburger with seasoned fries" loading="lazy" /></figure>
+            <figure class="blueprint-frame" data-label="FIG. 04 — PIG PIE"><img src="../pig-assets/pigpie.jpg" alt="Pig Pie flatbread topped with Canadian bacon, pepperoni and sausage" loading="lazy" /></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="p-b" role="tabpanel" aria-labelledby="tab-b" hidden>
+        <div class="menu-layout">
+          <div class="parts">
+            <div class="thead"><span>Part</span><span>Item / Spec · Sat &amp; Sun 10a–2p</span><span>Price</span></div>
+            <div class="p-item"><span class="p-no">BR-01</span><div><span class="p-name">Chicken &amp; Waffles</span><p class="p-desc">Crispy fried chicken over a golden Belgian waffle, warm syrup, a little heat.</p></div><span class="p-price">$16</span></div>
+            <div class="p-item"><span class="p-no">BR-02</span><div><span class="p-name">The Breakfast Burger</span><p class="p-desc">Egg, bacon, cheese — a burger that gets up early.</p></div><span class="p-price">$16</span></div>
+            <div class="p-item"><span class="p-no">BR-03</span><div><span class="p-name">Belgian Waffles</span><p class="p-desc">Crisp outside, tender in — dressed however you like.</p></div><span class="p-price">$13</span></div>
+            <div class="p-item"><span class="p-no">BR-04</span><div><span class="p-name">Classic French Toast</span><p class="p-desc">Thick-cut, griddled, dusted, and drizzled.</p></div><span class="p-price">$13</span></div>
+            <div class="p-item"><span class="p-no">BR-05</span><div><span class="p-name">Yogurt &amp; Granola Parfait</span><p class="p-desc">Layered fruit, yogurt, house granola.</p></div><span class="p-price">$9</span></div>
+          </div>
+          <div class="menu-photos">
+            <figure class="blueprint-frame" data-label="FIG. 05 — THE BAR"><img src="../pig-assets/bar.jpg" alt="The Flying Pig bar and dining room during brunch" loading="lazy" /></figure>
+            <figure class="blueprint-frame" data-label="FIG. 06 — BURGER + POUR"><img src="../pig-assets/cheeseburger.jpg" alt="A cheeseburger and fries with a cold pour" loading="lazy" /></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="p-c" role="tabpanel" aria-labelledby="tab-c" hidden>
+        <div class="menu-layout">
+          <div class="parts">
+            <div class="thead"><span>Part</span><span>Item / Spec</span><span>Price</span></div>
+            <div class="p-item"><span class="p-no">BV-01</span><div><span class="p-name">The Flying Paloma<span class="p-tag">House</span></span><p class="p-desc">Tequila, grapefruit, lime, a chili-salt rim. Bright, a little spicy.</p></div><span class="p-price">$12</span></div>
+            <div class="p-item"><span class="p-no">BV-02</span><div><span class="p-name">Painkiller</span><p class="p-desc">Rum, pineapple, orange, cream of coconut, fresh nutmeg.</p></div><span class="p-price">$12</span></div>
+            <div class="p-item"><span class="p-no">BV-03</span><div><span class="p-name">Hot Buttered Rum</span><p class="p-desc">Everett-winter approved. Warm, spiced, made to sip slow.</p></div><span class="p-price">$10</span></div>
+            <div class="p-item"><span class="p-no">BV-04</span><div><span class="p-name">Local Drafts &amp; Cans</span><p class="p-desc">A rotating handle of PNW beer — plus zero-proof options.</p></div><span class="p-price">Ask</span></div>
+          </div>
+          <div class="menu-photos">
+            <figure class="blueprint-frame" data-label="FIG. 07 — FLYING PALOMA"><img src="../pig-assets/paloma.jpg" alt="The Flying Paloma cocktail with a chili-salt rim and lime" loading="lazy" /></figure>
+            <figure class="blueprint-frame" data-label="FIG. 08 — CHEERS"><img src="../pig-assets/cocktails.jpg" alt="Four colorful cocktails raised in a toast" loading="lazy" /></figure>
+          </div>
+        </div>
+      </div>
+      <p class="menu-note">// A sample of the build sheet — dishes &amp; prices rotate. Call (425) 350-5925 for today's full lineup.</p>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="fig center on-blue">Sect. C — Site Survey</p>
+        <h2 class="h-xl">Tin ceilings, brick walls, warm light.</h2>
+        <p class="lede">A hundred-year-old building with a modern bar humming inside it — the kind of place Everett was built on.</p>
+      </div>
+      <div class="plates">
+        <figure class="plate-fig reveal"><img src="../pig-assets/bar.jpg" alt="The back bar glowing amber over rows of bottles" loading="lazy" /><figcaption class="lbl"><span>FIG. 09</span><span>Back bar</span></figcaption></figure>
+        <figure class="plate-fig reveal"><img src="../pig-assets/cheeseburger.jpg" alt="A cheeseburger and a cold pour on the bar" loading="lazy" /><figcaption class="lbl"><span>FIG. 10</span><span>Burgers</span></figcaption></figure>
+        <figure class="plate-fig reveal"><img src="../pig-assets/paloma.jpg" alt="A chili-rimmed Flying Paloma on the bar rail" loading="lazy" /><figcaption class="lbl"><span>FIG. 11</span><span>Hand-poured</span></figcaption></figure>
+        <figure class="plate-fig reveal"><img src="../pig-assets/pigpie.jpg" alt="The Pig Pie flatbread in a checkered basket" loading="lazy" /><figcaption class="lbl"><span>FIG. 12</span><span>Pig Pie</span></figcaption></figure>
+        <figure class="plate-fig reveal"><img src="../pig-assets/storefront.webp" alt="The brick storefront with the winged-pig sign" loading="lazy" /><figcaption class="lbl"><span>FIG. 13</span><span>1414 Hewitt</span></figcaption></figure>
+        <figure class="plate-fig reveal"><img src="../pig-assets/cocktails.jpg" alt="A round of cocktails raised in a toast" loading="lazy" /><figcaption class="lbl"><span>FIG. 14</span><span>Cheers</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REVIEWS ===================== -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="fig center">Sect. D — Field Reports</p>
+        <h2 class="h-xl">Everett keeps coming back.</h2>
+      </div>
+      <div class="stat-row reveal">
+        <div class="stat"><div class="n">4.4★</div><div class="stars">★★★★☆</div><div class="l">385 Google reviews</div></div>
+        <div class="stat"><div class="n">#28</div><div class="l">Best in Everett — Wanderlog</div></div>
+        <div class="stat"><div class="n">$$</div><div class="l">Affordable · Gastropub</div></div>
+        <div class="stat"><div class="n">7</div><div class="l">Days a week</div></div>
+      </div>
+      <div class="reports">
+        <blockquote class="report reveal"><div class="rh"><span>RPT-01</span><span>GOOGLE</span></div><div class="stars">★★★★★</div><q>"Outstanding service, starting with the bartender. The Philly cheesesteak was fantastic and the fries were perfectly crispy."</q><cite>Google review · via Wanderlog</cite></blockquote>
+        <blockquote class="report reveal"><div class="rh"><span>RPT-02</span><span>PRESS</span></div><div class="stars">★★★★★</div><q>"The warmth and energy coming from the Flying Pig was so wonderful to experience — a nice variety of options, but not so many it's overwhelming."</q><cite>Live in Everett</cite></blockquote>
+        <blockquote class="report reveal"><div class="rh"><span>RPT-03</span><span>PRESS</span></div><div class="stars">★★★★★</div><q>"This is such a classic Everett restaurant. This is what Everett establishments looked like at the turn of the century."</q><cite>The Daily Herald</cite></blockquote>
+      </div>
+      <p class="fun reveal">// Everett trivia: this address was once <b>Gordon Ramsay's "Kitchen Nightmares"</b> Prohibition Grille. The Pig has since given 1414 Hewitt a happier ending.</p>
+    </div>
+  </section>
+
+  <!-- ===================== VISIT ===================== -->
+  <section id="visit">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="fig center">Sect. E — Coordinates</p>
+        <h2 class="h-xl">Make memories. Stay sane.</h2>
+      </div>
+      <div class="visit-grid">
+        <div class="reveal">
+          <div class="datablock">
+            <div class="dh">Location Data · FP-EVERETT</div>
+            <div class="drow"><div class="k">Coords</div><div class="v mono">47.9790° N, 122.2106° W</div></div>
+            <div class="drow"><div class="k">Address</div><div class="v"><a href="https://www.google.com/maps/place/The+Flying+Pig/@47.9790337,-122.2106323,17z" target="_blank" rel="noopener">1414 Hewitt Ave<br>Everett, WA 98201</a></div></div>
+            <div class="drow"><div class="k">Comms</div><div class="v"><a href="tel:+14253505925">(425) 350-5925</a></div></div>
+            <div class="drow"><div class="k">Schedule</div><div class="v" style="width:100%">
+              <div class="hrow"><span class="d">Mon–Thu</span><span>11:30am – 9pm</span></div>
+              <div class="hrow"><span class="d">Friday</span><span>11:30am – 11pm</span></div>
+              <div class="hrow"><span class="d">Saturday</span><span>10am – 11pm</span></div>
+              <div class="hrow"><span class="d">Sunday</span><span>10am – 8pm</span></div>
+              <div class="hrow" style="color:var(--green-deep)"><span class="d" style="color:var(--green)">Brunch</span><span>Sat &amp; Sun · 10am–2pm</span></div>
+            </div></div>
+            <div class="drow"><div class="k">Signals</div><div class="v"><div class="socs">
+              <a class="soc" href="https://www.instagram.com/flyingpigeverett/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+              <a class="soc" href="https://www.facebook.com/Flying-Pig-105540195092934/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+              <a class="soc" href="https://twitter.com/everettpig" target="_blank" rel="noopener" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.57L23 22h-6.75l-4.7-6.14L6.16 22H2.9l8.02-9.16L1.5 2h6.92l4.25 5.62L18.244 2Zm-1.18 18h1.83L7.02 3.9H5.06L17.064 20Z"/></svg></a>
+            </div></div></div>
+          </div>
+          <iframe class="map" title="Map to The Flying Pig, 1414 Hewitt Ave, Everett WA" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=1414%20Hewitt%20Ave%2C%20Everett%2C%20WA%2098201&output=embed"></iframe>
+        </div>
+        <form class="book reveal" id="bookForm" novalidate>
+          <h3>Request a table</h3>
+          <p class="subh">// Reservation request form — party manifest</p>
+          <div class="grid-2">
+            <div class="field"><label for="bname">Name</label><input id="bname" name="name" type="text" placeholder="Your name" autocomplete="name" /></div>
+            <div class="field"><label for="bphone">Phone</label><input id="bphone" name="phone" type="tel" placeholder="(425) 555-0123" autocomplete="tel" /></div>
+          </div>
+          <div class="grid-2">
+            <div class="field"><label for="bdate">Date</label><input id="bdate" name="date" type="date" /></div>
+            <div class="field"><label for="bparty">Party size</label><select id="bparty" name="party"><option>1 – 2</option><option>3 – 4</option><option>5 – 6</option><option>7+</option></select></div>
+          </div>
+          <div class="field"><label for="bemail">Email</label><input id="bemail" name="email" type="email" placeholder="you@email.com" autocomplete="email" /></div>
+          <div style="margin-top:1.1rem"><button class="btn btn-solid" type="submit" style="width:100%; justify-content:center;">Send request</button></div>
+          <p class="form-note">// Demo form — no reservation is actually sent. For a real table, call (425) 350-5925.</p>
+          <div class="form-ok" id="formOk">✓ Logged. In the real thing this would reach the Pig's inbox — for now, ring (425) 350-5925. 🐷</div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER / TITLE BLOCK ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <img src="../pig-assets/logo.png" alt="The Flying Pig logo" />
+        <p>A veteran-owned gastropub in the heart of downtown Everett. No frills, no fads, no gimmicks — just a good room, honest food, and a stiff drink.</p>
+        <img class="vet" src="../pig-assets/veteran.webp" alt="Veteran-owned business" />
+      </div>
+      <div class="f-col"><div class="k">Visit</div>
+        <a href="https://www.google.com/maps/place/The+Flying+Pig/@47.9790337,-122.2106323,17z" target="_blank" rel="noopener">1414 Hewitt Ave<br>Everett, WA 98201</a>
+        <a href="tel:+14253505925">(425) 350-5925</a></div>
+      <div class="f-col"><div class="k">Hours</div>
+        <p>Mon–Thu · 11:30a–9p</p><p>Fri · 11:30a–11p</p><p>Sat · 10a–11p</p><p>Sun · 10a–8p</p><p style="color:var(--gold)">Brunch · Sat &amp; Sun 10a–2p</p></div>
+      <div class="f-col"><div class="k">Follow &amp; press</div>
+        <a href="https://www.instagram.com/flyingpigeverett/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/Flying-Pig-105540195092934/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://twitter.com/everettpig" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="https://www.yelp.com/biz/flying-pig-everett" target="_blank" rel="noopener">Yelp</a></div>
+    </div>
+
+    <div class="sources">
+      <div class="k">Info sources &amp; further reading</div>
+      <p>
+        <a href="https://www.heraldnet.com/2026/01/07/flying-pig-restaurant-starts-new-life/" target="_blank" rel="noopener">The Daily Herald — "Flying Pig restaurant starts new life"</a> ·
+        <a href="https://www.liveineverett.com/blog//back-for-round-2-flying-pig" target="_blank" rel="noopener">Live in Everett — "Back for Round 2"</a> ·
+        <a href="https://wanderlog.com/place/details/5173913/the-flying-pig" target="_blank" rel="noopener">Wanderlog</a> ·
+        <a href="https://www.beeradvocate.com/beer/profile/4981/?view=ratings&ba=RoyalT" target="_blank" rel="noopener">BeerAdvocate</a> ·
+        <a href="https://www.google.com/maps/place/The+Flying+Pig/@47.9790337,-122.2106323,17z" target="_blank" rel="noopener">Google Maps</a> ·
+        <a href="https://flyingpigeverett.com" target="_blank" rel="noopener">flyingpigeverett.com (current site)</a>
+      </p>
+    </div>
+
+    <!-- engineering title block -->
+    <div class="titleblock">
+      <div class="tb-grid">
+        <div><div class="k">Drawing Title</div><div class="v">The Flying Pig — Concept</div></div>
+        <div><div class="k">Dwg No.</div><div class="v">FP-2026-07</div></div>
+        <div><div class="k">Scale</div><div class="v">NTS</div></div>
+        <div><div class="k">Sheet</div><div class="v">7 OF 7</div></div>
+        <div><div class="k">Drawn By</div><div class="v">S. FOSDAL</div></div>
+        <div><div class="k">Location</div><div class="v">Everett, WA</div></div>
+        <div><div class="k">Approved</div><div class="v stamp">◆ CONCEPT</div></div>
+        <div><div class="k">Status</div><div class="v red">NOT FOR CONSTRUCTION</div></div>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>© <span id="yr"></span> The Flying Pig · Everett, Washington · Veteran-owned</span>
+      <span class="cn">Concept redesign by <a href="https://fosdal.net" style="color:inherit; text-decoration:underline;">Steve Fosdal</a> — not the official site.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle=document.getElementById('navToggle'), nav=document.getElementById('nav');
+  toggle.addEventListener('click',function(){ var o=nav.classList.toggle('open'); toggle.setAttribute('aria-expanded',o?'true':'false'); });
+  nav.addEventListener('click',function(e){ if(e.target.closest('a')){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); } });
+  var tabs=[].slice.call(document.querySelectorAll('.menu-tab'));
+  tabs.forEach(function(tab){ tab.addEventListener('click',function(){ tabs.forEach(function(t){ var on=t===tab; t.setAttribute('aria-selected',on?'true':'false'); document.getElementById(t.getAttribute('aria-controls')).hidden=!on; }); }); });
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else { document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); }
+  document.getElementById('bookForm').addEventListener('submit',function(e){ e.preventDefault(); document.getElementById('formOk').classList.add('show'); this.querySelector('button[type=submit]').textContent='Request logged ✓'; });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

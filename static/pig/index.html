@@ -40,8 +40,8 @@ img{ display:block; max-width:100%; }
 .top h1 span{ color:var(--pine-deep); }
 .top p{ max-width:52ch; margin:1.1rem auto 0; color:var(--muted); font-size:1.08rem; }
 
-.cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; padding-bottom:3rem; }
-.card{ display:flex; flex-direction:column; background:var(--paper); border:1px solid var(--sand);
+.cards{ display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; padding-bottom:3rem; }
+.card{ flex:1 1 320px; max-width:356px; display:flex; flex-direction:column; background:var(--paper); border:1px solid var(--sand);
   border-radius:16px; overflow:hidden; box-shadow:0 18px 44px -26px rgba(20,28,24,.4);
   transition:transform .28s var(--ease), box-shadow .28s var(--ease), border-color .28s; }
 .card:hover{ transform:translateY(-6px); box-shadow:0 30px 60px -28px rgba(20,28,24,.5); border-color:var(--pine); }
@@ -70,7 +70,7 @@ img{ display:block; max-width:100%; }
 .foot a{ color:var(--pine-deep); text-decoration:underline; text-underline-offset:2px; }
 .foot .note{ display:block; margin-top:.4rem; font-size:.82rem; }
 
-@media (max-width:820px){ .cards{ grid-template-columns:1fr; max-width:480px; margin-inline:auto; } }
+@media (max-width:720px){ .card{ flex-basis:100%; max-width:440px; } }
 :focus-visible{ outline:2px solid var(--pine); outline-offset:3px; border-radius:4px; }
 @media (prefers-reduced-motion:reduce){ *{ transition:none !important; } html{ scroll-behavior:auto; } }
 </style>
@@ -80,8 +80,8 @@ img{ display:block; max-width:100%; }
   <header class="top">
     <img class="roundel" src="../pig-assets/logo.png" alt="The Flying Pig biplane roundel logo" />
     <p class="eyebrow">Concept redesign · Everett, WA</p>
-    <h1>The Flying Pig,<br><span>three ways.</span></h1>
-    <p>Same restaurant, same info — three different looks for a modern, mobile-first site. Take a look and tell us which one feels like the Pig.</p>
+    <h1>The Flying Pig,<br><span>seven ways.</span></h1>
+    <p>Same restaurant, same info — seven different looks for a modern, mobile-first site. Take a look and tell us which one feels like the Pig.</p>
   </header>
 
   <section class="cards" aria-label="Design directions">
@@ -123,6 +123,62 @@ img{ display:block; max-width:100%; }
         <div class="swatches" aria-hidden="true">
           <span class="sw" style="background:#1e5c40"></span><span class="sw" style="background:#e2a02c"></span>
           <span class="sw" style="background:#f4eede"></span><span class="sw" style="background:#242a2b"></span>
+        </div>
+        <span class="view">View this look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+    <!-- V4 -->
+    <a class="card" href="../pig4/">
+      <div class="thumb"><span class="badge" style="background:#25402f">Option 4</span><img src="../pig-assets/thumb4.jpg" alt="Preview of the Gastropub design — refined editorial serif look" loading="lazy" /></div>
+      <div class="card-body">
+        <div class="kicker">Refined · Culinary</div>
+        <h2>The Gastropub</h2>
+        <p>Elevated and editorial — a refined serif, brass accents, and big food photography. Upscale and chef-driven, quietly confident.</p>
+        <div class="swatches" aria-hidden="true">
+          <span class="sw" style="background:#f7f3ea"></span><span class="sw" style="background:#25402f"></span>
+          <span class="sw" style="background:#b0894a"></span><span class="sw" style="background:#2b2b28"></span>
+        </div>
+        <span class="view">View this look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+    <!-- V5 -->
+    <a class="card" href="../pig5/">
+      <div class="thumb"><span class="badge" style="background:#c8492f">Option 5</span><img src="../pig-assets/thumb5.jpg" alt="Preview of the Neighborhood design — warm, rounded, family-friendly" loading="lazy" /></div>
+      <div class="card-body">
+        <div class="kicker">Warm · Family</div>
+        <h2>The Neighborhood</h2>
+        <p>Friendly and welcoming — rounded type, soft cards, and sunny colors for the spot where everyone's a regular.</p>
+        <div class="swatches" aria-hidden="true">
+          <span class="sw" style="background:#f4eede"></span><span class="sw" style="background:#2c7a57"></span>
+          <span class="sw" style="background:#e2a02c"></span><span class="sw" style="background:#c8492f"></span>
+        </div>
+        <span class="view">View this look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+    <!-- V6 -->
+    <a class="card" href="../pig6/">
+      <div class="thumb"><span class="badge" style="background:#14181a;color:#39c977">Option 6</span><img src="../pig-assets/thumb6.jpg" alt="Preview of the Dive design — dark, neon-green, gritty" loading="lazy" /></div>
+      <div class="card-body">
+        <div class="kicker">Gritty · Neon</div>
+        <h2>The Dive</h2>
+        <p>Loud and after-dark — near-black with a neon-green glow, marquee bulbs, and a chalkboard menu. All attitude.</p>
+        <div class="swatches" aria-hidden="true">
+          <span class="sw" style="background:#14181a"></span><span class="sw" style="background:#39c977"></span>
+          <span class="sw" style="background:#e2a02c"></span><span class="sw" style="background:#b3352c"></span>
+        </div>
+        <span class="view">View this look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+    <!-- V7 -->
+    <a class="card" href="../pig7/">
+      <div class="thumb"><span class="badge" style="background:#0e2f4d;color:#cfe6f5">Option 7</span><img src="../pig-assets/thumb7.jpg" alt="Preview of the Blueprint design — aviation schematic wildcard" loading="lazy" /></div>
+      <div class="card-body">
+        <div class="kicker">Surprise · Schematic</div>
+        <h2>The Blueprint</h2>
+        <p>A wildcard — the whole site drawn like an aviation blueprint: grid paper, spec-sheet menus, and a flight schedule.</p>
+        <div class="swatches" aria-hidden="true">
+          <span class="sw" style="background:#0e2f4d"></span><span class="sw" style="background:#2c7a57"></span>
+          <span class="sw" style="background:#cfe6f5"></span><span class="sw" style="background:#12303f"></span>
         </div>
         <span class="view">View this look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
