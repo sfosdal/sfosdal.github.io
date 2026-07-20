@@ -1,13 +1,6 @@
 [
   {
     "venue": "Climate Pledge Arena",
-    "title": "JOJI: SOLARIS",
-    "date": "2026-07-19",
-    "time": "19:30:00",
-    "url": "https://www.ticketmaster.com/joji-solaris-seattle-washington-07-19-2026/event/0F006458E233A70A"
-  },
-  {
-    "venue": "Climate Pledge Arena",
     "title": "Seattle Storm vs. Minnesota Lynx",
     "date": "2026-07-20",
     "time": "19:00:00",
@@ -82,5 +75,12 @@
     "date": "2026-08-08",
     "time": "",
     "url": "https://www.mccawhall.com/events/detail/nierorchestra-concert-12026-yorha"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Seattle Storm vs. Chicago Sky",
+    "date": "2026-08-10",
+    "time": "19:00:00",
+    "url": "https://www.ticketmaster.com/seattle-storm-vs-chicago-sky-seattle-washington-08-10-2026/event/0F00646A89304C96"
   }
 ]
