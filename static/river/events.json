@@ -2,13 +2,6 @@
   {
     "venue": "Climate Pledge Arena",
     "title": "Seattle Storm vs. Minnesota Lynx",
-    "date": "2026-07-20",
-    "time": "19:00:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-minnesota-lynx-seattle-washington-07-20-2026/event/0F00646A887E4B31"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Minnesota Lynx",
     "date": "2026-07-22",
     "time": "12:00:00",
     "url": "https://www.ticketmaster.com/seattle-storm-vs-minnesota-lynx-seattle-washington-07-22-2026/event/0F00646A88814B3A"
@@ -82,5 +75,12 @@
     "date": "2026-08-10",
     "time": "19:00:00",
     "url": "https://www.ticketmaster.com/seattle-storm-vs-chicago-sky-seattle-washington-08-10-2026/event/0F00646A89304C96"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "YOASOBI: Never Ending Stories Tour",
+    "date": "2026-08-12",
+    "time": "20:00:00",
+    "url": "https://www.ticketmaster.com/yoasobi-never-ending-stories-tour-seattle-washington-08-12-2026/event/0F00648A9EA791BF"
   }
 ]
