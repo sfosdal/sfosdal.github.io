@@ -1,13 +1,6 @@
 [
   {
     "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Minnesota Lynx",
-    "date": "2026-07-22",
-    "time": "12:00:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-minnesota-lynx-seattle-washington-07-22-2026/event/0F00646A88814B3A"
-  },
-  {
-    "venue": "Climate Pledge Arena",
     "title": "Seattle Storm vs. Indiana Fever",
     "date": "2026-07-28",
     "time": "18:30:00",
@@ -82,5 +75,12 @@
     "date": "2026-08-12",
     "time": "20:00:00",
     "url": "https://www.ticketmaster.com/yoasobi-never-ending-stories-tour-seattle-washington-08-12-2026/event/0F00648A9EA791BF"
+  },
+  {
+    "venue": "McCaw Hall",
+    "title": "Ali Wong Live",
+    "date": "2026-08-13",
+    "time": "",
+    "url": "https://www.mccawhall.com/events/detail/ali-wong-live-1"
   }
 ]
