@@ -1,12 +1,5 @@
 [
   {
-    "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Indiana Fever",
-    "date": "2026-07-28",
-    "time": "18:30:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-indiana-fever-seattle-washington-07-28-2026/event/0F00646A8C9551FC"
-  },
-  {
     "venue": "McCaw Hall",
     "title": "The Jury Experience",
     "date": "2026-08-01",
@@ -82,5 +75,12 @@
     "date": "2026-08-13",
     "time": "",
     "url": "https://www.mccawhall.com/events/detail/ali-wong-live-1"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Seattle Storm vs. Portland Fire",
+    "date": "2026-08-14",
+    "time": "19:00:00",
+    "url": "https://www.ticketmaster.com/seattle-storm-vs-portland-fire-seattle-washington-08-14-2026/event/0F00646A89EC4DB8"
   }
 ]
