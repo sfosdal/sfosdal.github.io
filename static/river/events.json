@@ -1,12 +1,5 @@
 [
   {
-    "venue": "Seattle Center",
-    "title": "Brownies & Lemonade Seattle",
-    "date": "2026-08-01",
-    "time": "14:00:00",
-    "url": "https://on.fgtix.com/trk/ifgmc"
-  },
-  {
     "venue": "Climate Pledge Arena",
     "title": "Megan Moroney: The Cloud 9 Tour",
     "date": "2026-08-02",
@@ -82,5 +75,12 @@
     "date": "2026-08-16",
     "time": "14:00:00",
     "url": "https://www.ticketmaster.com/seattle-storm-vs-chicago-sky-seattle-washington-08-16-2026/event/0F00646A89EE4DC0"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "The Guess Who: Takin' It Back Tour 2026",
+    "date": "2026-08-22",
+    "time": "19:30:00",
+    "url": "https://www.ticketmaster.com/the-guess-who-takin-it-back-seattle-washington-08-22-2026/event/0F00645991F0D888"
   }
 ]
