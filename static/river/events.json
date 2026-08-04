@@ -1,13 +1,6 @@
 [
   {
     "venue": "Climate Pledge Arena",
-    "title": "Lionel Richie and Earth, Wind & Fire - Sing a Song All Night Long",
-    "date": "2026-08-03",
-    "time": "19:30:00",
-    "url": "https://www.ticketmaster.com/lionel-richie-and-earth-wind-fire-seattle-washington-08-03-2026/event/0F006434F5229BE3"
-  },
-  {
-    "venue": "Climate Pledge Arena",
     "title": "Benson Boone: Wanted Man Tour",
     "date": "2026-08-04",
     "time": "20:00:00",
@@ -82,5 +75,12 @@
     "date": "2026-08-23",
     "time": "",
     "url": "https://www.mccawhall.com/events/detail/fear-live-ft-hasan-piker-austinshow-will-neff-qtcinderella"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "J. Cole: The Fall-Off Tour",
+    "date": "2026-08-25",
+    "time": "20:00:00",
+    "url": "https://www.ticketmaster.com/j-cole-the-falloff-tour-seattle-washington-08-25-2026/event/0F006435E73FF7A9"
   }
 ]
