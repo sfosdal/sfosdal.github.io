@@ -1,69 +1,6 @@
 [
   {
     "venue": "Climate Pledge Arena",
-    "title": "JOJI: SOLARIS",
-    "date": "2026-07-19",
-    "time": "19:30:00",
-    "url": "https://www.ticketmaster.com/joji-solaris-seattle-washington-07-19-2026/event/0F006458E233A70A"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Minnesota Lynx",
-    "date": "2026-07-20",
-    "time": "19:00:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-minnesota-lynx-seattle-washington-07-20-2026/event/0F00646A887E4B31"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Minnesota Lynx",
-    "date": "2026-07-22",
-    "time": "12:00:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-minnesota-lynx-seattle-washington-07-22-2026/event/0F00646A88814B3A"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Indiana Fever",
-    "date": "2026-07-28",
-    "time": "18:30:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-indiana-fever-seattle-washington-07-28-2026/event/0F00646A8C9551FC"
-  },
-  {
-    "venue": "McCaw Hall",
-    "title": "The Jury Experience",
-    "date": "2026-07-31",
-    "time": "",
-    "url": "https://www.mccawhall.com/events/detail/the-jury-experience"
-  },
-  {
-    "venue": "Seattle Center",
-    "title": "Brownies & Lemonade Seattle",
-    "date": "2026-08-01",
-    "time": "14:00:00",
-    "url": "https://on.fgtix.com/trk/ifgmc"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "Megan Moroney: The Cloud 9 Tour",
-    "date": "2026-08-02",
-    "time": "19:00:00",
-    "url": "https://www.ticketmaster.com/megan-moroney-the-cloud-9-tour-seattle-washington-08-02-2026/event/0F006382822B4B7E"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "Lionel Richie and Earth, Wind & Fire - Sing a Song All Night Long",
-    "date": "2026-08-03",
-    "time": "19:30:00",
-    "url": "https://www.ticketmaster.com/lionel-richie-and-earth-wind-fire-seattle-washington-08-03-2026/event/0F006434F5229BE3"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "Benson Boone: Wanted Man Tour",
-    "date": "2026-08-04",
-    "time": "20:00:00",
-    "url": "https://www.ticketmaster.com/benson-boone-wanted-man-tour-seattle-washington-08-04-2026/event/0F00647926C50CF3"
-  },
-  {
-    "venue": "Climate Pledge Arena",
     "title": "Meghan Trainor: The Get In Girl Tour",
     "date": "2026-08-05",
     "time": "18:30:00",
@@ -82,5 +19,68 @@
     "date": "2026-08-08",
     "time": "",
     "url": "https://www.mccawhall.com/events/detail/nierorchestra-concert-12026-yorha"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Seattle Storm vs. Chicago Sky",
+    "date": "2026-08-10",
+    "time": "19:00:00",
+    "url": "https://www.ticketmaster.com/seattle-storm-vs-chicago-sky-seattle-washington-08-10-2026/event/0F00646A89304C96"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "YOASOBI: Never Ending Stories Tour",
+    "date": "2026-08-12",
+    "time": "20:00:00",
+    "url": "https://www.ticketmaster.com/yoasobi-never-ending-stories-tour-seattle-washington-08-12-2026/event/0F00648A9EA791BF"
+  },
+  {
+    "venue": "McCaw Hall",
+    "title": "Ali Wong Live",
+    "date": "2026-08-13",
+    "time": "",
+    "url": "https://www.mccawhall.com/events/detail/ali-wong-live-1"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Seattle Storm vs. Portland Fire",
+    "date": "2026-08-14",
+    "time": "19:00:00",
+    "url": "https://www.ticketmaster.com/seattle-storm-vs-portland-fire-seattle-washington-08-14-2026/event/0F00646A89EC4DB8"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Seattle Storm vs. Chicago Sky",
+    "date": "2026-08-16",
+    "time": "14:00:00",
+    "url": "https://www.ticketmaster.com/seattle-storm-vs-chicago-sky-seattle-washington-08-16-2026/event/0F00646A89EE4DC0"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "The Guess Who: Takin' It Back Tour 2026",
+    "date": "2026-08-22",
+    "time": "19:30:00",
+    "url": "https://www.ticketmaster.com/the-guess-who-takin-it-back-seattle-washington-08-22-2026/event/0F00645991F0D888"
+  },
+  {
+    "venue": "McCaw Hall",
+    "title": "FEAR& LIVE: Ft. Hasan Piker, Austinshow, Will Neff, & QTCinderella",
+    "date": "2026-08-23",
+    "time": "",
+    "url": "https://www.mccawhall.com/events/detail/fear-live-ft-hasan-piker-austinshow-will-neff-qtcinderella"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "J. Cole: The Fall-Off Tour",
+    "date": "2026-08-25",
+    "time": "20:00:00",
+    "url": "https://www.ticketmaster.com/j-cole-the-falloff-tour-seattle-washington-08-25-2026/event/0F006435E73FF7A9"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Seattle Storm vs. Toronto Tempo",
+    "date": "2026-08-26",
+    "time": "19:00:00",
+    "url": "https://www.ticketmaster.com/seattle-storm-vs-toronto-tempo-seattle-washington-08-26-2026/event/0F00646A89334C9B"
   }
 ]

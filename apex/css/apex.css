@@ -1,0 +1,573 @@
+/* APEX Everett — redesign. Same identity, disciplined rhythm.
+   Tokens are lifted verbatim from the live Squarespace theme
+   (site.css tweak variables), so color/type match the current brand. */
+
+:root {
+  --ink:    hsl(300 0% 2%);
+  --paper:  hsl(250 100% 99%);
+  --cream:  hsl(40 70% 93%);
+  --plum:   hsl(291 27% 28%);
+  --forest: hsl(160 100% 12%);
+  --line:   hsl(300 0% 2% / .14);
+
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-body: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+
+  /* One spacing scale. Every gap on the site comes from here. */
+  --s-1: .375rem;
+  --s0: .75rem;
+  --s1: 1rem;
+  --s2: 1.5rem;
+  --s3: 2.25rem;
+  --s4: 3.5rem;
+  --section: clamp(4rem, 9vw, 6.5rem);
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+
+  --measure: 60ch;
+  --radius: 3px;
+}
+
+* { margin: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ---------- type ---------- */
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2.5rem, 6.5vw, 4.75rem); }
+h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); font-weight: 500; }
+
+p { max-width: var(--measure); }
+p + p { margin-top: var(--s1); }
+
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--plum); outline-offset: 3px; }
+.theme-dark :focus-visible { outline-color: var(--cream); }
+
+/* Brand-diamond eyebrow: every section heading is anchored by the mark. */
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: .8125rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--plum);
+  display: flex;
+  align-items: center;
+  gap: .6em;
+  margin-bottom: var(--s2);
+}
+.eyebrow::before { content: "◆"; font-size: .7em; }
+.theme-dark .eyebrow { color: var(--cream); }
+
+/* Heading → body: one deliberate gap, not a canyon. */
+.eyebrow + h1, .eyebrow + h2 { margin-bottom: var(--s2); }
+h1 + p, h2 + p, h3 + p { margin-top: var(--s1); }
+
+/* ---------- shell ---------- */
+
+.wrap { max-width: 74rem; margin-inline: auto; padding-inline: var(--gutter); }
+
+.theme-dark { background: var(--ink); color: var(--paper); }
+.theme-cream { background: var(--cream); }
+
+section { padding-block: var(--section); }
+
+/* ---------- header ---------- */
+
+.site-header { background: var(--ink); color: var(--paper); }
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+  padding-block: var(--s1);
+}
+.brand { display: inline-flex; align-items: center; gap: .75rem; text-decoration: none; }
+.brand svg { width: 44px; height: 44px; }
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: .3em;
+  font-size: .875rem;
+}
+.site-nav { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.site-nav a {
+  font-family: var(--font-display);
+  font-size: .9rem;
+  font-weight: 400;
+  text-decoration: none;
+  padding-block: .25em;
+  border-bottom: 1px solid transparent;
+}
+.site-nav a:hover { border-bottom-color: currentColor; }
+.site-nav a[aria-current="page"] { border-bottom-color: currentColor; }
+
+/* ---------- hero ---------- */
+
+.hero { display: grid; align-content: center; min-height: 56vh; }
+.hero .sub {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.4rem, 3.2vw, 2.4rem);
+  line-height: 1.2;
+  max-width: none;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--s1); margin-top: var(--s3); }
+.hero--band { min-height: 34vh; }
+
+/* Compact title band: for listing/utility pages the hero is a header, not a moment. */
+.hero--compact { min-height: 0; }
+section.section--band { padding-block: clamp(2.5rem, 5vw, 4rem); }
+.hero--compact .sub { font-size: clamp(1.15rem, 2vw, 1.5rem); margin-top: var(--s1); }
+
+/* Photo hero: their photography carries the page. Light dusk-blue scrim only —
+   the building should read clearly, like the neon sign does at street level. */
+.hero--photo {
+  position: relative;
+  min-height: min(92vh, 58rem);
+  display: grid;
+  /* The photo layer arrives via inline background-image on the section —
+     inline URLs resolve against the page in every browser, so the site
+     works from any subpath (fosdal.net/apex/, localhost, ngrok). */
+  background-color: var(--ink);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero--photo .hero h1 { text-shadow: 0 2px 24px hsl(230 30% 8% / .55); }
+.hero--photo .hero .sub { text-shadow: 0 1px 16px hsl(230 30% 8% / .55); }
+
+/* On photo-hero pages the header floats transparent over the image. */
+.header-overlay .site-header {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  z-index: 2;
+  background: transparent;
+}
+.header-overlay { position: relative; }
+
+/* 2% ghost: the brand mark haunting the background of a section. */
+.has-ghost { position: relative; overflow: hidden; }
+.has-ghost > .wrap { position: relative; z-index: 1; }
+.has-ghost::before {
+  content: "APEX";
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: -.08em;
+  translate: 0 -50%;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(14rem, 34vw, 30rem);
+  letter-spacing: -.02em;
+  line-height: 1;
+  color: currentColor;
+  opacity: .02;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Graffiti accents — the building is full of murals; echo them, quietly.
+   Marker face for tag-style labels, spray-edged underline for one word per page. */
+.tag {
+  font-family: 'Permanent Marker', var(--font-display), cursive;
+  font-size: 1rem;
+  letter-spacing: .04em;
+  text-transform: none;
+  rotate: -2deg;
+  display: inline-block;
+}
+.eyebrow.tag { color: var(--plum); display: flex; } /* .tag's inline-block would put the following inline-block heading on the same line */
+.theme-dark .eyebrow.tag, .hero--photo .eyebrow.tag { color: var(--cream); }
+.eyebrow.tag::before { content: none; }
+
+/* DogTown is written in its own hand wherever it appears. */
+.site-nav a[href="dogtown.html"] {
+  font-family: 'Permanent Marker', cursive;
+  rotate: -2deg;
+  font-size: 1rem;
+}
+.graffiti-h {
+  font-family: 'Permanent Marker', cursive !important;
+  font-weight: 400;
+  letter-spacing: .01em;
+  rotate: -1.5deg;
+  display: inline-block;
+}
+
+.spray {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M4 9 Q30 4 62 8 T120 7 T196 8" stroke="%237c4a8f" stroke-width="6" fill="none" stroke-linecap="round" opacity=".55"/><path d="M6 10 Q45 6 90 9 T194 9" stroke="%237c4a8f" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/></svg>') no-repeat bottom left / 100% .22em;
+  padding-bottom: .12em;
+  white-space: nowrap;
+}
+
+/* Full-bleed gallery band: photos as content, not decoration. */
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s0);
+  padding: var(--s0);
+}
+.gallery-strip img {
+  width: 100%;
+  height: clamp(11rem, 24vw, 19rem);
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+@media (max-width: 56rem) {
+  .gallery-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: .9375rem;
+  font-weight: 400;
+  text-decoration: none;
+  border: 1px solid currentColor;
+  border-radius: var(--radius);
+  padding: .7em 1.5em;
+  transition: background .15s, color .15s;
+}
+.btn:hover { background: var(--plum); border-color: var(--plum); color: var(--paper); }
+.theme-dark .btn:hover { background: var(--cream); border-color: var(--cream); color: var(--ink); }
+
+/* ---------- split rows (text + photo) ---------- */
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--s3) clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+.split.flip > .split-media { order: -1; }
+.split-media img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.split-copy .btn { margin-top: var(--s3); }
+
+/* ---------- event list: a gig calendar, scannable date-first ---------- */
+
+.month-label {
+  font-family: var(--font-display);
+  font-size: .8125rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--plum);
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  margin-top: var(--s4);
+}
+.month-label:first-child { margin-top: 0; }
+.month-label::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
+
+.event {
+  display: grid;
+  grid-template-columns: 4.5rem 120px minmax(0, 1fr) auto;
+  gap: var(--s2) var(--s3);
+  align-items: center;
+  padding-block: var(--s2);
+  border-top: 1px solid var(--line);
+}
+.month-label + .event { border-top: 0; }
+.event-date {
+  font-family: var(--font-display);
+  text-align: center;
+  line-height: 1.1;
+}
+.event-date .dow { display: block; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--plum); }
+.event-date .day { display: block; font-size: 2rem; font-weight: 300; }
+.event img { aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
+.event h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
+.event-meta { margin-top: .3rem; font-size: .95rem; }
+.event-meta .venue { color: var(--plum); font-style: italic; }
+
+/* Poster grid (home teaser) */
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s3);
+}
+.poster-card { text-decoration: none; }
+.poster-card img { aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
+.poster-card h3 { margin-top: var(--s1); }
+.poster-card .date { font-size: .95rem; color: var(--plum); }
+.theme-dark .poster-card .date { color: var(--cream); }
+
+/* ---------- menus (El Sid) ---------- */
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: var(--s2) var(--s4);
+  align-content: start;
+}
+.menu-item { border-top: 1px solid var(--line); padding-top: var(--s1); }
+.menu-item .row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s1);
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+.menu-item .price { white-space: nowrap; font-weight: 400; }
+.menu-item .desc { font-size: .95rem; margin-top: .2rem; color: hsl(300 0% 2% / .75); }
+
+.tap-list { columns: 2; column-gap: var(--s4); font-size: 1rem; }
+.tap-list li {
+  display: flex; justify-content: space-between; gap: var(--s1);
+  break-inside: avoid; padding-block: .3rem;
+  border-bottom: 1px dotted var(--line);
+  list-style: none;
+}
+.tap-list { padding-left: 0; }
+
+/* Weekly nights */
+.nights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--s2);
+  padding-left: 0;
+  list-style: none;
+}
+.nights li { border-top: 2px solid var(--cream); padding-top: var(--s1); }
+.nights .day {
+  font-family: var(--font-display);
+  font-size: .8125rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+.nights h3 { margin-top: .3rem; }
+
+/* ---------- FAQ ---------- */
+
+.faq { max-width: var(--measure); display: grid; gap: 0; }
+.faq details { border-top: 1px solid var(--line); }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 500;
+  padding-block: var(--s1);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s1);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-weight: 300; }
+.faq details[open] summary::after { content: "–"; }
+.faq details > p { padding-bottom: var(--s2); }
+
+/* ---------- hours / footer ---------- */
+
+.hours dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--s-1) var(--s2);
+  font-size: 1rem;
+}
+.hours dt { font-family: var(--font-display); font-size: .9rem; }
+.hours dd { margin: 0; }
+
+.site-footer { background: var(--cream); padding-block: var(--section) var(--s3); }
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--s4);
+}
+.footer-cols h2 { font-size: 1.4rem; margin-bottom: var(--s1); }
+.footer-cols a { text-decoration-color: var(--plum); }
+.footer-social {
+  margin-top: var(--s3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  font-family: var(--font-display);
+  font-size: .9rem;
+}
+.footer-social a { text-decoration: none; border-bottom: 1px solid var(--plum); padding-bottom: .1em; }
+.footer-social a:hover { border-bottom-width: 2px; }
+.footer-bottom {
+  margin-top: var(--s4);
+  padding-top: var(--s2);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s1);
+  font-size: .9rem;
+  font-family: var(--font-display);
+}
+
+/* ---------- rentals: spaces with facts ---------- */
+
+.space-chips { display: flex; flex-wrap: wrap; gap: var(--s0); margin-top: var(--s3); padding-left: 0; list-style: none; }
+.space-chips a {
+  font-family: var(--font-display);
+  font-size: .875rem;
+  text-decoration: none;
+  border: 1px solid hsl(250 100% 99% / .4);
+  border-radius: 999px;
+  padding: .45em 1.1em;
+  transition: border-color .15s, background .15s;
+}
+.space-chips a:hover { border-color: currentColor; background: hsl(250 100% 99% / .08); }
+
+.specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem var(--s2);
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: var(--s2);
+  font-family: var(--font-display);
+  font-size: .8125rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.specs li { display: flex; align-items: center; gap: .5em; }
+.specs li + li::before { content: "·"; color: var(--plum); }
+
+.section--tight { padding-block: clamp(3rem, 6vw, 4.5rem); }
+.split--top { align-items: start; }
+
+/* Dates grid (chef's table) */
+.dates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--s1);
+  padding-left: 0;
+  list-style: none;
+  max-width: 44rem;
+}
+.dates li {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--s1);
+  text-align: center;
+  font-family: var(--font-display);
+}
+
+/* ---------- sub-brand: El Sid (punk zine — like the name) ---------- */
+
+.page-elsid { background: var(--ink); color: var(--paper); }
+.page-elsid main section { background: var(--ink); color: var(--paper); }
+.page-elsid .eyebrow { color: var(--cream); }
+.page-elsid h2 {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  rotate: -1deg;
+  display: inline-block;
+}
+.page-elsid .menu-item { border-top: 1px dashed hsl(250 100% 99% / .35); }
+.page-elsid .menu-item .row { text-transform: uppercase; letter-spacing: .03em; }
+.page-elsid .menu-item .price { font-family: 'Permanent Marker', cursive; color: var(--cream); rotate: 2deg; }
+.page-elsid .menu-item .desc { color: hsl(250 100% 99% / .72); }
+.page-elsid .tap-list li { border-bottom: 1px dashed hsl(250 100% 99% / .3); }
+.page-elsid .nights li { border-top: 3px solid var(--cream); rotate: -.5deg; }
+.page-elsid .nights li:nth-child(even) { rotate: .75deg; }
+.page-elsid .btn:hover { background: var(--cream); border-color: var(--cream); color: var(--ink); }
+.page-elsid :focus-visible { outline-color: var(--cream); }
+
+/* Punk ticker: the week's lineup on loop, like tape on a lamppost. */
+.ticker {
+  overflow: hidden;
+  border-block: 1px dashed hsl(250 100% 99% / .4);
+  padding-block: .55rem;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.05rem;
+  white-space: nowrap;
+}
+.ticker span {
+  display: inline-block;
+  padding-right: 3rem;
+  animation: ticker 28s linear infinite;
+}
+@keyframes ticker { to { translate: -50% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker span { animation: none; }
+}
+
+/* ---------- sub-brand: 16Eleven (supper club — serif-led, forest & cream) ---------- */
+
+.page-1611 { --plum: var(--forest-ink, hsl(160 100% 12%)); }
+.page-1611 .eyebrow {
+  font-family: var(--font-body);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: .08em;
+  font-size: 1rem;
+  color: hsl(160 100% 12%);
+}
+.page-1611 .theme-dark .eyebrow, .page-1611 .hero--photo .eyebrow { color: var(--cream); }
+.page-1611 .eyebrow::before { content: "—"; font-size: 1em; }
+.page-1611 h1, .page-1611 h2 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.page-1611 .btn { border-width: 1px; letter-spacing: .12em; text-transform: uppercase; font-size: .8125rem; padding: .85em 1.9em; }
+.page-1611 .btn:hover { background: hsl(160 100% 12%); border-color: hsl(160 100% 12%); color: var(--paper); }
+.page-1611 .faq summary { font-family: var(--font-body); font-weight: 600; font-size: 1.05rem; }
+.page-1611 :focus-visible { outline-color: hsl(160 100% 12%); }
+
+/* Double-rule flourish, menu-card style */
+.rule-flourish {
+  border: 0;
+  border-top: 1px solid var(--line);
+  position: relative;
+  margin-block: var(--s3);
+  max-width: 12rem;
+}
+.rule-flourish::after {
+  content: "";
+  position: absolute;
+  top: 3px; left: 0; right: 0;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 56rem) {
+  .split, .event { grid-template-columns: minmax(0, 1fr); }
+  .split.flip > .split-media { order: 0; }
+  .event img { max-width: 320px; }
+  .poster-grid { grid-template-columns: minmax(0, 1fr); }
+  .tap-list { columns: 1; }
+  .hero { min-height: 46vh; }
+  .site-header .wrap { flex-direction: column; align-items: flex-start; }
+}
