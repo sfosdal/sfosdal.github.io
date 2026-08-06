@@ -1,13 +1,6 @@
 [
   {
     "venue": "Climate Pledge Arena",
-    "title": "Meghan Trainor: The Get In Girl Tour",
-    "date": "2026-08-05",
-    "time": "18:30:00",
-    "url": "https://www.ticketmaster.com/meghan-trainor-the-get-in-girl-seattle-washington-08-05-2026/event/0F00636BBBD6904E"
-  },
-  {
-    "venue": "Climate Pledge Arena",
     "title": "IVE WORLD TOUR <SHOW WHAT I AM> IN SEATTLE",
     "date": "2026-08-07",
     "time": "20:00:00",
@@ -82,5 +75,12 @@
     "date": "2026-08-26",
     "time": "19:00:00",
     "url": "https://www.ticketmaster.com/seattle-storm-vs-toronto-tempo-seattle-washington-08-26-2026/event/0F00646A89334C9B"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "The Red Clay Strays",
+    "date": "2026-08-27",
+    "time": "18:30:00",
+    "url": "https://www.ticketmaster.com/the-red-clay-strays-seattle-washington-08-27-2026/event/0F006488D8B2B17B"
   }
 ]
