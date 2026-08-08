@@ -21,7 +21,7 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 120px; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition: none !important; }
@@ -71,11 +71,12 @@
     gap: 16px;
     padding-top: 12px;
     padding-bottom: 12px;
+    max-width: 1320px;
   }
   .brand {
     font-family: "Big Shoulders Display", sans-serif;
     font-weight: 900;
-    font-size: 28px;
+    font-size: 60px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     text-decoration: none;
@@ -85,22 +86,34 @@
     display: block;
     font-family: "IBM Plex Mono", monospace;
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.18em;
     color: var(--dust);
-    margin-top: 3px;
+    margin-top: 5px;
   }
+  .topnav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .topnav a {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paper);
+    padding: 4px 0;
+    border-bottom: 4px solid transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .topnav a:hover { color: var(--orange); border-bottom-color: var(--orange); }
   .topbar-call {
     display: flex;
     align-items: center;
     gap: 14px;
     text-align: right;
-  }
-  .topbar-call .hours {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 11px;
-    color: var(--dust);
-    display: none;
   }
   .call-btn {
     display: inline-block;
@@ -372,11 +385,12 @@
   }
 
   /* ---------- responsive ---------- */
-  @media (min-width: 720px) {
-    .topbar-call .hours { display: block; }
+  @media (max-width: 1120px) {
+    .topnav { display: none; }
   }
   @media (max-width: 719px) {
-    .brand { font-size: 22px; }
+    .brand { font-size: 32px; }
+    .brand small { font-size: 10px; }
     .service-list li { grid-template-columns: 1fr; gap: 6px; }
     .about-grid, .contact-grid { grid-template-columns: 1fr; }
     .hero .wrap { padding-top: 48px; }
@@ -391,8 +405,14 @@
     <a class="brand" href="#top">Pro Demo LLC
       <small>Demolition · Excavation · Arlington, WA</small>
     </a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#area">Service area</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <div class="topbar-call">
-      <span class="hours">Mon–Sat · Free estimates</span>
       <a class="call-btn" href="tel:+14255839276">(425) 583-9276</a>
     </div>
   </div>
@@ -405,10 +425,10 @@
       <p class="eyebrow">Snohomish County · Owner-operated</p>
       <h1>Torn down.<br>Cleared out.<br><span class="accent">Ready to build.</span></h1>
       <p class="lead">Demolition, excavation and site prep for homeowners and builders
-        across Snohomish County. One owner, one crew, one number to call —
+        across Snohomish County. Owner-operated — one crew, one number to call,
         and a clean, build-ready lot when we leave.</p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="tel:+14255839276">Call Scott — Free estimate</a>
+        <a class="btn-primary" href="tel:+14255839276">Call for a free estimate</a>
         <a class="btn-secondary" href="#services">See what we do</a>
       </div>
       <p class="hero-note">WA Contractor Lic. PRODEDL760DJ · Bonded &amp; insured</p>
@@ -462,7 +482,7 @@
       </div>
       <div class="trust-item">
         <div class="label">Surety Bond</div>
-        <div class="value">$12,000</div>
+        <div class="value">$30,000</div>
       </div>
       <div class="trust-item">
         <div class="label">BBB Rating</div>
@@ -506,7 +526,7 @@
     </div>
   </section>
 
-  <section class="process section">
+  <section class="process section" id="process">
     <div class="wrap">
       <p class="eyebrow">Process</p>
       <h2>How a job goes</h2>
@@ -514,7 +534,7 @@
         <div class="step">
           <div class="step-num">STEP 1</div>
           <h3>Call or text</h3>
-          <p>Tell Scott what you're dealing with. If a photo says it better, text one.</p>
+          <p>Tell us what you're dealing with. If a photo says it better, text one.</p>
         </div>
         <div class="step">
           <div class="step-num">STEP 2</div>
@@ -530,7 +550,7 @@
     </div>
   </section>
 
-  <section class="area section">
+  <section class="area section" id="area">
     <div class="wrap">
       <p class="eyebrow" style="color:#AEB3AD;">Service area</p>
       <h2>Based in Arlington. Working all over Snohomish County.</h2>
@@ -553,15 +573,15 @@
     </div>
   </section>
 
-  <section class="about section">
+  <section class="about section" id="about">
     <div class="wrap">
       <div class="about-grid">
         <blockquote>"Excellent workmanship and complete customer satisfaction — on every job, for every customer."</blockquote>
         <div>
           <p class="eyebrow">About</p>
-          <p><strong>Pro Demo LLC is owner-operated by Scott Miller</strong>, based in
-            Arlington, Washington. When you call, you talk to the person who will
-            actually run the machine on your property — not a call center, not a
+          <p><strong>Pro Demo LLC is owner-operated</strong> and based in
+            Arlington, Washington. When you call, you talk to the people who will
+            actually run the machines on your property — not a call center, not a
             salesman.</p>
           <p>We keep it simple: show up on time, communicate like professionals,
             do the work right, and leave the site cleaner than we found it.</p>
