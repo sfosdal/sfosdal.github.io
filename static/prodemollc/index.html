@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Demo LLC — Demolition, Excavation &amp; Site Prep | Arlington, WA</title>
+<meta name="description" content="Owner-operated demolition, excavation, land clearing and site prep across Snohomish County. Licensed, bonded and insured. Call (425) 583-9276 for a free estimate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --iron: #211E1A;
+    --concrete: #EDEDE9;
+    --dust: #98928A;
+    --evergreen: #39413A;
+    --orange: #E85D04;
+    --paper: #FAFAF8;
+    --maxw: 1080px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+  }
+
+  body {
+    font-family: "Archivo", -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--iron);
+    background: var(--concrete);
+  }
+
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  h1, h2 {
+    font-family: "Big Shoulders Display", "Archivo Narrow", sans-serif;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--evergreen);
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--iron);
+    color: var(--paper);
+    border-bottom: 4px solid var(--orange);
+  }
+  .topbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .brand {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    line-height: 1;
+  }
+  .brand small {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--dust);
+    margin-top: 3px;
+  }
+  .topbar-call {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: right;
+  }
+  .topbar-call .hours {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: var(--dust);
+    display: none;
+  }
+  .call-btn {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--paper);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 10px 18px;
+    border-radius: 3px;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .call-btn:hover { background: #C74E02; }
+
+  /* ---------- hero ---------- */
+  .hero { background: var(--concrete); }
+  .hero .wrap { padding-top: 72px; padding-bottom: 0; }
+  .hero h1 {
+    font-size: clamp(52px, 9vw, 104px);
+    font-weight: 900;
+    max-width: 800px;
+    margin: 14px 0 20px;
+  }
+  .hero h1 .accent { color: var(--orange); }
+  .hero p.lead {
+    font-size: 19px;
+    max-width: 560px;
+    color: #43403A;
+  }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 30px 0 8px;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: var(--paper);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 15px 26px;
+    border-radius: 3px;
+    transition: background 0.15s ease;
+  }
+  .btn-primary:hover { background: #C74E02; }
+  .btn-secondary {
+    background: transparent;
+    color: var(--iron);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 14px 26px;
+    border: 2px solid var(--iron);
+    border-radius: 3px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .btn-secondary:hover { background: var(--iron); color: var(--paper); }
+  .hero-note {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--dust);
+    margin-bottom: 8px;
+  }
+
+  .hero-scene { display: block; width: 100%; height: auto; margin-top: -20px; }
+
+  /* ---------- trust strip ---------- */
+  .trust {
+    background: var(--iron);
+    color: var(--paper);
+    padding: 26px 0;
+  }
+  .trust .wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px;
+    font-family: "IBM Plex Mono", monospace;
+  }
+  .trust-item .label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dust);
+    margin-bottom: 4px;
+  }
+  .trust-item .value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--paper);
+  }
+  .trust-item .value a { color: var(--paper); text-decoration-color: var(--orange); }
+
+  /* ---------- shared section rhythm ---------- */
+  .section { padding: 76px 0; }
+  .section h2 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    margin: 10px 0 18px;
+  }
+  .section .intro { max-width: 620px; color: #43403A; margin-bottom: 40px; }
+
+  /* ---------- services ---------- */
+  .services { background: var(--paper); }
+  .service-list {
+    list-style: none;
+    border-top: 1px solid #D8D5CF;
+  }
+  .service-list li {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid #D8D5CF;
+  }
+  .service-list .svc-name {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+  .service-list .svc-desc { color: #43403A; align-self: center; }
+
+  /* ---------- process ---------- */
+  .process { background: var(--concrete); }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    counter-reset: step;
+  }
+  .step {
+    border-top: 4px solid var(--orange);
+    padding-top: 16px;
+  }
+  .step .step-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--evergreen);
+  }
+  .step h3 {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 6px 0 8px;
+  }
+  .step p { color: #43403A; font-size: 16px; }
+
+  /* ---------- service area ---------- */
+  .area { background: var(--evergreen); color: var(--paper); }
+  .area .intro { color: #C9CCC7; }
+  .city-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .city-list li {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: 1px solid #5C635B;
+    border-radius: 999px;
+  }
+  .city-list li.home {
+    background: var(--orange);
+    border-color: var(--orange);
+    font-weight: 500;
+  }
+
+  /* ---------- about ---------- */
+  .about { background: var(--paper); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .about blockquote {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: clamp(26px, 3.4vw, 38px);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+    border-left: 4px solid var(--orange);
+    padding-left: 20px;
+  }
+  .about p { color: #43403A; margin-bottom: 16px; }
+
+  /* ---------- contact ---------- */
+  .contact { background: var(--iron); color: var(--paper); }
+  .contact .intro { color: var(--dust); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .contact-phone {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: clamp(40px, 5vw, 60px);
+    font-weight: 900;
+    text-decoration: none;
+    color: var(--paper);
+    display: inline-block;
+    line-height: 1;
+    border-bottom: 5px solid var(--orange);
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+  }
+  .contact-meta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    color: var(--dust);
+    line-height: 2;
+  }
+  .contact form { display: grid; gap: 14px; }
+  .contact label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dust);
+  }
+  .contact input, .contact textarea {
+    width: 100%;
+    background: #2E2A25;
+    border: 1px solid #4A453E;
+    border-radius: 3px;
+    color: var(--paper);
+    font-family: "Archivo", sans-serif;
+    font-size: 16px;
+    padding: 12px;
+    margin-top: 6px;
+  }
+  .contact textarea { min-height: 110px; resize: vertical; }
+  .contact button {
+    background: var(--orange);
+    color: var(--paper);
+    border: none;
+    border-radius: 3px;
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 15px 26px;
+    cursor: pointer;
+    justify-self: start;
+    transition: background 0.15s ease;
+  }
+  .contact button:hover { background: #C74E02; }
+
+  /* ---------- footer ---------- */
+  footer {
+    background: var(--iron);
+    color: var(--dust);
+    border-top: 1px solid #3A352E;
+    padding: 26px 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+  }
+  footer .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (min-width: 720px) {
+    .topbar-call .hours { display: block; }
+  }
+  @media (max-width: 719px) {
+    .brand { font-size: 22px; }
+    .service-list li { grid-template-columns: 1fr; gap: 6px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero .wrap { padding-top: 48px; }
+    .section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Pro Demo LLC
+      <small>Demolition · Excavation · Arlington, WA</small>
+    </a>
+    <div class="topbar-call">
+      <span class="hours">Mon–Sat · Free estimates</span>
+      <a class="call-btn" href="tel:+14255839276">(425) 583-9276</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Snohomish County · Owner-operated</p>
+      <h1>Torn down.<br>Cleared out.<br><span class="accent">Ready to build.</span></h1>
+      <p class="lead">Demolition, excavation and site prep for homeowners and builders
+        across Snohomish County. One owner, one crew, one number to call —
+        and a clean, build-ready lot when we leave.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="tel:+14255839276">Call Scott — Free estimate</a>
+        <a class="btn-secondary" href="#services">See what we do</a>
+      </div>
+      <p class="hero-note">WA Contractor Lic. PRODEDL760DJ · Bonded &amp; insured</p>
+    </div>
+    <svg class="hero-scene" viewBox="0 0 1440 330" role="img" aria-label="Illustration of an excavator working a cleared lot against an evergreen treeline" preserveAspectRatio="xMidYMax slice">
+      <!-- sky stays page background -->
+      <!-- distant foothills -->
+      <path d="M0 200 L180 158 L340 196 L520 148 L700 192 L900 152 L1100 190 L1280 160 L1440 188 L1440 330 L0 330 Z" fill="#C9C7C0"/>
+      <!-- evergreen treeline -->
+      <g fill="#39413A">
+        <path d="M0 240 L1440 240 L1440 330 L0 330 Z"/>
+        <!-- simple tree spikes along the line -->
+        <path d="M20 240 L34 196 L48 240 Z M60 240 L76 184 L92 240 Z M104 240 L118 200 L132 240 Z M150 240 L166 180 L182 240 Z M196 240 L210 202 L224 240 Z M240 240 L256 186 L272 240 Z M286 240 L300 198 L314 240 Z M330 240 L346 178 L362 240 Z M376 240 L390 200 L404 240 Z M420 240 L436 188 L452 240 Z M466 240 L480 204 L494 240 Z M510 240 L526 182 L542 240 Z M556 240 L570 200 L584 240 Z M600 240 L616 186 L632 240 Z M646 240 L660 198 L674 240 Z M690 240 L706 180 L722 240 Z M736 240 L750 202 L764 240 Z M780 240 L796 188 L812 240 Z M826 240 L840 200 L854 240 Z M870 240 L886 184 L902 240 Z M916 240 L930 198 L944 240 Z M960 240 L976 180 L992 240 Z M1006 240 L1020 202 L1034 240 Z M1050 240 L1066 186 L1082 240 Z M1096 240 L1110 198 L1124 240 Z M1140 240 L1156 182 L1172 240 Z M1186 240 L1200 200 L1214 240 Z M1230 240 L1246 188 L1262 240 Z M1276 240 L1290 202 L1304 240 Z M1320 240 L1336 184 L1352 240 Z M1366 240 L1380 198 L1394 240 Z M1408 240 L1424 190 L1440 240 Z"/>
+      </g>
+      <!-- excavated earth band -->
+      <path d="M0 292 L240 286 L480 294 L760 284 L1040 294 L1300 286 L1440 292 L1440 330 L0 330 Z" fill="#211E1A"/>
+      <!-- rubble mounds -->
+      <path d="M300 292 Q340 268 385 291 Z" fill="#2E2A25"/>
+      <path d="M1150 293 Q1195 264 1245 292 Z" fill="#2E2A25"/>
+      <!-- excavator, side profile, facing left -->
+      <g fill="#E85D04">
+        <!-- boom: shoulder at body, elbow down-left, bucket at ground -->
+        <path d="M700 236 L716 224 L640 196 L628 210 Z"/>
+        <path d="M636 202 L648 192 L580 262 L566 252 Z"/>
+        <!-- bucket -->
+        <path d="M566 252 L582 262 L570 284 L540 276 Z"/>
+        <!-- body -->
+        <rect x="694" y="218" width="118" height="40" rx="6"/>
+        <!-- cab -->
+        <rect x="774" y="186" width="44" height="46" rx="5"/>
+        <!-- counterweight -->
+        <rect x="806" y="222" width="28" height="36" rx="5"/>
+      </g>
+      <!-- cab window -->
+      <rect x="781" y="193" width="24" height="20" rx="3" fill="#EDEDE9"/>
+      <!-- tracks -->
+      <rect x="700" y="258" width="122" height="26" rx="13" fill="#2E2A25"/>
+      <rect x="712" y="264" width="98" height="14" rx="7" fill="#4A453E"/>
+    </svg>
+  </section>
+
+  <section class="trust" aria-label="License and insurance">
+    <div class="wrap">
+      <div class="trust-item">
+        <div class="label">WA Contractor License</div>
+        <div class="value"><a href="https://secure.lni.wa.gov/verify/" target="_blank" rel="noopener">PRODEDL760DJ ↗</a></div>
+      </div>
+      <div class="trust-item">
+        <div class="label">Liability Insurance</div>
+        <div class="value">$1,000,000</div>
+      </div>
+      <div class="trust-item">
+        <div class="label">Surety Bond</div>
+        <div class="value">$12,000</div>
+      </div>
+      <div class="trust-item">
+        <div class="label">BBB Rating</div>
+        <div class="value">A</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services section" id="services">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h2>What we do</h2>
+      <p class="intro">Residential and light-commercial site work, from first walkthrough
+        to a lot that's ready for the next crew.</p>
+      <ul class="service-list">
+        <li>
+          <span class="svc-name">Structure demolition</span>
+          <span class="svc-desc">Houses, garages, sheds, mobile homes and outbuildings — torn down, hauled off, and the ground left clean.</span>
+        </li>
+        <li>
+          <span class="svc-name">Excavation</span>
+          <span class="svc-desc">Foundation digs, trenching, and utility excavation with the right machine for the space.</span>
+        </li>
+        <li>
+          <span class="svc-name">Land clearing</span>
+          <span class="svc-desc">Brush, stumps, debris and overgrowth removed so you can actually see your property.</span>
+        </li>
+        <li>
+          <span class="svc-name">Site prep &amp; grading</span>
+          <span class="svc-desc">Leveling, resloping and compacted pads with drainage that sends water where it should go.</span>
+        </li>
+        <li>
+          <span class="svc-name">Foundations &amp; backfill</span>
+          <span class="svc-desc">Dig-outs and backfills done to spec, coordinated with your builder's schedule.</span>
+        </li>
+        <li>
+          <span class="svc-name">Trucking</span>
+          <span class="svc-desc">Export and import trucking — debris and spoils out, gravel and fill in.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="process section">
+    <div class="wrap">
+      <p class="eyebrow">Process</p>
+      <h2>How a job goes</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">STEP 1</div>
+          <h3>Call or text</h3>
+          <p>Tell Scott what you're dealing with. If a photo says it better, text one.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 2</div>
+          <h3>Walk the site</h3>
+          <p>We come out, look at access, utilities and haul-off, and give you a straight number. Free.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 3</div>
+          <h3>Work done, site clean</h3>
+          <p>We show up when we say we will, do the work, and leave you a lot that's ready for what's next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="area section">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#AEB3AD;">Service area</p>
+      <h2>Based in Arlington. Working all over Snohomish County.</h2>
+      <p class="intro">If you're near any of these towns, you're in our territory — and if
+        you're a little past them, call anyway.</p>
+      <ul class="city-list">
+        <li class="home">Arlington</li>
+        <li>Marysville</li>
+        <li>Everett</li>
+        <li>Lake Stevens</li>
+        <li>Snohomish</li>
+        <li>Stanwood</li>
+        <li>Granite Falls</li>
+        <li>Smokey Point</li>
+        <li>Tulalip</li>
+        <li>Monroe</li>
+        <li>Camano Island</li>
+        <li>Mount Vernon</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="about section">
+    <div class="wrap">
+      <div class="about-grid">
+        <blockquote>"Excellent workmanship and complete customer satisfaction — on every job, for every customer."</blockquote>
+        <div>
+          <p class="eyebrow">About</p>
+          <p><strong>Pro Demo LLC is owner-operated by Scott Miller</strong>, based in
+            Arlington, Washington. When you call, you talk to the person who will
+            actually run the machine on your property — not a call center, not a
+            salesman.</p>
+          <p>We keep it simple: show up on time, communicate like professionals,
+            do the work right, and leave the site cleaner than we found it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact section" id="contact">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#98928A;">Free estimate</p>
+      <h2>Got something that needs to come down?</h2>
+      <p class="intro">Call or text — that's the fastest way to get a number. Or send the
+        details and we'll get back to you.</p>
+      <div class="contact-grid">
+        <div>
+          <a class="contact-phone" href="tel:+14255839276">(425) 583-9276</a>
+          <div class="contact-meta">
+            Pro Demo LLC<br>
+            Arlington, WA 98223<br>
+            Mon–Sat · Free estimates<br>
+            Lic. PRODEDL760DJ · Bonded &amp; insured
+          </div>
+        </div>
+        <form id="estimate-form">
+          <div>
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+          <div>
+            <label for="f-details">What needs to come down or get dug out?</label>
+            <textarea id="f-details" name="details" required></textarea>
+          </div>
+          <button type="submit">Request estimate</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Pro Demo LLC · Arlington, WA</span>
+    <span>WA Contractor Lic. PRODEDL760DJ</span>
+  </div>
+</footer>
+
+<script>
+  // Draft wiring: until a form backend or business email is set up, package the
+  // request as an SMS to the business line so nothing gets lost.
+  document.getElementById("estimate-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = document.getElementById("f-name").value;
+    var phone = document.getElementById("f-phone").value;
+    var details = document.getElementById("f-details").value;
+    var body = "Estimate request from " + name + " (" + phone + "): " + details;
+    window.location.href = "sms:+14255839276?&body=" + encodeURIComponent(body);
+  });
+</script>
+
+</body>
+</html>
