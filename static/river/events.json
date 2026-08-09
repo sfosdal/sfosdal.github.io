@@ -1,12 +1,5 @@
 [
   {
-    "venue": "McCaw Hall",
-    "title": "NieR:Orchestra Concert 12026 [ YoRHa ]",
-    "date": "2026-08-09",
-    "time": "",
-    "url": "https://www.mccawhall.com/events/detail/nierorchestra-concert-12026-yorha"
-  },
-  {
     "venue": "Climate Pledge Arena",
     "title": "Seattle Storm vs. Chicago Sky",
     "date": "2026-08-10",
@@ -82,5 +75,12 @@
     "date": "2026-08-28",
     "time": "",
     "url": "https://www.mccawhall.com/events/detail/max-amini"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "The Strokes - Reality Awaits North America",
+    "date": "2026-08-28",
+    "time": "19:00:00",
+    "url": "https://www.ticketmaster.com/the-strokes-reality-awaits-north-america-seattle-washington-08-28-2026/event/0F00648A956482BD"
   }
 ]
