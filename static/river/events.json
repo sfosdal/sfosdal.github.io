@@ -1,12 +1,5 @@
 [
   {
-    "venue": "Climate Pledge Arena",
-    "title": "YOASOBI: Never Ending Stories Tour",
-    "date": "2026-08-12",
-    "time": "20:00:00",
-    "url": "https://www.ticketmaster.com/yoasobi-never-ending-stories-tour-seattle-washington-08-12-2026/event/0F00648A9EA791BF"
-  },
-  {
     "venue": "McCaw Hall",
     "title": "Ali Wong Live",
     "date": "2026-08-13",
@@ -36,7 +29,7 @@
   },
   {
     "venue": "McCaw Hall",
-    "title": "FEAR& LIVE: Ft. Hasan Piker, Austinshow, Will Neff, & QTCinderella",
+    "title": "FEAR& LIVE",
     "date": "2026-08-23",
     "time": "",
     "url": "https://www.mccawhall.com/events/detail/fear-live-ft-hasan-piker-austinshow-will-neff-qtcinderella"
@@ -82,5 +75,12 @@
     "date": "2026-08-29",
     "time": "",
     "url": "https://www.mccawhall.com/events/detail/peter-pan-ready-to-rise"
+  },
+  {
+    "venue": "McCaw Hall",
+    "title": "Seattle AI Film Festival",
+    "date": "2026-08-29",
+    "time": "",
+    "url": "https://www.mccawhall.com/events/detail/seattle-ai-film-festival"
   }
 ]
