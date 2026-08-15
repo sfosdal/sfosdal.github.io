@@ -1,12 +1,5 @@
 [
   {
-    "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Portland Fire",
-    "date": "2026-08-14",
-    "time": "19:00:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-portland-fire-seattle-washington-08-14-2026/event/0F00646A89EC4DB8"
-  },
-  {
     "venue": "McCaw Hall",
     "title": "Ali Wong Live",
     "date": "2026-08-15",
@@ -82,5 +75,12 @@
     "date": "2026-08-29",
     "time": "",
     "url": "https://www.mccawhall.com/events/detail/seattle-ai-film-festival"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Seattle Storm vs. Los Angeles Sparks",
+    "date": "2026-08-30",
+    "time": "14:00:00",
+    "url": "https://www.ticketmaster.com/seattle-storm-vs-los-angeles-sparks-seattle-washington-08-30-2026/event/0F00646A89F14DC6"
   }
 ]
