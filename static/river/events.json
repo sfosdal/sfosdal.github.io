@@ -1,13 +1,6 @@
 [
   {
     "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Chicago Sky",
-    "date": "2026-08-16",
-    "time": "14:00:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-chicago-sky-seattle-washington-08-16-2026/event/0F00646A89EE4DC0"
-  },
-  {
-    "venue": "Climate Pledge Arena",
     "title": "The Guess Who: Takin' It Back Tour 2026",
     "date": "2026-08-22",
     "time": "19:30:00",
@@ -82,5 +75,12 @@
     "date": "2026-09-01",
     "time": "19:00:00",
     "url": "https://www.ticketmaster.com/tame-impala-the-deadbeat-tour-seattle-washington-09-01-2026/event/0F006431E0CCB2E3"
+  },
+  {
+    "venue": "McCaw Hall",
+    "title": "TajMo - Room On The Porch Tour 2026",
+    "date": "2026-09-02",
+    "time": "",
+    "url": "https://www.mccawhall.com/events/detail/tajmo-room-on-the-porch-tour-2026"
   }
 ]
