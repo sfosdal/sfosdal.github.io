@@ -1,12 +1,5 @@
 [
   {
-    "venue": "Climate Pledge Arena",
-    "title": "The Guess Who: Takin' It Back Tour 2026",
-    "date": "2026-08-22",
-    "time": "19:30:00",
-    "url": "https://www.ticketmaster.com/the-guess-who-takin-it-back-seattle-washington-08-22-2026/event/0F00645991F0D888"
-  },
-  {
     "venue": "McCaw Hall",
     "title": "FEAR& LIVE",
     "date": "2026-08-23",
@@ -82,5 +75,12 @@
     "date": "2026-09-02",
     "time": "",
     "url": "https://www.mccawhall.com/events/detail/tajmo-room-on-the-porch-tour-2026"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Tame Impala - The Deadbeat Tour ",
+    "date": "2026-09-02",
+    "time": "19:00:00",
+    "url": "https://www.ticketmaster.com/tame-impala-the-deadbeat-tour-seattle-washington-09-02-2026/event/0F006431E0D0B2E8"
   }
 ]
