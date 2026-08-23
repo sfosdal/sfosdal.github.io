@@ -1,12 +1,5 @@
 [
   {
-    "venue": "McCaw Hall",
-    "title": "FEAR& LIVE",
-    "date": "2026-08-23",
-    "time": "",
-    "url": "https://www.mccawhall.com/events/detail/fear-live-ft-hasan-piker-austinshow-will-neff-qtcinderella"
-  },
-  {
     "venue": "Climate Pledge Arena",
     "title": "J. Cole: The Fall-Off Tour",
     "date": "2026-08-25",
@@ -82,5 +75,12 @@
     "date": "2026-09-02",
     "time": "19:00:00",
     "url": "https://www.ticketmaster.com/tame-impala-the-deadbeat-tour-seattle-washington-09-02-2026/event/0F006431E0D0B2E8"
+  },
+  {
+    "venue": "Seattle Center",
+    "title": "Bumbershoot",
+    "date": "2026-09-05",
+    "time": "13:00:00",
+    "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7x7PZ"
   }
 ]
