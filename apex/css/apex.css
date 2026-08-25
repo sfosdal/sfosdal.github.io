@@ -307,6 +307,16 @@ section.section--band { padding-block: clamp(2.5rem, 5vw, 4rem); }
 .event-date .dow { display: block; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--plum); }
 .event-date .day { display: block; font-size: 2rem; font-weight: 300; }
 .event img { aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
+/* Events with no poster art yet get the house mark in the poster slot. */
+.event .no-poster {
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  background: var(--ink);
+  display: grid;
+  place-items: center;
+  color: var(--paper);
+}
+.event .no-poster svg { width: 44%; height: 44%; }
 .event h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
 .event-meta { margin-top: .3rem; font-size: .95rem; }
 .event-meta .venue { color: var(--plum); font-style: italic; }
@@ -565,7 +575,7 @@ section.section--band { padding-block: clamp(2.5rem, 5vw, 4rem); }
 @media (max-width: 56rem) {
   .split, .event { grid-template-columns: minmax(0, 1fr); }
   .split.flip > .split-media { order: 0; }
-  .event img { max-width: 320px; }
+  .event img, .event .no-poster { max-width: 320px; }
   .poster-grid { grid-template-columns: minmax(0, 1fr); }
   .tap-list { columns: 1; }
   .hero { min-height: 46vh; }

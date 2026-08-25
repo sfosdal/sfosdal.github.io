@@ -1,61 +1,5 @@
 [
   {
-    "venue": "McCaw Hall",
-    "title": "NieR:Orchestra Concert 12026 [ YoRHa ]",
-    "date": "2026-08-09",
-    "time": "",
-    "url": "https://www.mccawhall.com/events/detail/nierorchestra-concert-12026-yorha"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Chicago Sky",
-    "date": "2026-08-10",
-    "time": "19:00:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-chicago-sky-seattle-washington-08-10-2026/event/0F00646A89304C96"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "YOASOBI: Never Ending Stories Tour",
-    "date": "2026-08-12",
-    "time": "20:00:00",
-    "url": "https://www.ticketmaster.com/yoasobi-never-ending-stories-tour-seattle-washington-08-12-2026/event/0F00648A9EA791BF"
-  },
-  {
-    "venue": "McCaw Hall",
-    "title": "Ali Wong Live",
-    "date": "2026-08-13",
-    "time": "",
-    "url": "https://www.mccawhall.com/events/detail/ali-wong-live-1"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Portland Fire",
-    "date": "2026-08-14",
-    "time": "19:00:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-portland-fire-seattle-washington-08-14-2026/event/0F00646A89EC4DB8"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "Seattle Storm vs. Chicago Sky",
-    "date": "2026-08-16",
-    "time": "14:00:00",
-    "url": "https://www.ticketmaster.com/seattle-storm-vs-chicago-sky-seattle-washington-08-16-2026/event/0F00646A89EE4DC0"
-  },
-  {
-    "venue": "Climate Pledge Arena",
-    "title": "The Guess Who: Takin' It Back Tour 2026",
-    "date": "2026-08-22",
-    "time": "19:30:00",
-    "url": "https://www.ticketmaster.com/the-guess-who-takin-it-back-seattle-washington-08-22-2026/event/0F00645991F0D888"
-  },
-  {
-    "venue": "McCaw Hall",
-    "title": "FEAR& LIVE: Ft. Hasan Piker, Austinshow, Will Neff, & QTCinderella",
-    "date": "2026-08-23",
-    "time": "",
-    "url": "https://www.mccawhall.com/events/detail/fear-live-ft-hasan-piker-austinshow-will-neff-qtcinderella"
-  },
-  {
     "venue": "Climate Pledge Arena",
     "title": "J. Cole: The Fall-Off Tour",
     "date": "2026-08-25",
@@ -82,5 +26,61 @@
     "date": "2026-08-28",
     "time": "",
     "url": "https://www.mccawhall.com/events/detail/max-amini"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "The Strokes - Reality Awaits North America",
+    "date": "2026-08-28",
+    "time": "19:00:00",
+    "url": "https://www.ticketmaster.com/the-strokes-reality-awaits-north-america-seattle-washington-08-28-2026/event/0F00648A956482BD"
+  },
+  {
+    "venue": "McCaw Hall",
+    "title": "Peter Pan: Ready to Rise",
+    "date": "2026-08-29",
+    "time": "",
+    "url": "https://www.mccawhall.com/events/detail/peter-pan-ready-to-rise"
+  },
+  {
+    "venue": "McCaw Hall",
+    "title": "VENUE CHANGE - Seattle AI Film Festival",
+    "date": "2026-08-29",
+    "time": "",
+    "url": "https://www.mccawhall.com/events/detail/seattle-ai-film-festival-1"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Seattle Storm vs. Los Angeles Sparks",
+    "date": "2026-08-30",
+    "time": "14:00:00",
+    "url": "https://www.ticketmaster.com/seattle-storm-vs-los-angeles-sparks-seattle-washington-08-30-2026/event/0F00646A89F14DC6"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Tame Impala - The Deadbeat Tour ",
+    "date": "2026-09-01",
+    "time": "19:00:00",
+    "url": "https://www.ticketmaster.com/tame-impala-the-deadbeat-tour-seattle-washington-09-01-2026/event/0F006431E0CCB2E3"
+  },
+  {
+    "venue": "McCaw Hall",
+    "title": "TajMo - Room On The Porch Tour 2026",
+    "date": "2026-09-02",
+    "time": "",
+    "url": "https://www.mccawhall.com/events/detail/tajmo-room-on-the-porch-tour-2026"
+  },
+  {
+    "venue": "Climate Pledge Arena",
+    "title": "Tame Impala - The Deadbeat Tour ",
+    "date": "2026-09-02",
+    "time": "19:00:00",
+    "url": "https://www.ticketmaster.com/tame-impala-the-deadbeat-tour-seattle-washington-09-02-2026/event/0F006431E0D0B2E8"
+  },
+  {
+    "venue": "Seattle Center",
+    "title": "Bumbershoot",
+    "date": "2026-09-05",
+    "time": "13:00:00",
+    "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7x7PZ"
   }
 ]
