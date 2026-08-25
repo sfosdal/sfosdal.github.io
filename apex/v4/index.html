@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APEX Everett — The Landmark</title>
+<meta name="description" content="Concept 4 of 5: a restored 1900s landmark at 1611 Everett Ave — three storeys of food, drink, art and live music in downtown Everett, WA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23ece4d2'/%3E%3Crect x='12' y='12' width='24' height='24' transform='rotate(45 24 24)' fill='none' stroke='%23582230' stroke-width='2.5'/%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#ece4d2;
+  --parch:#e2d7bf;
+  --oxblood:#582230;
+  --brass:#9c7834;
+  --iron:#28211a;
+  --rule:hsl(38 30% 25% / .3);
+  --disp:'Cormorant Garamond',Georgia,serif;
+  --util:'Libre Franklin',system-ui,sans-serif;
+}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{background:var(--paper);color:var(--iron);font-family:var(--disp);font-size:1.2rem;line-height:1.55}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:72rem;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
+.duotone{filter:sepia(.45) contrast(1.02) brightness(.98) saturate(.7)}
+
+.smallcaps{font-family:var(--util);font-size:.75rem;letter-spacing:.32em;text-transform:uppercase;font-weight:600}
+
+header.top{border-bottom:1px solid var(--rule)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:1.1rem}
+.brand{display:flex;gap:.7rem;align-items:center;text-decoration:none}
+.brand svg{width:30px;height:30px}
+.brand span{font-family:var(--util);font-weight:600;letter-spacing:.2em;font-size:.85rem}
+nav.main{display:flex;gap:1.6rem}
+nav.main a{text-decoration:none;font-family:var(--util);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--oxblood)}
+nav.main a:hover,nav.main a:focus-visible{text-decoration:underline;text-underline-offset:5px}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:clamp(3rem,7vw,5.5rem)}
+.hero .smallcaps{color:var(--oxblood)}
+.hero h1{font-size:clamp(3rem,6.5vw,5.4rem);font-weight:500;line-height:1.02;margin-top:.7rem}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--oxblood)}
+.hero p.lede{margin-top:1.3rem;max-width:46ch}
+.hero .cta{display:inline-block;margin-top:1.8rem;font-family:var(--util);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border:1px solid var(--iron);padding:.85rem 1.7rem;transition:.15s}
+.hero .cta:hover,.hero .cta:focus-visible{background:var(--oxblood);border-color:var(--oxblood);color:var(--paper)}
+
+/* elevation drawing */
+.elevation{border:1px solid var(--rule);background:var(--parch);padding:1.2rem}
+.elevation .plate{font-family:var(--util);text-align:center;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--oxblood);margin-bottom:.8rem}
+.storey{display:grid;grid-template-columns:3.2rem minmax(0,1fr) auto;gap:1rem;align-items:center;border:1px solid var(--rule);padding:1rem 1.2rem;text-decoration:none;background:var(--paper);transition:.15s}
+.storey + .storey{margin-top:.55rem}
+.storey .num{font-size:2rem;font-weight:500;color:var(--brass);text-align:center}
+.storey h3{font-size:1.35rem;font-weight:600;line-height:1.1}
+.storey .use{font-family:var(--util);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:hsl(38 20% 30%/.75);margin-top:.2rem}
+.storey .arrow{font-family:var(--util);color:var(--oxblood)}
+.storey:hover,.storey:focus-visible{background:var(--oxblood);color:var(--paper)}
+.storey:hover .num,.storey:focus-visible .num{color:var(--paper)}
+.storey:hover .use,.storey:focus-visible .use{color:hsl(38 40% 88%/.8)}
+.elevation .ground{margin-top:.55rem;border-top:3px double var(--iron);padding-top:.5rem;text-align:center;font-family:var(--util);font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:hsl(38 20% 30%/.7)}
+
+/* narrative */
+.story{background:var(--iron);color:var(--paper)}
+.story .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:clamp(3.5rem,8vw,6rem)}
+.story .smallcaps{color:var(--brass)}
+.story h2{font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:500;line-height:1.08;margin-top:.6rem}
+.story p{margin-top:1rem;max-width:50ch;color:hsl(38 40% 88%/.85)}
+.story img{aspect-ratio:4/5;object-fit:cover}
+
+/* floors detail */
+.floors .wrap{padding-block:clamp(3.5rem,8vw,6rem)}
+.floors .head .smallcaps{color:var(--oxblood)}
+.floors h2{font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:500;margin-top:.5rem}
+.floor-row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(1.5rem,4vw,4rem);align-items:center;padding-block:clamp(2rem,5vw,3.5rem);border-top:1px solid var(--rule);margin-top:2rem}
+.floor-row:first-of-type{border-top:0}
+.floor-row img{aspect-ratio:5/4;object-fit:cover}
+.floor-row .smallcaps{color:var(--brass)}
+.floor-row h3{font-size:2rem;font-weight:600;margin-top:.4rem}
+.floor-row p{margin-top:.7rem;max-width:52ch}
+.floor-row .go{font-family:var(--util);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--oxblood);border-bottom:1px solid var(--oxblood);padding-bottom:.2rem;display:inline-block;margin-top:1rem}
+.floor-row .go:hover,.floor-row .go:focus-visible{color:var(--iron);border-color:var(--iron)}
+.floor-row.flip img{order:2}
+
+/* dogtown band */
+.dogtown{background:var(--oxblood);color:var(--paper)}
+.dogtown .wrap{padding-block:clamp(3rem,7vw,5rem);text-align:center}
+.dogtown .smallcaps{color:var(--brass)}
+.dogtown h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;margin-top:.5rem}
+.dogtown p{max-width:60ch;margin:1rem auto 0;color:hsl(38 40% 88%/.85)}
+.dogtown .cta{display:inline-block;margin-top:1.6rem;font-family:var(--util);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border:1px solid var(--paper);padding:.8rem 1.6rem}
+.dogtown .cta:hover,.dogtown .cta:focus-visible{background:var(--paper);color:var(--oxblood)}
+
+footer{border-top:1px solid var(--rule)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem 3rem;justify-content:space-between;padding-block:2.2rem;font-family:var(--util);font-size:.85rem;color:hsl(38 20% 30%/.8)}
+footer a{color:inherit}
+
+.allooks{position:fixed;left:.9rem;bottom:.9rem;z-index:9;background:var(--paper);border:1px solid var(--iron);padding:.45rem .8rem;font-family:var(--util);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.9}
+.allooks:hover,.allooks:focus-visible{opacity:1;background:var(--iron);color:var(--paper)}
+
+@media (max-width:56rem){
+  .hero .wrap,.story .wrap,.floor-row{grid-template-columns:minmax(0,1fr)}
+  .floor-row.flip img{order:0}
+  nav.main{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="APEX Everett">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="10" y="10" width="28" height="28" transform="rotate(45 24 24)" stroke="#582230" stroke-width="2.2"/></svg>
+      <span>APEX EVERETT · EST. 1900s</span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#first">16Eleven</a>
+      <a href="#second">El Sid</a>
+      <a href="#third">Kings Hall</a>
+      <a href="#dogtown">The Collection</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="smallcaps">1611 Everett Avenue · Downtown Everett, Washington</p>
+      <h1>Buildings like this<br>aren't built <em>anymore.</em></h1>
+      <p class="lede">A restored 1900s landmark, three storeys tall — a supper club on the first, a cocktail lounge on the second, a concert hall on the third, and the world's largest collection of graffiti and urban art on every wall between.</p>
+      <a class="cta" href="#first">Tour the floors</a>
+    </div>
+    <div class="elevation" role="navigation" aria-label="The building, floor by floor">
+      <p class="plate">Elevation · 1611 Everett Ave</p>
+      <a class="storey" href="#third">
+        <span class="num" aria-hidden="true">III</span>
+        <span><h3>Kings Hall</h3><span class="use">Live music · Fight nights · Galas</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="storey" href="#second">
+        <span class="num" aria-hidden="true">II</span>
+        <span><h3>El Sid &amp; the Gatsby Room</h3><span class="use">Cocktails · Chandeliers · Velvet</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="storey" href="#first">
+        <span class="num" aria-hidden="true">I</span>
+        <span><h3>16Eleven</h3><span class="use">Steak · Seafood · Supper club</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <p class="ground">Everett Avenue</p>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <img class="duotone" src="../v1/assets/img/NLW_1460.jpg" alt="Historic architectural detail inside APEX Everett" loading="lazy">
+    <div>
+      <p class="smallcaps">The restoration</p>
+      <h2>Meticulously restored, deliberately alive.</h2>
+      <p>Enter a world where history and modern creativity collide. APEX is more than a venue — it's a landmark restored brick by brick, then handed back to the city with music in the rafters and dinner on the stove.</p>
+      <p>This building was made for long nights out. Come make history with us.</p>
+    </div>
+  </div>
+</section>
+
+<section class="floors">
+  <div class="wrap">
+    <div class="head">
+      <p class="smallcaps">Floor by floor</p>
+      <h2>Three storeys, three acts.</h2>
+    </div>
+
+    <div class="floor-row" id="first">
+      <img class="duotone" src="../v1/assets/img/NLW_1960.jpg" alt="The 16Eleven dining room, set for service" loading="lazy">
+      <div>
+        <p class="smallcaps">Storey I</p>
+        <h3>16Eleven</h3>
+        <p>Named for the address it has kept for a century. Steak, seafood and shareable plates in the restored first-floor dining room — the culinary cornerstone of the building. The supper club, revived.</p>
+        <a class="go" href="../v1/16eleven.html">Reservations</a>
+      </div>
+    </div>
+
+    <div class="floor-row flip" id="second">
+      <img class="duotone" src="../v1/assets/img/NLW_1869.jpg" alt="The Gatsby Room's chandelier and mural-lined walls" loading="lazy">
+      <div>
+        <p class="smallcaps">Storey II</p>
+        <h3>El Sid &amp; the Gatsby Room</h3>
+        <p>Grand chandelier and velvet curtains on one side; a cocktail lounge with a punk rock edge on the other. Old glamour and new noise have learned to share a floor.</p>
+        <a class="go" href="../v1/el-sid.html">Visit El Sid</a>
+      </div>
+    </div>
+
+    <div class="floor-row" id="third">
+      <img class="duotone" src="../v1/assets/img/NLW_1847.jpg" alt="Kings Hall stage and event floor from the mezzanine" loading="lazy">
+      <div>
+        <p class="smallcaps">Storey III</p>
+        <h3>Kings Hall</h3>
+        <p>The finest live room in the region, under the original roofline — full sound and lighting, murals overlooking the floor, and a fall calendar that earns the name.</p>
+        <a class="go" href="../v1/events.html">See what's on</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dogtown" id="dogtown">
+  <div class="wrap">
+    <p class="smallcaps">The DogTown Collection</p>
+    <h2>A museum you drink in.</h2>
+    <p>The world's largest collection of graffiti and urban art lives on these three floors — over dinner, behind the bar, and around the stage. Not behind glass. On view whenever the building is open.</p>
+    <a class="cta" href="../v1/dogtown.html">Explore the collection</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>1611 Everett Ave, Everett, WA 98201</span>
+    <span>APEX Everett · 21+ venue</span>
+    <span><a href="tel:+14253748307">(425) 374-8307</a> · <a href="mailto:info@apexeverett.com">info@apexeverett.com</a></span>
+  </div>
+</footer>
+
+<a class="allooks" href="../">← All five looks</a>
+
+</body>
+</html>

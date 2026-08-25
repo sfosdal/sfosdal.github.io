@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APEX Everett — The Supper Club</title>
+<meta name="description" content="Concept 3 of 5: the supper club, revived. Steak, sushi and punk-named cocktails from the 1611 kitchen at 16Eleven and El Sid — APEX Everett, downtown Everett, WA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23ece4d2'/%3E%3Crect x='12' y='12' width='24' height='24' transform='rotate(45 24 24)' fill='none' stroke='%23582230' stroke-width='2.5'/%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#ece4d2;
+  --parch:#e2d7bf;
+  --oxblood:#582230;
+  --brass:#9c7834;
+  --iron:#28211a;
+  --rule:hsl(38 30% 25% / .3);
+  --disp:'Cormorant Garamond',Georgia,serif;
+  --util:'Libre Franklin',system-ui,sans-serif;
+}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{background:var(--paper);color:var(--iron);font-family:var(--disp);font-size:1.2rem;line-height:1.55}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:72rem;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
+.smallcaps{font-family:var(--util);font-size:.75rem;letter-spacing:.32em;text-transform:uppercase;font-weight:600}
+
+header.top{border-bottom:1px solid var(--rule)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:1.1rem}
+.brand{display:flex;gap:.7rem;align-items:center;text-decoration:none}
+.brand svg{width:30px;height:30px}
+.brand span{font-family:var(--util);font-weight:600;letter-spacing:.2em;font-size:.85rem}
+nav.main{display:flex;gap:1.6rem}
+nav.main a{text-decoration:none;font-family:var(--util);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--oxblood)}
+nav.main a:hover,nav.main a:focus-visible{text-decoration:underline;text-underline-offset:5px}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:clamp(3rem,7vw,5rem)}
+.hero .smallcaps{color:var(--oxblood)}
+.hero h1{font-size:clamp(3rem,6.5vw,5.2rem);font-weight:500;line-height:1.02;margin-top:.7rem}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--oxblood)}
+.hero p.lede{margin-top:1.3rem;max-width:46ch}
+.hero .cta{display:inline-block;margin-top:1.8rem;font-family:var(--util);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border:1px solid var(--iron);padding:.85rem 1.7rem;transition:.15s}
+.hero .cta:hover,.hero .cta:focus-visible{background:var(--oxblood);border-color:var(--oxblood);color:var(--paper)}
+.hero .photo{border:1px solid var(--rule);padding: .7rem;background:var(--parch)}
+.hero .photo img{aspect-ratio:4/5;object-fit:cover}
+.hero .photo figcaption{font-family:var(--util);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:hsl(38 20% 30%/.7);text-align:center;padding-top:.7rem}
+
+/* the menu, typeset */
+.menu{border-block:1px solid var(--rule);background:var(--parch)}
+.menu .wrap{padding-block:clamp(3.5rem,8vw,5.5rem)}
+.menu .head{text-align:center}
+.menu .smallcaps{color:var(--oxblood)}
+.menu h2{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:500;margin-top:.5rem}
+.menu h2 em{font-style:italic;font-weight:400}
+.menu .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);margin-top:2.8rem}
+.menu .col .colhead{text-align:center;border-bottom:2px solid var(--iron);padding-bottom:.8rem}
+.menu .col .colhead h3{font-size:1.9rem;font-weight:600}
+.menu .col .colhead .smallcaps{color:var(--brass)}
+.menu ul{list-style:none;margin-top:1.4rem;display:grid;gap:1.1rem}
+.menu li .line{display:flex;align-items:baseline;gap:.6rem}
+.menu li .dish{font-size:1.35rem;font-weight:500}
+.menu li .dots{flex:1;border-bottom:1px dotted hsl(38 30% 25%/.5);transform:translateY(-.25em)}
+.menu li .price{font-family:var(--util);font-size:.9rem;font-weight:600}
+.menu li .note{font-style:italic;font-size:1.02rem;color:hsl(38 20% 30%/.8);margin-top:.15rem}
+.menu .foot{text-align:center;margin-top:2.5rem;font-style:italic;color:hsl(38 20% 30%/.8);font-size:1.05rem}
+
+/* photograph band */
+.band{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule)}
+.band img{aspect-ratio:1;object-fit:cover;width:100%}
+
+/* two rooms */
+.rooms .wrap{padding-block:clamp(3.5rem,8vw,6rem)}
+.rooms .head{text-align:center}
+.rooms .smallcaps{color:var(--oxblood)}
+.rooms h2{font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:500;margin-top:.5rem}
+.rooms h2 em{font-style:italic;font-weight:400}
+.floor-row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(1.5rem,4vw,4rem);align-items:center;padding-block:clamp(2rem,5vw,3rem);border-top:1px solid var(--rule);margin-top:2rem}
+.floor-row:first-of-type{border-top:0}
+.floor-row img{aspect-ratio:5/4;object-fit:cover;border:1px solid var(--rule)}
+.floor-row .smallcaps{color:var(--brass)}
+.floor-row h3{font-size:2rem;font-weight:600;margin-top:.4rem}
+.floor-row p{margin-top:.7rem;max-width:52ch}
+.floor-row .go{font-family:var(--util);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--oxblood);border-bottom:1px solid var(--oxblood);padding-bottom:.2rem;display:inline-block;margin-top:1rem}
+.floor-row .go:hover,.floor-row .go:focus-visible{color:var(--iron);border-color:var(--iron)}
+.floor-row.flip img{order:2}
+
+/* chef's table */
+.chefs{background:var(--iron);color:var(--paper)}
+.chefs .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:clamp(3.5rem,8vw,5.5rem)}
+.chefs .smallcaps{color:var(--brass)}
+.chefs h2{font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:500;margin-top:.5rem}
+.chefs h2 em{font-style:italic;font-weight:400}
+.chefs p{margin-top:1rem;max-width:50ch;color:hsl(38 40% 88%/.85)}
+.chefs .dates{font-family:var(--util);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin-top:1.2rem;color:var(--brass)}
+.chefs .cta{display:inline-block;margin-top:1.5rem;font-family:var(--util);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border:1px solid var(--paper);padding:.8rem 1.6rem}
+.chefs .cta:hover,.chefs .cta:focus-visible{background:var(--paper);color:var(--iron)}
+.chefs img{aspect-ratio:4/5;object-fit:cover;border:1px solid hsl(38 40% 88%/.25)}
+
+footer{border-top:1px solid var(--rule)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem 3rem;justify-content:space-between;padding-block:2.2rem;font-family:var(--util);font-size:.85rem;color:hsl(38 20% 30%/.8)}
+footer a{color:inherit}
+
+.allooks{position:fixed;left:.9rem;bottom:.9rem;z-index:9;background:var(--paper);border:1px solid var(--iron);padding:.45rem .8rem;font-family:var(--util);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.9}
+.allooks:hover,.allooks:focus-visible{opacity:1;background:var(--iron);color:var(--paper)}
+
+@media (max-width:56rem){
+  .hero .wrap,.chefs .wrap,.floor-row,.menu .cols{grid-template-columns:minmax(0,1fr)}
+  .floor-row.flip img{order:0}
+  .band{grid-template-columns:1fr}
+  .band img{aspect-ratio:16/10}
+  nav.main{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="APEX Everett">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="10" y="10" width="28" height="28" transform="rotate(45 24 24)" stroke="#582230" stroke-width="2.2"/></svg>
+      <span>APEX EVERETT</span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#menu">The menu</a>
+      <a href="#rooms">Two rooms</a>
+      <a href="#chefs">Chef's Table</a>
+      <a href="../v1/events.html">Shows</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="smallcaps">16Eleven · 1611 Everett Avenue · Downtown Everett</p>
+      <h1>The supper club, <em>revived.</em></h1>
+      <p class="lede">Steak, seafood and sushi cut to order on the first storey of a restored 1900s landmark — and one kitchen sending plates upstairs to El Sid until late. Dinner here is the whole evening, or the start of one.</p>
+      <a class="cta" href="../v1/16eleven.html">Book a table</a>
+    </div>
+    <figure class="photo">
+      <img src="../v1/assets/img/1611_Sushi_Menu_christinemitchell_housetornado-035.jpg" alt="Sushi board at 16Eleven" loading="lazy">
+      <figcaption>Sushi board · cut to order · 16Eleven</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="menu" class="menu">
+  <div class="wrap">
+    <div class="head">
+      <p class="smallcaps">From the 1611 kitchen</p>
+      <h2>One kitchen, <em>two rooms.</em></h2>
+    </div>
+    <div class="cols">
+      <div class="col">
+        <div class="colhead">
+          <h3>16Eleven</h3>
+          <p class="smallcaps">First storey · Dinner from 4</p>
+        </div>
+        <ul>
+          <li><span class="line"><span class="dish">Sushi board</span><span class="dots"></span><span class="price">MP</span></span><p class="note">chef's selection, cut to order</p></li>
+          <li><span class="line"><span class="dish">Steak &amp; seafood</span><span class="dots"></span><span class="price">—</span></span><p class="note">the supper-club standards, done properly</p></li>
+          <li><span class="line"><span class="dish">Wine, poured tableside</span><span class="dots"></span><span class="price">$12+</span></span><p class="note">chardonnay, malbec &amp; a short cellar list</p></li>
+          <li><span class="line"><span class="dish">Supper Club evenings</span><span class="dots"></span><span class="price">&nbsp;</span></span><p class="note">a set table, a long night — watch the calendar</p></li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="colhead">
+          <h3>El Sid</h3>
+          <p class="smallcaps">Second storey · Till late</p>
+        </div>
+        <ul>
+          <li><span class="line"><span class="dish">Osaka Jojos</span><span class="dots"></span><span class="price">$11</span></span><p class="note">okonomiyaki sauce, wasabi aioli, bonito</p></li>
+          <li><span class="line"><span class="dish">Yakitori</span><span class="dots"></span><span class="price">$10</span></span><p class="note">chicken, salmon or steak skewers</p></li>
+          <li><span class="line"><span class="dish">The Vicious</span><span class="dots"></span><span class="price">$12</span></span><p class="note">Buffalo Trace, Campari, cinnamon, Peychaud's</p></li>
+          <li><span class="line"><span class="dish">London Calling</span><span class="dots"></span><span class="price">$14</span></span><p class="note">City of London gin, lemon, strawberry, soda</p></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot">A sampling — the full menus live with each room. 21+ throughout the building.</p>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true">
+  <img src="../v1/assets/img/1611_Sushi_Menu_christinemitchell_housetornado-025.jpg" alt="" loading="lazy">
+  <img src="../v1/assets/img/Wine_Photo.jpg" alt="" loading="lazy">
+  <img src="../v1/assets/img/cocktail_Photo.jpg" alt="" loading="lazy">
+</div>
+
+<section id="rooms" class="rooms">
+  <div class="wrap">
+    <div class="head">
+      <p class="smallcaps">Downstairs · Upstairs</p>
+      <h2>Dinner starts the night. <em>El Sid keeps it going.</em></h2>
+    </div>
+
+    <div class="floor-row">
+      <img src="../v1/assets/img/NLW_1960.jpg" alt="The 16Eleven dining room, set for service" loading="lazy">
+      <div>
+        <p class="smallcaps">First storey</p>
+        <h3>The dining room</h3>
+        <p>Named for the address it has kept for a century. Steak, seafood and shareable plates in the restored first-floor room — dine before a show in Kings Hall, or make the evening of it right here.</p>
+        <a class="go" href="../v1/16eleven.html">Reservations &amp; menu</a>
+      </div>
+    </div>
+
+    <div class="floor-row flip">
+      <img src="../v1/assets/img/APEX_housetornado-023.jpg" alt="Bartender mid-pour behind the bar at El Sid" loading="lazy">
+      <div>
+        <p class="smallcaps">Second storey</p>
+        <h3>The lounge</h3>
+        <p>Cozy booths, low pendant light, and cocktails named for bangers — Holiday in Cambodia, I Wanna Be Your Dog — with the kitchen's food coming up the stairs until late. No cover, six nights a week.</p>
+        <a class="go" href="../v1/el-sid.html">The full list</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="chefs" class="chefs">
+  <div class="wrap">
+    <div>
+      <p class="smallcaps">Groups of six or more</p>
+      <h2>Seven courses, <em>finished tableside.</em></h2>
+      <p>The Chef's Table is a front-row seat to the 1611 kitchen — a curated seven-course tasting, each dish prepared and finished at the table while the chef walks you through flavors, techniques and what's in season.</p>
+      <p class="dates">Booked through September · October: 14 · 15 · 21 · 22</p>
+      <a class="cta" href="../v1/chefs-table.html">Reserve the table</a>
+    </div>
+    <img src="../v1/assets/img/NLW_1477.jpg" alt="Chef plating a course at the Chef's Table" loading="lazy">
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>1611 Everett Ave, Everett, WA 98201</span>
+    <span>APEX Everett · 21+ venue</span>
+    <span><a href="tel:+14253748307">(425) 374-8307</a> · <a href="mailto:info@apexeverett.com">info@apexeverett.com</a></span>
+  </div>
+</footer>
+
+<a class="allooks" href="../">← All five looks</a>
+
+</body>
+</html>

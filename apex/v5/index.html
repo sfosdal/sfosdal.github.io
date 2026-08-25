@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APEX Everett — Three Floors</title>
+<meta name="description" content="Concept 5 of 5: the perfect mix. Dine, drink, dance — one historic building, three floors, downtown Everett, WA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23050505'/%3E%3Crect x='12' y='12' width='24' height='24' transform='rotate(45 24 24)' fill='none' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:hsl(300 0% 2%);
+  --paper:hsl(250 100% 99%);
+  --cream:hsl(40 70% 93%);
+  --plum:hsl(291 27% 28%);
+  --plumlight:hsl(291 30% 62%);
+  --line:hsl(300 0% 2% / .14);
+  --lineinv:hsl(0 0% 100% / .2);
+  --disp:'Poppins',system-ui,sans-serif;
+  --body:'Source Serif 4','Source Serif Pro',Georgia,serif;
+}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:76rem;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
+.eyebrow{font-family:var(--disp);font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;font-weight:500}
+h1,h2,h3{font-family:var(--disp);font-weight:300}
+
+header.top{background:var(--ink);color:var(--paper)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:1rem}
+.brand{display:flex;gap:.6rem;align-items:center;text-decoration:none;font-family:var(--disp);font-weight:500;letter-spacing:.16em;font-size:.9rem}
+.brand svg{width:30px;height:30px}
+nav.main{display:flex;gap:1.5rem;font-family:var(--disp);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+nav.main a{text-decoration:none;opacity:.8}
+nav.main a:hover,nav.main a:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:4px}
+
+/* floor-picker hero */
+.hero{background:var(--ink);color:var(--paper)}
+.hero .intro{text-align:center;padding-block:clamp(2.5rem,5vw,4rem) clamp(1.5rem,3vw,2.5rem)}
+.hero .intro .eyebrow{color:var(--plumlight)}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.05;margin-top:.5rem}
+.hero h1 strong{font-weight:500}
+.hero .intro p.sub{max-width:52ch;margin:1rem auto 0;color:hsl(0 0% 100%/.75)}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ink)}
+.picker a{position:relative;display:block;text-decoration:none;overflow:hidden;min-height:24rem}
+.picker img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.85);transition:transform .5s,filter .3s}
+.picker a:hover img,.picker a:focus-visible img{transform:scale(1.04);filter:brightness(.7) saturate(1)}
+.picker .label{position:relative;z-index:1;height:100%;min-height:24rem;display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem;color:var(--paper)}
+.picker .floor{font-family:var(--disp);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream)}
+.picker h2{font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1.05;margin-top:.3rem}
+.picker .what{font-size:.95rem;color:hsl(0 0% 100%/.8);margin-top:.4rem}
+.picker .go{margin-top:.9rem;font-family:var(--disp);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--cream);align-self:flex-start;padding-bottom:.2rem}
+.picker a:focus-visible{outline:2px solid var(--cream);outline-offset:-6px}
+
+/* marquee strip */
+.marquee{background:var(--ink);color:var(--paper);border-top:1px solid var(--lineinv)}
+.marquee .wrap{padding-block:clamp(2.5rem,6vw,4rem)}
+.marquee .head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.marquee .eyebrow{color:var(--plumlight)}
+.marquee h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-top:.3rem}
+.marquee .all{font-family:var(--disp);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--paper);padding-bottom:.2rem}
+.marquee .all:hover,.marquee .all:focus-visible{color:var(--cream);border-color:var(--cream)}
+.shows{margin-top:1.8rem;border-top:1px solid var(--lineinv)}
+.shows a{display:grid;grid-template-columns:7.5rem minmax(0,1fr) auto;gap:1rem 2rem;align-items:baseline;padding-block:1.05rem;border-bottom:1px solid var(--lineinv);text-decoration:none}
+.shows .when{font-family:var(--disp);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream)}
+.shows .name{font-family:var(--disp);font-weight:400;font-size:clamp(1.05rem,2.2vw,1.4rem)}
+.shows .tix{font-family:var(--disp);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--paper);padding:.5rem 1rem;white-space:nowrap;transition:.15s}
+.shows a:hover .tix,.shows a:focus-visible .tix{background:var(--paper);color:var(--ink)}
+.shows a:hover .name{color:var(--cream)}
+
+/* table & bar band */
+.taste{background:var(--cream)}
+.taste .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:clamp(3.5rem,8vw,6rem)}
+.taste .eyebrow{color:var(--plum)}
+.taste h2{font-size:clamp(2rem,4.2vw,3.2rem);margin-top:.4rem}
+.taste p{margin-top:1rem;max-width:50ch}
+.taste .menu-peek{list-style:none;margin-top:1.4rem;border-top:1px solid var(--line)}
+.taste .menu-peek li{display:flex;justify-content:space-between;gap:1rem;padding-block:.65rem;border-bottom:1px solid var(--line);font-size:1rem}
+.taste .menu-peek .n{font-style:italic}
+.taste .btns{margin-top:1.6rem;display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-block;font-family:var(--disp);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);padding:.8rem 1.5rem;transition:.15s}
+.btn:hover,.btn:focus-visible{background:var(--ink);color:var(--cream)}
+.taste .photos{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.taste .photos img{aspect-ratio:4/5;object-fit:cover}
+.taste .photos img:last-child{margin-top:2rem}
+
+/* floor-by-floor elevation (borrowed from the Landmark concept) */
+.building .wrap{padding-block:clamp(3.5rem,8vw,6rem)}
+.building .head{text-align:center}
+.building .eyebrow{color:var(--plum)}
+.building h2{font-size:clamp(2rem,4.2vw,3.2rem);margin-top:.4rem}
+.elevation{max-width:44rem;margin:2.5rem auto 0}
+.storey{display:grid;grid-template-columns:3.4rem minmax(0,1fr) auto;gap:1rem;align-items:center;border:1px solid var(--ink);padding:1.1rem 1.3rem;text-decoration:none;background:var(--paper);transition:.15s}
+.storey + .storey{margin-top:.6rem}
+.storey .num{font-family:var(--body);font-size:1.9rem;color:var(--plum);text-align:center}
+.storey h3{font-family:var(--disp);font-weight:400;font-size:1.3rem;line-height:1.15}
+.storey .use{font-family:var(--disp);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:hsl(300 0% 2%/.55);margin-top:.25rem}
+.storey .arrow{font-family:var(--disp);color:var(--plum)}
+.storey:hover,.storey:focus-visible{background:var(--ink);color:var(--paper)}
+.storey:hover .num,.storey:hover .arrow,.storey:focus-visible .num,.storey:focus-visible .arrow{color:var(--cream)}
+.storey:hover .use,.storey:focus-visible .use{color:hsl(0 0% 100%/.6)}
+.elevation .ground{margin-top:.6rem;border-top:3px double var(--ink);padding-top:.5rem;text-align:center;font-family:var(--disp);font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:hsl(300 0% 2%/.55)}
+
+/* heritage band */
+.heritage{background:var(--ink);color:var(--paper)}
+.heritage .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:clamp(3rem,7vw,5rem)}
+.heritage .eyebrow{color:var(--plumlight)}
+.heritage h2{font-size:clamp(1.9rem,4vw,2.9rem);margin-top:.4rem}
+.heritage p{margin-top:1rem;max-width:48ch;color:hsl(0 0% 100%/.8)}
+.heritage img{aspect-ratio:4/3;object-fit:cover}
+.heritage .btn{border-color:var(--paper);margin-top:1.5rem}
+.heritage .btn:hover,.heritage .btn:focus-visible{background:var(--paper);color:var(--ink)}
+
+footer{background:var(--ink);color:hsl(0 0% 100%/.7);border-top:1px solid var(--lineinv)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem 3rem;justify-content:space-between;padding-block:2.2rem;font-size:.9rem}
+footer a{color:inherit}
+
+.allooks{position:fixed;left:.9rem;bottom:.9rem;z-index:9;background:var(--paper);color:var(--ink);border:1px solid var(--ink);padding:.45rem .8rem;font-family:var(--disp);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.9}
+.allooks:hover,.allooks:focus-visible{opacity:1;background:var(--ink);color:var(--paper)}
+
+@media (max-width:56rem){
+  .picker{grid-template-columns:1fr}
+  .picker a,.picker .label{min-height:15rem}
+  .taste .wrap,.heritage .wrap{grid-template-columns:minmax(0,1fr)}
+  .shows a{grid-template-columns:minmax(0,1fr)}
+  .shows .tix{justify-self:start}
+  nav.main{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="APEX Everett">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="10" y="10" width="28" height="28" transform="rotate(45 24 24)" stroke="currentColor" stroke-width="2"/></svg>
+      APEX EVERETT
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#shows">Shows</a>
+      <a href="#taste">Dine &amp; drink</a>
+      <a href="#building">The building</a>
+      <a href="../v1/rentals.html">Rentals</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="intro wrap">
+    <p class="eyebrow">One landmark · Downtown Everett</p>
+    <h1>Pick a floor.<br><strong>Or pick all three.</strong></h1>
+    <p class="sub">Dinner on the first, cocktails on the second, live music on the third — a restored 1900s building made for long nights out.</p>
+  </div>
+  <div class="picker">
+    <a href="../v1/16eleven.html">
+      <img src="../v1/assets/img/NLW_1960.jpg" alt="" loading="lazy">
+      <span class="label">
+        <span class="floor">Floor I</span>
+        <h2>Dine</h2>
+        <span class="what">16Eleven — steak, seafood &amp; the Supper Club</span>
+        <span class="go">Book a table</span>
+      </span>
+    </a>
+    <a href="../v1/el-sid.html">
+      <img src="../v1/assets/img/APEX_housetornado-023.jpg" alt="" loading="lazy">
+      <span class="label">
+        <span class="floor">Floor II</span>
+        <h2>Drink</h2>
+        <span class="what">El Sid — cocktails with a punk rock edge, no cover</span>
+        <span class="go">See the lounge</span>
+      </span>
+    </a>
+    <a href="../v1/events.html">
+      <img src="../v1/assets/img/NLW_1847.jpg" alt="" loading="lazy">
+      <span class="label">
+        <span class="floor">Floor III</span>
+        <h2>Dance</h2>
+        <span class="what">Kings Hall — the region's finest live room</span>
+        <span class="go">Get tickets</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<section class="marquee" id="shows">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="eyebrow">On the marquee</p>
+        <h2>Coming up in Kings Hall</h2>
+      </div>
+      <a class="all" href="../v1/events.html">Full calendar</a>
+    </div>
+    <div class="shows">
+      <a href="https://www.ticketmaster.com/event/0F0064FBB875A908" rel="noopener">
+        <span class="when">Fri · Sep 11</span><span class="name">Leroy Bell &amp; His Only Friends + Lady A</span><span class="tix">Tickets</span>
+      </a>
+      <a href="https://www.ticketmaster.com/event/0F00650292995A54" rel="noopener">
+        <span class="when">Sat · Sep 12</span><span class="name">Michael Mathers: An Eminem Tribute</span><span class="tix">Tickets</span>
+      </a>
+      <a href="https://www.ticketmaster.com/event/0F00650481A35450" rel="noopener">
+        <span class="when">Fri · Sep 18</span><span class="name">DoctorfunK &amp; Moxie</span><span class="tix">Tickets</span>
+      </a>
+      <a href="https://www.ticketmaster.com/skoochies-7-everett-washington-09-26-2026/event/0F0064C18B0853D9" rel="noopener">
+        <span class="when">Sat · Sep 26</span><span class="name">Skoochies 7</span><span class="tix">Tickets</span>
+      </a>
+      <a href="https://www.ticketmaster.com/event/0F0064AFC8FFE492" rel="noopener">
+        <span class="when">Sat · Oct 3</span><span class="name">Samantha Fish — Paper Doll Tour</span><span class="tix">Tickets</span>
+      </a>
+      <a href="https://www.ticketmaster.com/all-city-fight-night-fury-everett-washington-10-24-2026/event/0F00650ABCA2B39A" rel="noopener">
+        <span class="when">Sat · Oct 24</span><span class="name">All City Fight Night — Fury</span><span class="tix">Tickets</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="taste" id="taste">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">From the 1611 kitchen</p>
+      <h2>Dinner is the opening act.</h2>
+      <p>Steak, seafood and shareable plates downstairs at 16Eleven; Osaka Jojos and yakitori upstairs at El Sid with cocktails named for bangers. One kitchen feeds the whole building.</p>
+      <ul class="menu-peek">
+        <li><span class="n">Sushi board, cut to order</span><span>MP</span></li>
+        <li><span class="n">Osaka Jojos</span><span>$11</span></li>
+        <li><span class="n">The Vicious — bourbon, Campari, cinnamon</span><span>$12</span></li>
+        <li><span class="n">London Calling — gin, lemon, strawberry</span><span>$14</span></li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="../v1/16eleven.html">Book a table</a>
+        <a class="btn" href="../v1/el-sid.html">El Sid's list</a>
+      </div>
+    </div>
+    <div class="photos" aria-hidden="true">
+      <img src="../v1/assets/img/1611_Sushi_Menu_christinemitchell_housetornado-035.jpg" alt="" loading="lazy">
+      <img src="../v1/assets/img/cocktail_Photo.jpg" alt="" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="building" id="building">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">1611 Everett Ave</p>
+      <h2>One building, floor by floor</h2>
+    </div>
+    <div class="elevation" role="navigation" aria-label="The building, floor by floor">
+      <a class="storey" href="../v1/events.html">
+        <span class="num" aria-hidden="true">III</span>
+        <span><h3>Kings Hall</h3><span class="use">Live music · Fight nights · Galas</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="storey" href="../v1/el-sid.html">
+        <span class="num" aria-hidden="true">II</span>
+        <span><h3>El Sid &amp; the Gatsby Room</h3><span class="use">Cocktails · Chandeliers · Velvet</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="storey" href="../v1/16eleven.html">
+        <span class="num" aria-hidden="true">I</span>
+        <span><h3>16Eleven</h3><span class="use">Steak · Seafood · Supper club</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <p class="ground">Everett Avenue</p>
+    </div>
+  </div>
+</section>
+
+<section class="heritage" id="heritage">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Est. 1900s · Restored</p>
+      <h2>The walls talk here.</h2>
+      <p>A meticulously restored landmark carrying the world's largest collection of graffiti and urban art — the DogTown Collection — over dinner, behind the bar, and around the stage. Every visit is a viewing.</p>
+      <a class="btn" href="../v1/dogtown.html">Explore the collection</a>
+    </div>
+    <img src="../v1/assets/img/NLW_1869.jpg" alt="The Gatsby Room's chandelier and mural-lined walls" loading="lazy">
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>1611 Everett Ave, Everett, WA 98201</span>
+    <span>APEX Everett · 21+ venue</span>
+    <span><a href="tel:+14253748307">(425) 374-8307</a> · <a href="mailto:info@apexeverett.com">info@apexeverett.com</a></span>
+  </div>
+</footer>
+
+<a class="allooks" href="../">← All five looks</a>
+
+</body>
+</html>
