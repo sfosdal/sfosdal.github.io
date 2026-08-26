@@ -140,6 +140,10 @@
       .then(function (data) {
         var list = Array.isArray(data) ? data : (data.events || []);
         if (!Array.isArray(list) || !list.length) return;
+        var t = new Date();
+        var today = t.getFullYear() + '-' +
+          ('0' + (t.getMonth() + 1)).slice(-2) + '-' + ('0' + t.getDate()).slice(-2);
+        list = list.filter(function (e) { return e.date >= today; }); // the feed keeps a year of history
         list.slice(0, 8).forEach(function (e) {
           var li = document.createElement('li');
           var a = document.createElement('a');
