@@ -8,6 +8,9 @@ pygmentsStyle = "bw"
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
+# Must stay above the first [section] header: TOML scopes bare keys to the
+# table above them, and Hugo only reads this from the top level.
+googleAnalytics = "G-LGEE40NNET"
 # Enable Disqus comments
 # disqusShortname = "yourdiscussshortname"
 
@@ -74,7 +77,7 @@ childsrc = ["'self'"]
 fontsrc = ["'self'", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net/"]
 formaction = ["'self'"]
 framesrc = ["'self'"]
-imgsrc = ["'self'"]
+imgsrc = ["'self'", "https://*.google-analytics.com", "https://*.googletagmanager.com"]
 objectsrc = ["'none'"]
 stylesrc = [
   "'self'",
@@ -83,14 +86,15 @@ stylesrc = [
   "https://cdn.jsdelivr.net/"
 ]
 scriptsrc = [
-  "'self'", 
-  "'unsafe-inline'", 
+  "'self'",
+  "'unsafe-inline'",
   "https://www.google-analytics.com",
+  "https://*.googletagmanager.com",
   "https://cdn.jsdelivr.net/"
 ]
 prefetchsrc = ["'self'"]
 # connect-src directive – defines valid targets for to XMLHttpRequest (AJAX), WebSockets or EventSource
-connectsrc = ["'self'", "https://www.google-analytics.com"]
+connectsrc = ["'self'", "https://*.google-analytics.com", "https://*.analytics.google.com", "https://*.googletagmanager.com"]
 
 [taxonomies]
 category = "categories"
@@ -209,5 +213,3 @@ languageName = ":uk:"
 #name = "Contato"
 #weight = 5
 #url = "contact/"
-
-googleAnalytics = 'G-LGEE40NNET'
