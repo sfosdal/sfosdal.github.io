@@ -89,11 +89,10 @@
 <section class="events" id="events">
   <h2 class="section-title center">The Neighborhood</h2>
   <p class="section-sub">Big nights nearby pack the place — see what's on before you come</p>
-  <div class="events-live-wrap" id="events-live-wrap" hidden>
-    <h3 class="events-live__title">Coming up nearby</h3>
-    <ul class="events-live" id="events-live"></ul>
-  </div>
-  <div class="events__grid">
+  <!-- app.js replaces these cards with one per venue from the LQA events
+       feed (filtered by the code in app.js); they stay as the fallback if
+       the feed can't be reached -->
+  <div class="events__grid" id="events-venues">
     <article class="event">
       <h3>Climate Pledge Arena</h3>
       <p>Kraken hockey, Seattle Storm &amp; major concerts.</p>
@@ -114,6 +113,11 @@
       <p>Contemporary dance &amp; performance, right on Roy St.</p>
       <a href="https://ontheboards.org/" target="_blank" rel="noopener">See what's on →</a>
     </article>
+  </div>
+  <div class="events-live-wrap" id="events-live-wrap" hidden>
+    <h3 class="events-live__title">Coming up nearby</h3>
+    <ul class="events-live" id="events-live"></ul>
+    <p class="events-live__more"><a href="https://fosdal.net/lqa-events/?f=0000E0" target="_blank" rel="noopener">Full calendar &amp; subscribe →</a></p>
   </div>
 </section>
 
@@ -263,6 +267,9 @@
   <button class="lightbox__nav lightbox__next" id="lbNext" aria-label="Next">&#8250;</button>
 </div>
 
-<script src="app.js?v=6"></script>
+<!-- the LQA events feed's own filter/classification rules, so this page
+     applies a filter code exactly the way the calendar does -->
+<script src="https://fosdal.net/lqa-events/filter.js"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>

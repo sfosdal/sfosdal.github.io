@@ -276,7 +276,8 @@ h1,h2,h3{margin:0;line-height:1.02}
 
 /* ===== NEIGHBORHOOD EVENTS ===== */
 .events{padding:clamp(3.2rem,6vw,4.5rem) clamp(1.2rem,5vw,3rem);border-bottom:1px solid var(--line)}
-.events__grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.events__grid{max-width:var(--maxw);margin:0 auto clamp(2rem,4vw,3rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
+.event__next{color:var(--cream);font-size:.9rem;margin:0 0 1rem}
 .event{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1.8rem 1.4rem;
   transition:transform .2s,border-color .2s}
 .event:hover{transform:translateY(-4px);border-color:var(--red)}
@@ -296,6 +297,9 @@ h1,h2,h3{margin:0;line-height:1.02}
 .ev-title{font-family:var(--body);color:var(--cream);flex:1 1 auto}
 .ev-venue{font-family:var(--label);text-transform:uppercase;letter-spacing:1px;font-size:.8rem;color:var(--muted);flex:0 0 auto}
 @media(max-width:620px){.events-live a{flex-wrap:wrap;gap:.3rem}.ev-venue{width:100%}}
+.events-live__more{text-align:center;margin:1rem 0 0}
+.events-live__more a{font-family:var(--label);text-transform:uppercase;letter-spacing:1.5px;font-size:.9rem;color:var(--red-glow)}
+.events-live__more a:hover{text-decoration:underline}
 
 /* ===== MENU ===== */
 .menu{background:var(--surface);padding:clamp(3.2rem,6vw,4.5rem) clamp(1.2rem,5vw,3rem);
