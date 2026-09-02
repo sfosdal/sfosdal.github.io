@@ -124,10 +124,29 @@
   show(0);
 
   // ---- neighborhood events (from the LQA events feed — fosdal.net/lqa-events/) ----
+  // LQA_FILTER is a code built on the calendar page with "Copy Filter Link":
+  // this one keeps Climate Pledge Arena, McCaw Hall and Seattle Center. To
+  // change what shows here, build a new link there and paste its code.
+  // filter.js (loaded in index.html) applies it exactly as the calendar does.
+  var LQA = 'https://fosdal.net/lqa-events/';
+  var LQA_FILTER = '0000E0';
+  var VENUES = {
+    'Climate Pledge Arena': { blurb: 'Kraken hockey, Seattle Storm & major concerts.', url: 'https://climatepledgearena.com/events/' },
+    'McCaw Hall': { blurb: 'Opera, ballet & the big performances.', url: 'https://www.mccawhall.com/events' },
+    'Seattle Center': { blurb: 'Festivals, films & events on the grounds.', url: 'https://www.seattlecenter.com/events/event-calendar' },
+    'On the Boards': { blurb: 'Contemporary dance & performance, right on Roy St.', url: 'https://ontheboards.org/events' },
+    'The Vera Project': { blurb: 'All-ages shows & workshops on the Center grounds.', url: 'https://theveraproject.org/events/' },
+    'SIFF Cinema Uptown': { blurb: 'Films & festival screenings on Queen Anne Ave.', url: 'https://www.siff.net/calendar' },
+    'Cornish Playhouse': { blurb: 'Theatre & performance at the Center.', url: 'https://www.seattlecenter.com/events/event-calendar?cats=173' },
+    'T-Mobile Park': { blurb: 'Mariners baseball & stadium shows.', url: 'https://www.mlb.com/mariners/ballpark/events' },
+    'Lumen Field': { blurb: 'Seahawks, Sounders, Reign & stadium shows.', url: 'https://www.lumenfield.com/events' },
+  };
   (function () {
     var wrap = document.getElementById('events-live-wrap');
     var listEl = document.getElementById('events-live');
-    if (!wrap || !listEl) return;
+    var grid = document.getElementById('events-venues');
+    if (!wrap || !listEl || !grid || !window.LQAFilter) return;
+    var mode = LQAFilter.parseFilterCode(LQA_FILTER) || {};
     function fmt(s) {
       if (!s) return '';
       var p = String(s).split('-');
@@ -135,7 +154,7 @@
       var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
       return isNaN(d) ? s : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
     }
-    fetch('https://fosdal.net/lqa-events/events.json', { cache: 'no-store' })
+    fetch(LQA + 'events.json', { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : []; })
       .then(function (data) {
         var list = Array.isArray(data) ? data : (data.events || []);
@@ -143,7 +162,29 @@
         var t = new Date();
         var today = t.getFullYear() + '-' +
           ('0' + (t.getMonth() + 1)).slice(-2) + '-' + ('0' + t.getDate()).slice(-2);
-        list = list.filter(function (e) { return e.date >= today; }); // the feed keeps a year of history
+        list = list.filter(function (e) { return e.date >= today && LQAFilter.matchesFilter(e, mode); });
+        if (!list.length) return;
+
+        // one card per venue that survives the filter, soonest event first
+        var byVenue = {};
+        list.forEach(function (e) { (byVenue[e.venue] = byVenue[e.venue] || []).push(e); });
+        grid.innerHTML = '';
+        Object.keys(byVenue).sort(function (a, b) { return byVenue[a][0].date < byVenue[b][0].date ? -1 : 1; }).forEach(function (v) {
+          var evs = byVenue[v];
+          var info = VENUES[v] || {};
+          var art = document.createElement('article');
+          art.className = 'event';
+          var h = document.createElement('h3'); h.textContent = v;
+          var p = document.createElement('p'); p.textContent = info.blurb || (evs.length + ' upcoming event' + (evs.length === 1 ? '' : 's') + '.');
+          var next = document.createElement('p'); next.className = 'event__next';
+          next.textContent = 'Next: ' + fmt(evs[0].date) + ' · ' + evs[0].title;
+          var a = document.createElement('a');
+          a.href = info.url || (LQA + '?f=' + LQA_FILTER); a.target = '_blank'; a.rel = 'noopener';
+          a.textContent = info.url ? 'See the schedule →' : 'See what’s on →';
+          art.appendChild(h); art.appendChild(p); art.appendChild(next); art.appendChild(a);
+          grid.appendChild(art);
+        });
+
         list.slice(0, 8).forEach(function (e) {
           var li = document.createElement('li');
           var a = document.createElement('a');
