@@ -96,11 +96,10 @@ The events block will load from the live feed, so you see real data locally.
 
 Because it is plain files, the whole `static/river/` folder can be dropped
 onto any static host (Netlify, Cloudflare Pages, S3, a shared host).
-Three things assume the `/river/` path and need editing if the path changes:
-
-- `manifest.webmanifest`: `start_url` and `scope` are `/river/`.
-- Nothing else. `index.html` has no absolute `/river/` references; asset
-  paths in `index.html`, `styles.css` and `app.js` are all relative.
+Only one file assumes the `/river/` path: `manifest.webmanifest`, whose
+`start_url` and `scope` are `/river/`. `index.html` has no absolute
+`/river/` references, and asset paths in `index.html`, `styles.css` and
+`app.js` are all relative.
 
 ## 4. Making common changes
 
