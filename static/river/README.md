@@ -25,7 +25,7 @@ jump to (`#specials`, `#events`, …):
 | Weekly specials | `specials` | Wing Monday, Wiener Wednesday, Taco Thursday, Slider Sunday |
 | Nearby events | `events` | Live list pulled from the events feed + venue cards |
 | Menu | `menu` | Food and drink copy (no prices) |
-| Our Story | `about` | The Mike Lewis / Mary McIntyre story |
+| Our Story | `about` | The bar's history: West Mercer St, the 2015 move to Roy St |
 | Gallery | `gallery` | 50-photo carousel with lightbox |
 | Visit | `visit` | Address, hours, directions, Google/Yelp/Facebook links, map |
 
