@@ -185,69 +185,16 @@
           grid.appendChild(art);
         });
 
-        // The list: grouped by day with the calendar's date rail, each event
-        // a card tinted with its venue's color and carrying the team crest or
-        // venue mark. A week to start (never fewer than six events), and a
-        // button widens it to four weeks.
-        var horizon = function (days) {
-          var d = new Date(t); d.setDate(t.getDate() + days);
-          return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
-        };
-        function fmtTime(s) {
-          if (!s) return 'All day';
-          var hm = String(s).split(':'); var h = Number(hm[0]);
-          return (h % 12 || 12) + ':' + hm[1] + ' ' + (h >= 12 ? 'PM' : 'AM');
-        }
-        function markFor(e) {
-          var team = LQAFilter.TEAMS.filter(function (x) { return x.re.test(e.title || ''); })[0];
-          return (team && team.logo) || LQAFilter.VENUE_ICON[e.venue] || '';
-        }
-        function render(days) {
-          var shown = list.filter(function (e) { return e.date <= horizon(days); });
-          if (shown.length < 6) shown = list.slice(0, 6);
-          listEl.innerHTML = '';
-          var byDay = {}, order = [];
-          shown.forEach(function (e) { if (!byDay[e.date]) { byDay[e.date] = []; order.push(e.date); } byDay[e.date].push(e); });
-          order.forEach(function (date) {
-            var p = date.split('-');
-            var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
-            var li = document.createElement('li');
-            li.className = 'events-day';
-            var rail = document.createElement('div');
-            rail.className = 'events-day__rail';
-            rail.innerHTML = '<span class="dnum">' + d.getDate() + '</span><span class="dmeta">' +
-              d.toLocaleDateString('en-US', { weekday: 'short' }) + ' · ' + d.toLocaleDateString('en-US', { month: 'short' }) + '</span>';
-            var cards = document.createElement('div');
-            cards.className = 'events-day__cards';
-            byDay[date].forEach(function (e) {
-              var a = document.createElement('a');
-              a.className = 'events-card';
-              a.href = e.url || (LQA + '?f=' + LQA_FILTER); a.target = '_blank'; a.rel = 'noopener';
-              var color = LQAFilter.VENUE_COLOR[e.venue];
-              if (color) a.style.background = 'color-mix(in srgb, ' + color + ' 9%, var(--surface))';
-              var tm = document.createElement('span'); tm.className = 'ev-time'; tm.textContent = fmtTime(e.time);
-              var body = document.createElement('span'); body.className = 'ev-body';
-              var v = document.createElement('span'); v.className = 'ev-venue'; v.textContent = e.venue || '';
-              var tt = document.createElement('span'); tt.className = 'ev-title'; tt.textContent = e.title || '';
-              body.appendChild(v); body.appendChild(tt);
-              a.appendChild(tm); a.appendChild(body);
-              var mark = markFor(e);
-              if (mark) { var img = document.createElement('img'); img.className = 'ev-mark'; img.src = mark; img.alt = ''; a.appendChild(img); }
-              cards.appendChild(a);
-            });
-            li.appendChild(rail); li.appendChild(cards);
-            listEl.appendChild(li);
-          });
-          return shown.length;
-        }
-        var shownNow = render(7);
-        var more = document.getElementById('events-more');
-        if (more) {
-          var rest = list.filter(function (e) { return e.date <= horizon(28); }).length - shownNow;
-          more.hidden = rest <= 0;
-          more.textContent = 'Show the next four weeks (' + rest + ' more)';
-          more.addEventListener('click', function () { render(28); more.hidden = true; });
-        }
+        list.slice(0, 8).forEach(function (e) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = e.url || '#'; a.target = '_blank'; a.rel = 'noopener';
+          var d = document.createElement('span'); d.className = 'ev-date'; d.textContent = fmt(e.date);
+          var t = document.createElement('span'); t.className = 'ev-title'; t.textContent = e.title || '';
+          var v = document.createElement('span'); v.className = 'ev-venue'; v.textContent = e.venue || '';
+          a.appendChild(d); a.appendChild(t); a.appendChild(v);
+          li.appendChild(a); listEl.appendChild(li);
+        });
         wrap.hidden = false;
       })
       .catch(function () {});
