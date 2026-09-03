@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fugaz+One&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=24">
+<link rel="stylesheet" href="styles.css?v=25">
 </head>
 <body>
 
@@ -92,7 +92,7 @@
   <div class="events-live-wrap" id="events-live-wrap" hidden>
     <h3 class="events-live__title">Coming up nearby</h3>
     <ul class="events-live" id="events-live"></ul>
-    <p class="events-live__more"><a href="https://fosdal.net/lqa-events/?f=0000E0" target="_blank" rel="noopener">Full calendar &amp; subscribe →</a></p>
+    <nav class="events-pager" id="events-pager" aria-label="More events"></nav>
   </div>
   <!-- app.js replaces these cards with one per venue from the LQA events
        feed (filtered by the code in app.js); they stay as the fallback if
@@ -270,6 +270,6 @@
 <!-- the LQA events feed's own filter/classification rules, so this page
      applies a filter code exactly the way the calendar does -->
 <script src="https://fosdal.net/lqa-events/filter.js"></script>
-<script src="app.js?v=7"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>

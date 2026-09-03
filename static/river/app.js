@@ -157,27 +157,37 @@
     fetch(LQA + 'events.json', { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : []; })
       .then(function (data) {
-        var list = Array.isArray(data) ? data : (data.events || []);
-        if (!Array.isArray(list) || !list.length) return;
+        var all = Array.isArray(data) ? data : (data.events || []);
+        if (!Array.isArray(all) || !all.length) return;
         var t = new Date();
-        var today = t.getFullYear() + '-' +
-          ('0' + (t.getMonth() + 1)).slice(-2) + '-' + ('0' + t.getDate()).slice(-2);
-        list = list.filter(function (e) { return e.date >= today && LQAFilter.matchesFilter(e, mode); });
-        if (!list.length) return;
+        var ymd = function (d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); };
+        var months = function (n) { var d = new Date(t); d.setMonth(t.getMonth() + n); return ymd(d); };
+        var today = ymd(t), ahead = months(4), behind = months(-2);
+        // the list: the next four months, filtered; the cards: every venue
+        // with an event from two months back to four months out
+        var inFilter = all.filter(function (e) { return LQAFilter.matchesFilter(e, mode); });
+        var list = inFilter.filter(function (e) { return e.date >= today && e.date <= ahead; });
+        var span = inFilter.filter(function (e) { return e.date >= behind && e.date <= ahead; });
+        if (!list.length && !span.length) return;
 
-        // one card per venue that survives the filter, soonest event first
         var byVenue = {};
-        list.forEach(function (e) { (byVenue[e.venue] = byVenue[e.venue] || []).push(e); });
+        span.forEach(function (e) { (byVenue[e.venue] = byVenue[e.venue] || []).push(e); });
         grid.innerHTML = '';
-        Object.keys(byVenue).sort(function (a, b) { return byVenue[a][0].date < byVenue[b][0].date ? -1 : 1; }).forEach(function (v) {
+        var venueNext = function (v) { return byVenue[v].filter(function (e) { return e.date >= today; })[0]; };
+        Object.keys(byVenue).sort(function (a, b) {
+          var na = venueNext(a), nb = venueNext(b);
+          if (na && nb) return na.date < nb.date ? -1 : 1;
+          return na ? -1 : nb ? 1 : 0; // venues with something upcoming first
+        }).forEach(function (v) {
           var evs = byVenue[v];
           var info = VENUES[v] || {};
           var art = document.createElement('article');
           art.className = 'event';
           var h = document.createElement('h3'); h.textContent = v;
-          var p = document.createElement('p'); p.textContent = info.blurb || (evs.length + ' upcoming event' + (evs.length === 1 ? '' : 's') + '.');
+          var p = document.createElement('p'); p.textContent = info.blurb || (evs.length + ' event' + (evs.length === 1 ? '' : 's') + ' this season.');
           var next = document.createElement('p'); next.className = 'event__next';
-          next.textContent = 'Next: ' + fmt(evs[0].date) + ' · ' + evs[0].title;
+          var nx = venueNext(v), last = evs[evs.length - 1];
+          next.textContent = nx ? 'Next: ' + fmt(nx.date) + ' · ' + nx.title : 'Last: ' + fmt(last.date) + ' · ' + last.title;
           var a = document.createElement('a');
           a.href = info.url || (LQA + '?f=' + LQA_FILTER); a.target = '_blank'; a.rel = 'noopener';
           a.textContent = info.url ? 'See the schedule →' : 'See what’s on →';
@@ -185,17 +195,55 @@
           grid.appendChild(art);
         });
 
-        list.slice(0, 8).forEach(function (e) {
-          var li = document.createElement('li');
-          var a = document.createElement('a');
-          a.href = e.url || '#'; a.target = '_blank'; a.rel = 'noopener';
-          var d = document.createElement('span'); d.className = 'ev-date'; d.textContent = fmt(e.date);
-          var t = document.createElement('span'); t.className = 'ev-title'; t.textContent = e.title || '';
-          var v = document.createElement('span'); v.className = 'ev-venue'; v.textContent = e.venue || '';
-          a.appendChild(d); a.appendChild(t); a.appendChild(v);
-          li.appendChild(a); listEl.appendChild(li);
-        });
-        wrap.hidden = false;
+        // the list, eight to a page, each row carrying the team crest or
+        // venue mark from the calendar's shared filter.js
+        var PAGE = 8;
+        var pages = Math.ceil(list.length / PAGE);
+        var pager = document.getElementById('events-pager');
+        function markFor(e) {
+          var team = LQAFilter.TEAMS.filter(function (x) { return x.re.test(e.title || ''); })[0];
+          return (team && team.logo) || (LQAFilter.VENUE_ICON || {})[e.venue] || '';
+        }
+        function renderPage(page) {
+          listEl.innerHTML = '';
+          list.slice(page * PAGE, page * PAGE + PAGE).forEach(function (e) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = e.url || '#'; a.target = '_blank'; a.rel = 'noopener';
+            var d = document.createElement('span'); d.className = 'ev-date'; d.textContent = fmt(e.date);
+            var tt = document.createElement('span'); tt.className = 'ev-title'; tt.textContent = e.title || '';
+            var v = document.createElement('span'); v.className = 'ev-venue'; v.textContent = e.venue || '';
+            a.appendChild(d); a.appendChild(tt); a.appendChild(v);
+            var mark = markFor(e);
+            if (mark) { var img = document.createElement('img'); img.className = 'ev-mark'; img.src = mark; img.alt = ''; a.appendChild(img); }
+            li.appendChild(a); listEl.appendChild(li);
+          });
+          if (!pager) return;
+          pager.innerHTML = '';
+          if (pages < 2) return;
+          var btn = function (label, target, cls, aria) {
+            var b = document.createElement('button');
+            b.type = 'button'; b.textContent = label; if (cls) b.className = cls;
+            if (aria) b.setAttribute('aria-label', aria);
+            if (target == null) b.disabled = true;
+            else b.addEventListener('click', function () { renderPage(target); wrap.scrollIntoView({ block: 'start' }); });
+            return b;
+          };
+          pager.appendChild(btn('‹', page > 0 ? page - 1 : null, 'pg-arrow', 'Earlier events'));
+          var last = -1;
+          for (var i = 0; i < pages; i++) {
+            // first, last, and the current page's neighbors; the rest fold into …
+            if (pages > 7 && i !== 0 && i !== pages - 1 && Math.abs(i - page) > 1) continue;
+            if (i - last > 1) { var gap = document.createElement('span'); gap.className = 'pg-gap'; gap.textContent = '…'; pager.appendChild(gap); }
+            var b = btn(String(i + 1), i === page ? null : i, i === page ? 'pg-cur' : '');
+            if (i === page) b.setAttribute('aria-current', 'page');
+            pager.appendChild(b);
+            last = i;
+          }
+          pager.appendChild(btn('›', page < pages - 1 ? page + 1 : null, 'pg-arrow', 'Later events'));
+        }
+        if (list.length) renderPage(0);
+        wrap.hidden = !list.length;
       })
       .catch(function () {});
   })();
