@@ -195,32 +195,45 @@
           grid.appendChild(art);
         });
 
-        // the list, eight to a page, each row carrying the team crest or
-        // venue mark from the calendar's shared filter.js
+        // the list, eight to a page: date, then title over venue, then the
+        // team crest or venue mark; series (a homestand, a two-night stand)
+        // get the calendar's lane graph in the gutter to the right
         var PAGE = 8;
         var pages = Math.ceil(list.length / PAGE);
         var pager = document.getElementById('events-pager');
+        var series = LQAFilter.findSeries ? LQAFilter.findSeries(inFilter) : [];
         function markFor(e) {
           var team = LQAFilter.TEAMS.filter(function (x) { return x.re.test(e.title || ''); })[0];
           return (team && team.logo) || (LQAFilter.VENUE_ICON || {})[e.venue] || '';
         }
-        function renderPage(page) {
-          listEl.innerHTML = '';
-          list.slice(page * PAGE, page * PAGE + PAGE).forEach(function (e) {
-            var li = document.createElement('li');
-            var a = document.createElement('a');
-            a.href = e.url || '#'; a.target = '_blank'; a.rel = 'noopener';
-            var d = document.createElement('span'); d.className = 'ev-date'; d.textContent = fmt(e.date);
-            var tt = document.createElement('span'); tt.className = 'ev-title'; tt.textContent = e.title || '';
-            var v = document.createElement('span'); v.className = 'ev-venue'; v.textContent = e.venue || '';
-            a.appendChild(d); a.appendChild(tt); a.appendChild(v);
-            var mark = markFor(e);
-            if (mark) { var img = document.createElement('img'); img.className = 'ev-mark'; img.src = mark; img.alt = ''; a.appendChild(img); }
-            li.appendChild(a); listEl.appendChild(li);
+        var currentPage = 0;
+        function drawGraph() {
+          if (!LQAFilter.drawSeriesGraph) return;
+          var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+          var rows = Array.from(listEl.querySelectorAll('li[data-series]')).map(function (li) {
+            return { el: li.firstElementChild, series: series[Number(li.dataset.series)] };
           });
+          var shown = list.slice(currentPage * PAGE, currentPage * PAGE + PAGE);
+          if (!shown.length || !matchMedia('(min-width: 621px)').matches) rows = [];
+          LQAFilter.drawSeriesGraph(listEl, rows, {
+            firstDate: shown.length ? shown[0].date : '', lastDate: shown.length ? shown[shown.length - 1].date : '',
+            laneWidth: 0.9 * rem,
+            gutterX: function (box) { return box.width + 0.75 * rem; }, // just past the list's right edge
+            color: function (s) { return LQAFilter.TYPE_COLOR[LQAFilter.eventType(s.events[0])] || '#ff2d3c'; },
+            label: LQAFilter.seriesLabel,
+          });
+        }
+        function renderPager(page) {
           if (!pager) return;
           pager.innerHTML = '';
+          pager.classList.toggle('events-pager--wide', pages >= 5);
           if (pages < 2) return;
+          var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+          // wide: as many numbers as fit across the list at the normal gap
+          var slots = 7;
+          if (pages >= 5 && matchMedia('(min-width: 621px)').matches) {
+            slots = Math.max(7, Math.floor((pager.clientWidth - 2 * (2.4 * rem + 0.4 * rem)) / (2 * rem + 0.4 * rem)));
+          }
           var btn = function (label, target, cls, aria) {
             var b = document.createElement('button');
             b.type = 'button'; b.textContent = label; if (cls) b.className = cls;
@@ -231,19 +244,77 @@
           };
           pager.appendChild(btn('‹', page > 0 ? page - 1 : null, 'pg-arrow', 'Earlier events'));
           var last = -1;
-          for (var i = 0; i < pages; i++) {
-            // first, last, and the current page's neighbors; the rest fold into …
-            if (pages > 7 && i !== 0 && i !== pages - 1 && Math.abs(i - page) > 1) continue;
+          (LQAFilter.pagesToShow ? LQAFilter.pagesToShow(pages, page, slots) : []).forEach(function (i) {
             if (i - last > 1) { var gap = document.createElement('span'); gap.className = 'pg-gap'; gap.textContent = '…'; pager.appendChild(gap); }
             var b = btn(String(i + 1), i === page ? null : i, i === page ? 'pg-cur' : '');
             if (i === page) b.setAttribute('aria-current', 'page');
             pager.appendChild(b);
             last = i;
-          }
+          });
           pager.appendChild(btn('›', page < pages - 1 ? page + 1 : null, 'pg-arrow', 'Later events'));
+        }
+        // phones: a tap on a row opens the sheet (capture phase, so it wins
+        // over the link) with the details and full-size buttons
+        var sheet = document.getElementById('sheet');
+        function fmtTime(s) {
+          if (!s) return 'All day';
+          var hm = String(s).split(':'); var h = Number(hm[0]);
+          return (h % 12 || 12) + ':' + hm[1] + ' ' + (h >= 12 ? 'PM' : 'AM');
+        }
+        function openSheet(e) {
+          var p = e.date.split('-');
+          var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+          document.getElementById('sheetVenue').textContent = e.venue || '';
+          document.getElementById('sheetTitle').textContent = e.title || '';
+          var when = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) + ' · ' + fmtTime(e.time);
+          if (e.series) when += ' · ' + e.series.n + ' of ' + e.series.total;
+          if (e.dateTbd) when += ' · date TBD';
+          document.getElementById('sheetWhen').textContent = when;
+          var tk = document.getElementById('sheetTickets'); tk.href = e.url || '#'; tk.hidden = !e.url;
+          var vl = document.getElementById('sheetVenueLink'); var info = VENUES[e.venue] || {};
+          vl.href = info.url || '#'; vl.hidden = !info.url; vl.textContent = e.venue + ' events';
+          sheet.hidden = false; document.body.classList.add('sheet-open');
+          document.getElementById('sheetClose').focus();
+        }
+        function closeSheet() { sheet.hidden = true; document.body.classList.remove('sheet-open'); }
+        if (sheet) {
+          document.getElementById('sheetClose').addEventListener('click', closeSheet);
+          document.getElementById('sheetBack').addEventListener('click', closeSheet);
+          document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !sheet.hidden) closeSheet(); });
+        }
+        function renderPage(page) {
+          currentPage = page;
+          listEl.innerHTML = '';
+          list.slice(page * PAGE, page * PAGE + PAGE).forEach(function (e) {
+            var li = document.createElement('li');
+            if (e.series) li.dataset.series = e.series.s.id;
+            var a = document.createElement('a');
+            a.href = e.url || '#'; a.target = '_blank'; a.rel = 'noopener';
+            if (sheet) a.addEventListener('click', function (ev) {
+              if (!matchMedia('(max-width: 620px)').matches) return;
+              ev.preventDefault(); ev.stopPropagation(); openSheet(e);
+            }, true);
+            var d = document.createElement('span'); d.className = 'ev-date'; d.textContent = fmt(e.date);
+            var body = document.createElement('span'); body.className = 'ev-body';
+            var tt = document.createElement('span'); tt.className = 'ev-title'; tt.textContent = e.title || '';
+            var v = document.createElement('span'); v.className = 'ev-venue'; v.textContent = e.venue || '';
+            body.appendChild(tt); body.appendChild(v);
+            a.appendChild(d); a.appendChild(body);
+            var mark = markFor(e);
+            if (mark) { var img = document.createElement('img'); img.className = 'ev-mark'; img.src = mark; img.alt = ''; a.appendChild(img); }
+            li.appendChild(a); listEl.appendChild(li);
+          });
+          renderPager(page);
+          drawGraph();
         }
         if (list.length) renderPage(0);
         wrap.hidden = !list.length;
+        var resizeTimer = null;
+        window.addEventListener('resize', function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function () { if (list.length) { renderPager(currentPage); drawGraph(); } }, 150);
+        });
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawGraph);
       })
       .catch(function () {});
   })();

@@ -1,0 +1,14 @@
+{
+  "name": "Streamline Tavern",
+  "short_name": "Streamline",
+  "description": "Lower Queen Anne's friendliest hangout — 174 Roy St, Seattle. Open daily noon–2am.",
+  "start_url": "/river/",
+  "scope": "/river/",
+  "display": "standalone",
+  "background_color": "#0c0a0a",
+  "theme_color": "#0c0a0a",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
