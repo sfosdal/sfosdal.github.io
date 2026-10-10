@@ -7,7 +7,7 @@ here needs a build tool, a database, or a server you have to run.
 - **Live site:** https://fosdal.net/river/
 - **Source:** the `static/river/` folder of https://github.com/sfosdal/sfosdal.github.io
 - **Hosting:** GitHub Pages, published by GitHub Actions on every push to `main`
-- **Events feed:** https://fosdal.net/lqa-events/ (a separate project, see §5)
+- **Events feed:** https://lqa.here.events/ (a separate project, see §5)
 - **Built by:** Steve Fosdal, Ghostwood Labs — steve@fosdal.net
 - **Last updated:** 2026-09-03
 
@@ -146,8 +146,8 @@ project and renders the ones that match a filter.
 
 **Where the data comes from**
 
-- Feed: `https://fosdal.net/lqa-events/events.json`
-- Helper script: `https://fosdal.net/lqa-events/filter.js`, loaded by
+- Feed: `https://lqa.here.events/events.json`
+- Helper script: `https://lqa.here.events/filter.js`, loaded by
   `index.html` just before `app.js`. It exposes `window.LQAFilter` with the
   filter logic, the venue/team icon map, series detection, the connector
   graph drawing, and the pager math. The Streamline site uses the same
@@ -161,7 +161,7 @@ project and renders the ones that match a filter.
 
 - `LQA_FILTER = '0000E0'` is a filter code. It currently keeps Climate
   Pledge Arena, McCaw Hall and Seattle Center. To change the selection:
-  open https://fosdal.net/lqa-events/, set the filters you want, click
+  open https://lqa.here.events/, set the filters you want, click
   **Copy Filter Link**, and paste the six-character `?f=` value into
   `LQA_FILTER`. Do not hand-edit the code; it is a bitmask.
 - The list shows events from today through four months out, eight per
@@ -178,7 +178,7 @@ project and renders the ones that match a filter.
 
 The section degrades to the four static venue cards in `index.html`; the
 rest of the site is unaffected. To remove the dependency entirely, delete
-the `<script src="https://fosdal.net/lqa-events/filter.js">` tag and the
+the `<script src="https://lqa.here.events/filter.js">` tag and the
 events block in `app.js`, and keep the static cards. To keep it, host your
 own copy of the lqa-events project and change `LQA` in `app.js` to its URL.
 
