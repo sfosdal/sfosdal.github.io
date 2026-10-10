@@ -123,12 +123,12 @@
   // ---- init ----
   show(0);
 
-  // ---- neighborhood events (from the LQA events feed — fosdal.net/lqa-events/) ----
+  // ---- neighborhood events (from the LQA events feed — lqa.here.events/) ----
   // LQA_FILTER is a code built on the calendar page with "Copy Filter Link":
   // this one keeps Climate Pledge Arena, McCaw Hall and Seattle Center. To
   // change what shows here, build a new link there and paste its code.
   // filter.js (loaded in index.html) applies it exactly as the calendar does.
-  var LQA = 'https://fosdal.net/lqa-events/';
+  var LQA = 'https://lqa.here.events/';
   var LQA_FILTER = '0000E0';
   var VENUES = {
     'Climate Pledge Arena': { blurb: 'Kraken hockey, Seattle Storm & major concerts.', url: 'https://climatepledgearena.com/events/' },
