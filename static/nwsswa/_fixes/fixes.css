@@ -73,3 +73,6 @@ header { overflow-x: clip; }
 }
 /* Gallery grid stays inside the page's content width instead of running edge to edge */
 .ngg-galleryoverview.default-view { max-width: 1140px; margin: 0 auto !important; padding: 0 20px; box-sizing: border-box; }
+
+/* Services, "Subaru models": the middle column was in a different face and grey */
+.elementor-element-a5f5f25 .body_list { font-family: "Roboto Condensed", sans-serif; color: #000 !important; font-size: inherit; }
