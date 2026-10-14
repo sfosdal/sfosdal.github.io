@@ -1,0 +1,75 @@
+/* nwsswa.com demo: review fixes, 2026-10-14. Linked last on every page by fix-copy.py. */
+
+/* One heading blue (the footer's #0B65AA, 6.4:1 on white) instead of Elementor's default pale
+   #6EC1E4 (2.0:1); one darker body grey instead of #7A7A7A (4.3:1). */
+body {
+  --e-global-color-primary: #0B65AA !important;
+  --e-global-color-text: #464C53 !important;
+}
+/* links: the theme's hot pink (#c36) becomes the brand blue */
+a { color: #0B65AA; }
+a:hover, a:focus { color: #084E85; }
+h1.elementor-heading-title { margin: 0; }
+
+/* Menu: full white at 15 px instead of 50 % white at 14 px; the current page in the brand yellow */
+@media (min-width: 1025px) {
+  .hfe-nav-menu .hfe-menu-item { color: #fff !important; font-size: 15px !important; letter-spacing: .04em; }
+  .hfe-nav-menu .menu-item.current-menu-item > .hfe-menu-item,
+  .hfe-nav-menu .hfe-menu-item:hover, .hfe-nav-menu .hfe-menu-item:focus { color: #EECA06 !important; }
+  .hfe-nav-menu .sub-menu .hfe-sub-menu-item { color: #1d2227 !important; }
+}
+/* the second "Schedule Appointment" link at the left of the nav bar duplicates the yellow button above it */
+.elementor-widget-button:has(.fa-wrench) { display: none; }
+
+/* Header address never breaks after "2118" */
+.nw-addr { white-space: nowrap; }
+
+/* Images in a row: crop to the box instead of stretching; the four Services photos share one height */
+.elementor-widget-image img { object-fit: cover; }
+.elementor-widget-image img:is([src*="/services1"], [src*="/services2"], [src*="/services3"], [src*="/services4"]) { height: 225px !important; width: 100%; }
+
+/* Gallery: an even 6-up grid of same-shaped tiles (24 photos = 4 full rows; 4-up and 3-up below) */
+.ngg-galleryoverview.default-view { display: grid !important; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.ngg-galleryoverview.default-view > :not(.ngg-gallery-thumbnail-box) { display: none !important; }
+.ngg-galleryoverview .ngg-gallery-thumbnail-box { width: auto !important; float: none !important; margin: 0 !important; }
+.ngg-galleryoverview .ngg-gallery-thumbnail { margin: 0 !important; border: 0 !important; padding: 0 !important; }
+.ngg-galleryoverview .ngg-gallery-thumbnail a { display: block; margin: 0 !important; }
+.ngg-galleryoverview .ngg-gallery-thumbnail img {
+  width: 100% !important; height: auto !important; aspect-ratio: 3 / 2; object-fit: cover; display: block;
+  margin: 0 !important; border: 0 !important; padding: 0 !important; background: none !important;
+}
+@media (max-width: 1024px) { .ngg-galleryoverview.default-view { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 600px)  { .ngg-galleryoverview.default-view { grid-template-columns: repeat(3, 1fr); gap: 4px; } }
+
+/* Form submit buttons match every other button: the yellow block, not a red outline */
+.wpcf7 input[type="submit"] {
+  background: #EECA06 !important; color: #000 !important; border: 0 !important; border-radius: 3px;
+  font: 700 15px/1 "Roboto", sans-serif !important; text-transform: uppercase; letter-spacing: .02em;
+  padding: 14px 28px !important; width: auto !important; cursor: pointer;
+}
+.wpcf7 input[type="submit"]:hover, .wpcf7 input[type="submit"]:focus { background: #D9B800 !important; }
+
+/* Footer: the agency credit was grey on blue (1.5:1); the disclaimer line was in Helvetica */
+a[href*="visualwebz"] { color: rgba(255, 255, 255, .7) !important; }
+center .MsoNormal, center .MsoNormal span { font-family: "Roboto Condensed", sans-serif !important; font-size: 15px !important; }
+
+/* Phones: the home hero ran to ten lines of 52 px capitals */
+@media (max-width: 767px) {
+  .elementor-element-120fedf .elementor-heading-title { font-size: 40px !important; line-height: 1.05 !important; }
+  .elementor-element-ad2ca28 .elementor-heading-title { font-size: 24px !important; line-height: 1.15 !important; }
+}
+
+/* a page with no heading of its own gets an H1 for screen readers and search engines only */
+.nw-sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Phones: the header's closed mobile menu (hidden, but still laid out) is 25 px wider than a 390 px
+   screen, so every page scrolled sideways. Clip it horizontally; the open menu still drops down. */
+header { overflow-x: clip; }
+
+/* Home, the long FB/FA engine text: its 150 px side margins stay on phones and squeeze it into a
+   70 px column, two or three words per line. Normal gutters below desktop width. */
+@media (max-width: 1024px) {
+  .elementor-element-36c0fa4 > .elementor-widget-container { margin-left: 0 !important; margin-right: 0 !important; }
+}
+/* Gallery grid stays inside the page's content width instead of running edge to edge */
+.ngg-galleryoverview.default-view { max-width: 1140px; margin: 0 auto !important; padding: 0 20px; box-sizing: border-box; }
