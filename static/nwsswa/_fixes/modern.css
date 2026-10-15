@@ -1,0 +1,128 @@
+/* nwsswa.com demo: "keeping the same style, make it 2 steps more modern" (Steve, 2026-10-14).
+   Linked after fixes.css by fix-copy.py. Same blue, yellow, Roboto Condensed, mountain header and
+   photo heroes; what changes is depth, rhythm and finish: softer corners, real shadows, a pinned
+   nav bar, roomier type, cards instead of loose blocks, calmer forms and footer. */
+
+:root {
+  --nw-blue: #0B65AA;
+  --nw-blue-deep: #084E85;
+  --nw-navy: #07365C;
+  --nw-yellow: #EECA06;
+  --nw-ink: #1d2227;
+  --nw-mist: #F3F6F9;
+  --nw-line: #DCE3EA;
+  --nw-radius: 10px;
+  --nw-shadow: 0 1px 2px rgba(7, 54, 92, .06), 0 8px 24px rgba(7, 54, 92, .10);
+  --nw-shadow-lift: 0 2px 4px rgba(7, 54, 92, .08), 0 16px 36px rgba(7, 54, 92, .16);
+}
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+:focus-visible { outline: 3px solid var(--nw-yellow) !important; outline-offset: 2px; }
+
+/* ---- 1. Header: the mountain band scrolls away, the blue nav bar stays pinned (desktop) ---- */
+@media (min-width: 1025px) {
+  /* unwrap the header so the nav bar's sticky box is the whole page, not the 295 px header */
+  header#masthead, header#masthead > .elementor { display: contents; }
+  .elementor-element-d868d28 {
+    position: sticky !important; top: 0; z-index: 999;
+    background: linear-gradient(180deg, #1167B4 0%, var(--nw-blue) 100%) !important;
+    box-shadow: 0 6px 18px rgba(7, 54, 92, .25);
+  }
+  .hfe-nav-menu .hfe-menu-item { position: relative; }
+  .hfe-nav-menu > .menu-item > .hfe-menu-item::after {
+    content: ""; position: absolute; left: 15px; right: 15px; bottom: 6px; height: 3px; border-radius: 2px;
+    background: var(--nw-yellow); transform: scaleX(0); transform-origin: left; transition: transform .2s ease;
+  }
+  .hfe-nav-menu > .menu-item > .hfe-menu-item:hover::after,
+  .hfe-nav-menu > .menu-item.current-menu-item > .hfe-menu-item::after { transform: scaleX(1); }
+  .hfe-nav-menu .sub-menu { border-radius: 0 0 var(--nw-radius) var(--nw-radius); overflow: hidden; box-shadow: var(--nw-shadow-lift); }
+}
+
+/* ---- 2. Buttons: one rounded, lifted yellow pill-ish block everywhere ---- */
+.elementor-button, .wpcf7 input[type="submit"] {
+  border-radius: 8px !important; padding: 14px 26px !important; letter-spacing: .03em;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .12), 0 6px 16px rgba(238, 202, 6, .28);
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease !important;
+}
+.elementor-button:hover, .wpcf7 input[type="submit"]:hover {
+  transform: translateY(-2px); box-shadow: 0 4px 0 rgba(0, 0, 0, .10), 0 12px 24px rgba(238, 202, 6, .35);
+}
+
+/* ---- 3. Type: roomier body copy, tighter, larger headings ---- */
+.elementor-widget-text-editor { line-height: 1.7 !important; }
+.elementor-widget-text-editor p { margin-bottom: 1.1em; }
+@media (min-width: 1025px) { .page-content .elementor-widget-text-editor { font-size: 17px !important; } }
+.page-content .elementor-heading-title { letter-spacing: -.005em; line-height: 1.08 !important; }
+@media (min-width: 1025px) {
+  .elementor-widget-heading h1.elementor-heading-title,
+  .elementor-widget-heading h2.elementor-heading-title { font-size: max(1em, 38px); }
+}
+/* the yellow bar under headings: thicker, rounded */
+.elementor-widget-divider .elementor-divider-separator { border-radius: 3px; }
+
+/* ---- 4. Photos: soft corners and depth; tiles lift on hover ---- */
+.page-content .elementor-widget-image img { border-radius: var(--nw-radius); box-shadow: var(--nw-shadow); }
+.page-content .elementor-widget-image a { display: block; border-radius: var(--nw-radius); overflow: hidden; }
+.page-content .elementor-widget-image a img { transition: transform .35s ease; }
+.page-content .elementor-widget-image a:hover img { transform: scale(1.04); }
+/* the round service icons on home are square PNGs: no corner or shadow on them */
+.elementor-element-e4063d5 .elementor-widget-image img { border-radius: 0; box-shadow: none !important; }
+/* round logos and badges stay flat */
+.page-content .elementor-widget-image img[src*="logo"], .page-content .elementor-widget-image img[src*="Logo"],
+.page-content .elementor-widget-image img[src*="ase"], .page-content .elementor-widget-image img[src*="ASE"] { box-shadow: none; }
+
+/* Home: the three blue feature tiles become cards on a deeper band */
+.elementor-element-2764256 { background: linear-gradient(180deg, var(--nw-blue) 0%, var(--nw-navy) 100%) !important; padding: 24px 0 !important; }
+.elementor-element-2764256 > .elementor-background-overlay,
+.elementor-element-2764256 .elementor-widget-wrap { background: transparent !important; }
+.elementor-element-2764256 .elementor-widget-image img { box-shadow: 0 10px 30px rgba(0, 0, 0, .35); }
+.elementor-element-2764256 .elementor-heading-title, .elementor-element-2764256 .elementor-image-box-title,
+.elementor-element-2764256 .widget-image-caption { font-weight: 700 !important; letter-spacing: .03em; text-transform: uppercase; }
+
+/* Home: "Our services" columns as four white cards on a mist band */
+.elementor-element-e4063d5 { background: var(--nw-mist) !important; }
+.elementor-element-e4063d5 .elementor-inner-section .elementor-column:has(img) > .elementor-widget-wrap {
+  background: #fff; border: 1px solid var(--nw-line); border-radius: 14px; box-shadow: var(--nw-shadow);
+  margin: 10px; padding: 28px 16px !important; transition: transform .2s ease, box-shadow .2s ease;
+}
+.elementor-element-e4063d5 .elementor-inner-section .elementor-column:has(img) > .elementor-widget-wrap:hover { transform: translateY(-4px); box-shadow: var(--nw-shadow-lift); }
+
+/* Photo heroes and banners: a directional scrim so the white type reads, not a flat grey veil */
+/* (the home hero's photo is drawn by this overlay layer at 50 % over black; draw it at full strength
+   under a scrim that is dark only behind the headline) */
+.elementor-element-6328d9c > .elementor-background-overlay {
+  background-image: linear-gradient(90deg, rgba(7, 30, 50, .85) 0%, rgba(7, 30, 50, .55) 45%, rgba(7, 30, 50, .05) 100%),
+                    url("../wp-content/uploads/2023/01/crosstrek-home-page.jpg") !important;
+  background-size: cover !important; background-position: center !important; opacity: 1 !important;
+}
+.elementor-element-6c72796 > .elementor-background-overlay { background: linear-gradient(180deg, rgba(7, 30, 50, .35), rgba(7, 30, 50, .7)) !important; opacity: 1 !important; }
+
+/* ---- 5. Forms: taller, rounded fields with a brand focus ring ---- */
+.wpcf7 input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]), .wpcf7 select, .wpcf7 textarea {
+  border: 1px solid #C5CED8 !important; border-radius: 8px !important; background: #fff !important;
+  min-height: 48px; padding: 10px 14px !important; font-size: 16px !important;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.wpcf7 input:not([type="submit"]):focus, .wpcf7 select:focus, .wpcf7 textarea:focus {
+  border-color: var(--nw-blue) !important; box-shadow: 0 0 0 4px rgba(11, 101, 170, .15) !important; outline: none !important;
+}
+
+/* Home: the three certification badges, one clean row without the grey boxes */
+.elementor-element-f5d5633 .elementor-widget-image img { border: 0 !important; box-shadow: none !important; padding: 0 !important; background: none !important; }
+.elementor-element-f5d5633 .elementor-widget-image .elementor-widget-container { border: 0 !important; box-shadow: none !important; padding: 0 !important; }
+
+/* ---- 6. Specials: real coupons, dashed edge on a white card ---- */
+.e-con .elementor-widget-text-editor:has(.MsoNormal) { line-height: 1.6 !important; }
+.elementor-element-83bfcfc > .elementor-container > .elementor-column > .elementor-widget-wrap {
+  border: 2px dashed #C5CED8; border-radius: 14px; padding: 28px !important; margin: 12px; background: #fff;
+}
+code, kbd { background: rgba(238, 202, 6, .18) !important; color: var(--nw-ink) !important; border-radius: 5px; padding: 2px 8px !important; font-family: "Roboto Condensed", sans-serif !important; font-weight: 700; }
+
+/* ---- 7. Footer: deeper navy, a hairline above the small print, sentence-case disclaimer ---- */
+footer .elementor-element-0d81699, footer .elementor-element-4bb573b { background: var(--nw-navy) !important; }
+footer .elementor-element-0d81699 { padding-top: 24px !important; }
+footer .elementor-element-4bb573b > .elementor-container { border-top: 1px solid rgba(255, 255, 255, .14); }
+footer center, footer center * { text-transform: none !important; font-size: 13px !important; color: rgba(255, 255, 255, .75) !important; }
+footer .elementor-social-icon { border-radius: 50% !important; transition: transform .15s ease, background-color .15s ease; }
+footer .elementor-social-icon:hover { transform: translateY(-2px); }

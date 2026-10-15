@@ -12,7 +12,7 @@ a:hover, a:focus { color: #084E85; }
 h1.elementor-heading-title { margin: 0; }
 
 /* Menu: full white at 15 px instead of 50 % white at 14 px; the current page in the brand yellow */
-@media (min-width: 1025px) {
+@media (min-width: 768px) {
   .hfe-nav-menu .hfe-menu-item { color: #fff !important; font-size: 15px !important; letter-spacing: .04em; }
   .hfe-nav-menu .menu-item.current-menu-item > .hfe-menu-item,
   .hfe-nav-menu .hfe-menu-item:hover, .hfe-nav-menu .hfe-menu-item:focus { color: #EECA06 !important; }
